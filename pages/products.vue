@@ -21,8 +21,8 @@
         </div>
 
         <div class="row">
-          <Sidebar />
-          <AllProducts />
+          <!-- <Sidebar /> -->
+          <PopularProducts />
         </div>
       </div>
     </div>
@@ -33,15 +33,16 @@
 <script>
 import TopHeader from '../layouts/TopHeader'
 import Menubar from '../layouts/Menubar'
-import Sidebar from '../components/all-products/Sidebar'
+// import Sidebar from '../components/all-products/Sidebar'
 import AllProducts from '../components/all-products/AllProducts'
+import PopularProducts from '../components/common/PopularProducts'
 
 export default {
   components: {
     TopHeader,
     Menubar,
-    Sidebar,
-    AllProducts,
+    // Sidebar,
+    PopularProducts,
   },
 }
 </script>

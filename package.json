@@ -1,8 +1,8 @@
 {
-  "name": "bolster",
+  "name": "Chopsstics",
   "version": "1.1.0",
-  "description": "Bolster is a clean and modern purse Vue Nuxt.js eCommerce template. This is built on Vue.js, Nuxt.js, Vuex, Firebase, Sass and Bootstrap 4. Bolster has included with an easy checkout feature. It has responsive beautiful design layouts with amazing Retina Ready visual UX/ UI experience.",
-  "author": "EnvyTheme.com",
+  "description": "Chopsstics Lorem Ipsum Dolor",
+  "author": "webertela.online",
   "private": true,
   "scripts": {
     "dev": "nuxt",

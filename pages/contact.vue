@@ -28,41 +28,61 @@
 
               <ul class="contact-list">
                 <li>
-                  <i class="fas fa-map-marker-alt"></i> Location: 2750 Quadra
-                  Street Victoria, Canada
+                  <i class="fas fa-map-marker-alt"></i> 11 Ilo Mosashvili Str,
+                  Tbilisi, Georgia.
                 </li>
                 <li>
-                  <i class="fas fa-phone"></i> Call Us:
-                  <a href="#">(+123) 456-7898</a>
+                  <a href="tel: +995577335080">
+                    <i class="fas fa-phone"></i> Call Us:(+995) 577335080</a
+                  >
                 </li>
                 <li>
                   <i class="far fa-envelope"></i> Email Us:
-                  <a href="#">support@comero.com</a>
+                  <a href="mailto:info@chopsstick.com.ge"
+                    >info@chopsstick.com.ge</a
+                  >
                 </li>
-                <li><i class="fas fa-fax"></i> Fax: <a href="#">+123456</a></li>
+                <!-- <li><i class="fas fa-fax"></i> Fax: <a href="#">+123456</a></li> -->
               </ul>
 
               <h3>Opening Hours:</h3>
               <ul class="opening-hours">
-                <li><span>Monday:</span> 8AM - 6AM</li>
-                <li><span>Tuesday:</span> 8AM - 6AM</li>
-                <li><span>Wednesday:</span> 8AM - 6AM</li>
-                <li><span>Thursday - Friday:</span> 8AM - 6AM</li>
-                <li><span>Sunday:</span> Closed</li>
+                <li><span>Monday:</span> 11AM - 11PM</li>
+                <li><span>Tuesday:</span> 11AM - 11PM</li>
+                <li><span>Wednesday:</span> 11AM - 11PM</li>
+                <li><span>Thursday:</span> 11AM - 11PM</li>
+                <li><span>Friday:</span> 11AM - 11PM</li>
+                <li><span>Saturday:</span> 11AM - 11PM</li>
+                <li><span>Sunday:</span> 11AM - 11PM</li>
               </ul>
 
               <h3>Follow Us:</h3>
               <ul class="social">
                 <li>
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a
+                    href="https://www.facebook.com/Chopsticks-104866125102188"
+                    target="_balank"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="#"><i class="fab fa-twitter"></i></a>
+                </li> -->
+                <li>
+                  <a
+                    href="https://www.instagram.com/chopstickstbilisi/"
+                    target="_blanck"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a
+                    href="https://www.tiktok.com/@chopstickstbilisi?lang=en"
+                    target="_blanck"
+                    ><i class="fab fa-tiktok"></i
+                  ></a>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="#"><i class="fab fa-behance"></i></a>
                 </li>
                 <li>
@@ -73,7 +93,7 @@
                 </li>
                 <li>
                   <a href="#"><i class="fab fa-youtube"></i></a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
@@ -165,6 +185,6 @@ export default {
   components: {
     TopHeader,
     Menubar,
-  }
+  },
 }
 </script>

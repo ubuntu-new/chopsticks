@@ -10,7 +10,7 @@ export default {
         htmlAttrs: {
             lang: 'en',
         },
-        title: 'Bolster - eCommerce Nuxt.js/Vue.js Template',
+        title: 'Chopsticks - Delivery, Dine in',
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -37,7 +37,7 @@ export default {
             secret: 'fsdfvcbchgdfdf535455uhvbcvzdfgn',
             resave: false,
             saveUninitialized: false,
-            cookie: { maxAge: 60000}
+            cookie: { maxAge: 60000 }
         }),
         // API middleware servd
         // We add /api/login & /api/Logout routes etc..
@@ -46,7 +46,7 @@ export default {
     /*
     ** Customize the progress-bar colors
     */
-        loading: { color: '#fff' },
+    loading: { color: '#fff' },
     /*
     ** Plugins to load before mounting the App
     */
@@ -103,7 +103,7 @@ export default {
         /*
         ** You can extend webpack config here
         */
-        extend (config, ctx) {
+        extend(config, ctx) {
         }
     }
 }

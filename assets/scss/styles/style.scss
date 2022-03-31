@@ -57,12 +57,12 @@ This files table contents are outlined below>>>>>
 /*================================================
 Default CSS
 =================================================*/
-$font-family: 'Archivo', sans-serif;
+$font-family: "Archivo", sans-serif;
 $font-size: 14px;
 $paragraph-color: #666666;
 $black-color: #222222;
 $white-color: #ffffff;
-$transition: .5s;
+$transition: 0.5s;
 
 :root {
     scroll-behavior: inherit;
@@ -91,7 +91,8 @@ a {
     transition: $transition;
     text-decoration: none;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         text-decoration: none;
     }
 }
@@ -115,7 +116,18 @@ a {
 .pt-60 {
     padding-top: 60px;
 }
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     &:last-child {
         margin-bottom: 0;
     }
@@ -150,7 +162,7 @@ img {
             &::before {
                 position: absolute;
                 top: 0;
-                content: '';
+                content: "";
                 left: 0;
                 right: 0;
                 bottom: 0;
@@ -176,7 +188,8 @@ img {
         weight: 400;
         size: $font-size;
     }
-    &.disabled, &:disabled {
+    &.disabled,
+    &:disabled {
         opacity: 1;
     }
 }
@@ -185,21 +198,27 @@ img {
     background-color: $black-color;
     border-color: $black-color;
 
-    &.disabled, &:disabled {
+    &.disabled,
+    &:disabled {
         color: $white-color;
         background-color: $black-color;
         border-color: $black-color;
     }
-    &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>&.dropdown-toggle {
+    &:not(:disabled):not(.disabled).active,
+    &:not(:disabled):not(.disabled):active,
+    .show > &.dropdown-toggle {
         box-shadow: unset;
         background-color: transparent;
         color: $black-color;
         border-color: $black-color;
     }
-    &:not(:disabled):not(.disabled).active:focus, &:not(:disabled):not(.disabled):active:focus, .show>&.dropdown-toggle:focus {
+    &:not(:disabled):not(.disabled).active:focus,
+    &:not(:disabled):not(.disabled):active:focus,
+    .show > &.dropdown-toggle:focus {
         box-shadow: unset;
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         box-shadow: unset;
         background-color: transparent;
         color: $black-color;
@@ -211,21 +230,27 @@ img {
     color: $black-color;
     border-color: $black-color;
 
-    &.disabled, &:disabled {
+    &.disabled,
+    &:disabled {
         background-color: transparent;
         color: $black-color;
         border-color: $black-color;
     }
-    &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>&.dropdown-toggle {
+    &:not(:disabled):not(.disabled).active,
+    &:not(:disabled):not(.disabled):active,
+    .show > &.dropdown-toggle {
         box-shadow: unset;
         color: $white-color;
         background-color: $black-color;
         border-color: $black-color;
     }
-    &:not(:disabled):not(.disabled).active:focus, &:not(:disabled):not(.disabled):active:focus, .show>&.dropdown-toggle:focus {
+    &:not(:disabled):not(.disabled).active:focus,
+    &:not(:disabled):not(.disabled):active:focus,
+    .show > &.dropdown-toggle:focus {
         box-shadow: unset;
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         box-shadow: unset;
         color: $white-color;
         background-color: $black-color;
@@ -250,8 +275,9 @@ img {
             top: 0 !important;
             left: 5px;
             right: 5px;
-        };
-        &:hover, &.VueCarousel-dot--active {
+        }
+        &:hover,
+        &.VueCarousel-dot--active {
             background: $black-color !important;
         }
     }
@@ -291,7 +317,7 @@ Template Boxed Area CSS
         margin: {
             left: auto;
             right: auto;
-        };
+        }
     }
     .navbar-area {
         &.is-sticky {
@@ -300,7 +326,7 @@ Template Boxed Area CSS
             margin: {
                 left: auto;
                 right: auto;
-            };
+            }
         }
     }
     .comero-nav {
@@ -333,7 +359,7 @@ Template Boxed Area CSS
                             margin: {
                                 left: auto;
                                 right: auto;
-                            };
+                            }
                         }
                     }
                 }
@@ -379,7 +405,7 @@ Top Panel Area CSS
                     style: normal;
                 }
                 &::before {
-                    content: '';
+                    content: "";
                     position: absolute;
                     bottom: 0;
                     width: 0;
@@ -388,7 +414,8 @@ Top Panel Area CSS
                     transition: $transition;
                     background: $white-color;
                 }
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     &::before {
                         width: 100%;
                     }
@@ -411,7 +438,8 @@ Top Panel Area CSS
         transition: $transition;
         opacity: 0.9;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             color: $white-color;
             opacity: 1;
         }
@@ -445,7 +473,7 @@ Top Header Area CSS
         padding: {
             left: 35px;
             right: 35px;
-        };
+        }
     }
 }
 .top-header-nav {
@@ -466,7 +494,7 @@ Top Header Area CSS
             position: relative;
 
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -475,7 +503,8 @@ Top Header Area CSS
                 background: $black-color;
                 transition: $transition;
             }
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 color: $black-color;
 
                 &::before {
@@ -484,7 +513,7 @@ Top Header Area CSS
             }
         }
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             right: -12px;
             top: 0.5px;
@@ -523,7 +552,7 @@ Top Header Area CSS
                 margin-left: 2px;
             }
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -532,7 +561,8 @@ Top Header Area CSS
                 background: $black-color;
                 transition: $transition;
             }
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 color: $black-color;
 
                 &::before {
@@ -541,7 +571,7 @@ Top Header Area CSS
             }
         }
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             right: -12px;
             top: 0.5px;
@@ -573,7 +603,7 @@ Top Header Area CSS
 }
 .top-header-others-option {
     text-align: right;
-    
+
     .option-item {
         display: inline-block;
         position: relative;
@@ -586,7 +616,7 @@ Top Header Area CSS
             position: relative;
 
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -595,7 +625,8 @@ Top Header Area CSS
                 background: $black-color;
                 transition: $transition;
             }
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 color: $black-color;
 
                 &::before {
@@ -604,7 +635,7 @@ Top Header Area CSS
             }
         }
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             right: -12px;
             top: 0.5px;
@@ -641,7 +672,7 @@ Top Header Area CSS
     padding: {
         top: 15px;
         bottom: 15px;
-    };
+    }
     .top-header-right-nav {
         text-align: left;
     }
@@ -666,7 +697,7 @@ Top Header Area CSS
             }
         }
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             right: -10px;
             top: 3.2px;
@@ -699,7 +730,7 @@ Top Header Area CSS
             position: relative;
 
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 left: 0;
                 bottom: 3px;
@@ -759,14 +790,14 @@ Navbar Area CSS
             margin-right: 17px;
             font-size: 13px;
             line-height: initial;
-            
+
             a {
                 color: $black-color;
                 text-transform: uppercase;
                 position: relative;
-    
+
                 &::before {
-                    content: '';
+                    content: "";
                     position: absolute;
                     bottom: 0;
                     left: 0;
@@ -775,16 +806,17 @@ Navbar Area CSS
                     background: $black-color;
                     transition: $transition;
                 }
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
-    
+
                     &::before {
                         width: 100%;
                     }
                 }
             }
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 right: -12px;
                 top: 0.5px;
@@ -794,7 +826,7 @@ Navbar Area CSS
             }
             &:last-child {
                 margin-right: 0;
-    
+
                 &::before {
                     display: none;
                 }
@@ -828,23 +860,27 @@ Navbar Area CSS
         padding: {
             left: 35px;
             right: 35px;
-        };
+        }
     }
     &.bg-black {
         .comero-nav {
-            background-color: rgba(0, 0, 0, .36);
+            background-color: rgba(0, 0, 0, 0.36);
 
             .navbar {
                 .navbar-nav {
                     .nav-item {
                         a {
                             color: $white-color;
-                            
-                            &:hover, &:focus, &.active {
+
+                            &:hover,
+                            &:focus,
+                            &.active {
                                 color: $white-color;
                             }
                         }
-                        &:hover, &:focus, &.active {
+                        &:hover,
+                        &:focus,
+                        &.active {
                             a {
                                 color: $white-color;
                             }
@@ -853,8 +889,10 @@ Navbar Area CSS
                             li {
                                 a {
                                     color: $paragraph-color;
-                                    
-                                    &:hover, &:focus, &.active {
+
+                                    &:hover,
+                                    &:focus,
+                                    &.active {
                                         color: $black-color;
                                     }
                                 }
@@ -862,8 +900,10 @@ Navbar Area CSS
                                     li {
                                         a {
                                             color: $paragraph-color;
-        
-                                            &:hover, &:focus, &.active {
+
+                                            &:hover,
+                                            &:focus,
+                                            &.active {
                                                 color: $black-color;
                                             }
                                         }
@@ -871,8 +911,10 @@ Navbar Area CSS
                                     li {
                                         a {
                                             color: $paragraph-color;
-                                            
-                                            &:hover, &:focus, &.active {
+
+                                            &:hover,
+                                            &:focus,
+                                            &.active {
                                                 color: $black-color;
                                             }
                                         }
@@ -880,8 +922,10 @@ Navbar Area CSS
                                             li {
                                                 a {
                                                     color: $black-color;
-                
-                                                    &:hover, &:focus, &.active {
+
+                                                    &:hover,
+                                                    &:focus,
+                                                    &.active {
                                                         color: $black-color;
                                                     }
                                                 }
@@ -908,11 +952,12 @@ Navbar Area CSS
                 .option-item {
                     a {
                         color: $white-color;
-                        
+
                         &::before {
                             background: $white-color;
                         }
-                        &:hover, &:focus {
+                        &:hover,
+                        &:focus {
                             color: $white-color;
                         }
                     }
@@ -941,6 +986,9 @@ Navbar Area CSS
     padding: {
         top: 0;
         bottom: 0;
+    }
+    img {
+        max-height: 70px;
     }
 }
 .comero-nav {
@@ -991,14 +1039,18 @@ Navbar Area CSS
                         left: 10px;
                         right: 10px;
                     }
-                    &:hover, &:focus, &.active {
+                    &:hover,
+                    &:focus,
+                    &.active {
                         color: $black-color;
                     }
                     i {
                         font-size: 11px;
                     }
                 }
-                &:hover, &:focus, &.active {
+                &:hover,
+                &:focus,
+                &.active {
                     a {
                         color: $black-color;
                     }
@@ -1036,7 +1088,9 @@ Navbar Area CSS
                             font: {
                                 size: 14px;
                             }
-                            &:hover, &:focus, &.active {
+                            &:hover,
+                            &:focus,
+                            &.active {
                                 color: $black-color;
                             }
                         }
@@ -1051,7 +1105,9 @@ Navbar Area CSS
                                     color: $paragraph-color;
                                     text-transform: capitalize;
 
-                                    &:hover, &:focus, &.active {
+                                    &:hover,
+                                    &:focus,
+                                    &.active {
                                         color: $black-color;
                                     }
                                 }
@@ -1059,7 +1115,7 @@ Navbar Area CSS
                             li {
                                 position: relative;
                                 padding: 0;
-        
+
                                 a {
                                     text-transform: capitalize;
                                     padding: 8px 15px;
@@ -1069,7 +1125,9 @@ Navbar Area CSS
                                     font: {
                                         size: 14px;
                                     }
-                                    &:hover, &:focus, &.active {
+                                    &:hover,
+                                    &:focus,
+                                    &.active {
                                         color: $black-color;
                                     }
                                 }
@@ -1079,13 +1137,15 @@ Navbar Area CSS
                                     top: 0;
                                     opacity: 0;
                                     visibility: hidden;
-        
+
                                     li {
                                         a {
                                             color: $black-color;
                                             text-transform: capitalize;
-        
-                                            &:hover, &:focus, &.active {
+
+                                            &:hover,
+                                            &:focus,
+                                            &.active {
                                                 color: $black-color;
                                             }
                                         }
@@ -1176,7 +1236,7 @@ Navbar Area CSS
                                         right: 5px;
                                     }
                                     &::before {
-                                        content: '';
+                                        content: "";
                                         position: absolute;
                                         left: 0;
                                         top: 0;
@@ -1197,7 +1257,7 @@ Navbar Area CSS
                                 overflow: hidden;
                                 position: relative;
                                 text-align: center;
-                                                     
+
                                 .category {
                                     position: absolute;
                                     left: 0;
@@ -1230,7 +1290,8 @@ Navbar Area CSS
                                     height: 100%;
                                     z-index: 3;
                                 }
-                                &:hover, &:focus {
+                                &:hover,
+                                &:focus {
                                     img {
                                         transform: scale(1.3);
                                     }
@@ -1259,14 +1320,14 @@ Navbar Area CSS
             position: relative;
             margin-right: 17px;
             line-height: initial;
-    
+
             a {
                 color: $black-color;
                 text-transform: uppercase;
                 position: relative;
-    
+
                 &::before {
-                    content: '';
+                    content: "";
                     position: absolute;
                     bottom: 0;
                     left: 0;
@@ -1275,16 +1336,17 @@ Navbar Area CSS
                     background: $black-color;
                     transition: $transition;
                 }
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
-    
+
                     &::before {
                         width: 100%;
                     }
                 }
             }
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 right: -12px;
                 top: 0.5px;
@@ -1294,7 +1356,7 @@ Navbar Area CSS
             }
             &:last-child {
                 margin-right: 0;
-    
+
                 &::before {
                     display: none;
                 }
@@ -1319,7 +1381,7 @@ Navbar Area CSS
             margin: {
                 left: auto;
                 right: auto;
-            };
+            }
         }
     }
 }
@@ -1329,7 +1391,7 @@ Modal CSS
 =================================================*/
 .shoppingCartModal {
     display: block !important;
-    
+
     &.modal.right {
         .modal-dialog {
             position: fixed;
@@ -1449,8 +1511,9 @@ Modal CSS
         top: 15px;
         z-index: 1;
 
-        &:not(:disabled):not(.disabled){
-            &:hover, &:focus{
+        &:not(:disabled):not(.disabled) {
+            &:hover,
+            &:focus {
                 color: $black-color;
                 text-decoration: none;
                 opacity: 1;
@@ -1474,7 +1537,7 @@ Modal CSS
 
         .search-form {
             position: relative;
-            
+
             .search-input {
                 display: block;
                 width: 100%;
@@ -1497,7 +1560,8 @@ Modal CSS
                 color: $paragraph-color;
                 transition: $transition;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                 }
             }
@@ -1535,7 +1599,7 @@ Modal CSS
         max-width: 600px;
         margin: 0 auto;
         background: $white-color;
-        border-radius: 0; 
+        border-radius: 0;
         text-align: center;
         transform: translateY(-40px);
         transition-property: transform;
@@ -1570,8 +1634,9 @@ Modal CSS
                 right: 6px;
                 top: 13px;
             }
-            &::before, &::after {
-                content: '';
+            &::before,
+            &::after {
+                content: "";
                 position: absolute;
                 top: 12px;
                 width: 16px;
@@ -1648,7 +1713,7 @@ Modal CSS
         }
         form {
             position: relative;
-        
+
             button {
                 position: absolute;
                 right: 0;
@@ -1662,8 +1727,9 @@ Modal CSS
                 cursor: pointer;
                 transition: $transition;
                 padding: 0 20px;
-        
-                &:hover, &:focus {
+
+                &:hover,
+                &:focus {
                     background-color: #000000;
                 }
             }
@@ -1783,8 +1849,9 @@ Modal CSS
         top: 15px;
         z-index: 1;
 
-        &:not(:disabled):not(.disabled){
-            &:hover, &:focus{
+        &:not(:disabled):not(.disabled) {
+            &:hover,
+            &:focus {
                 color: $black-color;
                 text-decoration: none;
                 opacity: 1;
@@ -1908,7 +1975,8 @@ Main Banner Area CSS
             color: $white-color;
         }
         .btn-primary {
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 background-color: $white-color;
                 color: $black-color;
                 border-color: $white-color;
@@ -1921,7 +1989,8 @@ Main Banner Area CSS
         .VueCarousel-navigation {
             margin-top: 0;
 
-            .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+            .VueCarousel-navigation-prev,
+            .VueCarousel-navigation-next {
                 position: absolute;
                 left: 160px;
                 top: 50%;
@@ -1939,7 +2008,8 @@ Main Banner Area CSS
                 opacity: 1;
                 visibility: hidden;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     background-color: $black-color;
                 }
                 &.VueCarousel-navigation-next {
@@ -1950,12 +2020,13 @@ Main Banner Area CSS
         }
         &:hover {
             .VueCarousel-navigation {
-                .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+                .VueCarousel-navigation-prev,
+                .VueCarousel-navigation-next {
                     opacity: 1;
                     visibility: visible;
                     left: 100px;
                     transition: $transition;
-    
+
                     &.VueCarousel-navigation-next {
                         left: auto;
                         right: 100px;
@@ -2010,7 +2081,7 @@ Main Banner Area CSS
         position: center center;
         size: cover;
         repeat: no-repeat;
-    };
+    }
 }
 .item-bg5 {
     background-image: url(../../img/main-banner5.jpg);
@@ -2050,19 +2121,22 @@ Main Banner Area CSS
         margin-bottom: 30px;
     }
     .btn-primary {
-        &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>&.dropdown-toggle {
+        &:not(:disabled):not(.disabled).active,
+        &:not(:disabled):not(.disabled):active,
+        .show > &.dropdown-toggle {
             color: $black-color;
             border-color: $black-color;
             background-color: $white-color;
         }
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             color: $black-color;
             border-color: $black-color;
             background-color: $white-color;
         }
     }
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: -50px;
         width: 100%;
@@ -2071,7 +2145,7 @@ Main Banner Area CSS
         height: 285px;
         left: -50px;
         z-index: -1;
-        border: 10px solid rgba(255, 255, 255, .20);
+        border: 10px solid rgba(255, 255, 255, 0.2);
     }
 }
 .home-slides-two {
@@ -2087,7 +2161,7 @@ Main Banner Area CSS
         padding: {
             left: 5px;
             right: 5px;
-        };
+        }
         &.VueCarousel-navigation-next {
             left: auto;
             right: 15px;
@@ -2100,7 +2174,8 @@ Main Banner Area CSS
             color: $white-color;
             border-color: $white-color;
 
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 color: $black-color;
                 background-color: $white-color;
                 border-color: $white-color;
@@ -2111,7 +2186,7 @@ Main Banner Area CSS
         margin: {
             left: auto;
             right: auto;
-        };
+        }
     }
 }
 .home-slides-three {
@@ -2137,9 +2212,9 @@ Main Banner Area CSS
                         right: 0;
                         bottom: 3px;
                         top: 3px;
-                    };
+                    }
                     &::before {
-                        content: '';
+                        content: "";
                         position: absolute;
                         border-radius: 50%;
                         transition: $transition;
@@ -2166,7 +2241,7 @@ Main Banner Area CSS
         }
         &.black-color-text {
             .VueCarousel-pagination {
-                .VueCarousel-dot-container {    
+                .VueCarousel-dot-container {
                     .VueCarousel-dot {
                         &::before {
                             background-color: $black-color;
@@ -2192,17 +2267,17 @@ Main Banner Area CSS
                 top: auto;
                 transform: unset;
                 bottom: 25px;
-    
+
                 .VueCarousel-dot-container {
                     display: inline-block;
-    
+
                     .VueCarousel-dot {
                         margin: {
                             left: 3px;
                             right: 3px;
                             bottom: 0;
                             top: 0;
-                        };
+                        }
                     }
                 }
             }
@@ -2312,7 +2387,7 @@ Offer Area CSS
             right: 40px;
         }
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             right: 0;
@@ -2357,7 +2432,7 @@ Offer Area CSS
             margin: 0 auto;
         }
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             right: 0;
@@ -2392,7 +2467,7 @@ Offer Area CSS
                     display: inline-block;
 
                     &::before {
-                        content: '';
+                        content: "";
                         position: absolute;
                         bottom: 0;
                         left: 0;
@@ -2401,7 +2476,8 @@ Offer Area CSS
                         background: $black-color;
                         transition: $transition;
                     }
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         color: $black-color;
 
                         &::before {
@@ -2412,7 +2488,8 @@ Offer Area CSS
             }
         }
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         img {
             transform: scale(1.3);
         }
@@ -2445,14 +2522,14 @@ Offer Area CSS
     }
 
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
         height: 100%;
         background: $black-color;
-        opacity: .50;
+        opacity: 0.5;
         z-index: 2;
         border-radius: 2px;
     }
@@ -2510,7 +2587,8 @@ Offer Area CSS
         .VueCarousel-navigation {
             margin-top: 0;
 
-            .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+            .VueCarousel-navigation-prev,
+            .VueCarousel-navigation-next {
                 position: absolute;
                 left: -5px;
                 top: 40%;
@@ -2538,7 +2616,8 @@ Offer Area CSS
         }
         &:hover {
             .VueCarousel-navigation {
-                .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+                .VueCarousel-navigation-prev,
+                .VueCarousel-navigation-next {
                     left: -18px;
                     opacity: 1;
                     visibility: visible;
@@ -2562,7 +2641,7 @@ All Products Area CSS
 .tab {
     .tabs_item {
         display: none;
-        
+
         &:first-child {
             display: block;
         }
@@ -2587,9 +2666,9 @@ All Products Area CSS
                 list-style: none;
                 position: relative;
                 border-radius: 5px;
-                transition: $transition;  
+                transition: $transition;
                 margin: 0 10px;
-                padding: 0 0 0 18px;  
+                padding: 0 0 0 18px;
 
                 &:last-child {
                     margin-right: 0;
@@ -2597,7 +2676,7 @@ All Products Area CSS
                 &::after {
                     position: absolute;
                     top: 5px;
-                    content: '';
+                    content: "";
                     left: 0;
                     bottom: 0;
                     width: 12px;
@@ -2614,9 +2693,10 @@ All Products Area CSS
                     padding: 0;
                     color: $paragraph-color;
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         color: $black-color;
-    
+
                         &::after {
                             background: $black-color;
                         }
@@ -2638,7 +2718,7 @@ All Products Area CSS
         padding: {
             top: 0;
             bottom: 0;
-        };
+        }
         h2 {
             padding-left: 0;
             font: {
@@ -2658,7 +2738,7 @@ All Products Area CSS
 
         img {
             width: 100%;
-            
+
             &:nth-child(2) {
                 position: absolute;
                 top: 0;
@@ -2693,7 +2773,8 @@ All Products Area CSS
                     border-radius: 50%;
                     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         color: $white-color;
                         background-color: $black-color;
                     }
@@ -2754,7 +2835,8 @@ All Products Area CSS
             a {
                 color: $black-color;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                 }
             }
@@ -2783,7 +2865,8 @@ All Products Area CSS
             width: 100%;
         }
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         .product-image {
             img {
                 &:nth-child(2) {
@@ -2816,7 +2899,8 @@ All Products Area CSS
         .VueCarousel-navigation {
             margin-top: 0;
 
-            .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+            .VueCarousel-navigation-prev,
+            .VueCarousel-navigation-next {
                 position: absolute;
                 left: -5px;
                 top: 32%;
@@ -2844,7 +2928,8 @@ All Products Area CSS
         }
         &:hover {
             .VueCarousel-navigation {
-                .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+                .VueCarousel-navigation-prev,
+                .VueCarousel-navigation-next {
                     left: -18px;
                     opacity: 1;
                     visibility: visible;
@@ -2865,7 +2950,7 @@ All Products Area CSS
                 margin: {
                     top: 15px;
                     bottom: 30px;
-                };
+                }
             }
         }
     }
@@ -2903,7 +2988,7 @@ All Products Area CSS
                 margin: {
                     left: 2px;
                     right: 2px;
-                };
+                }
                 a {
                     width: 40px;
                     height: 40px;
@@ -2913,7 +2998,8 @@ All Products Area CSS
                     border-radius: 50%;
                     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         color: $white-color;
                         background-color: $black-color;
                     }
@@ -2966,7 +3052,7 @@ All Products Area CSS
     }
     .product-content {
         margin-top: 20px;
-        
+
         h3 {
             font-size: 18px;
             margin-bottom: 0;
@@ -2974,7 +3060,8 @@ All Products Area CSS
             a {
                 color: $black-color;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                 }
             }
@@ -3003,10 +3090,11 @@ All Products Area CSS
             margin: {
                 left: 35px;
                 right: 35px;
-            };
+            }
         }
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         .product-image {
             img {
                 transform: scale(1.2) rotate(4deg);
@@ -3081,17 +3169,18 @@ All Products Area CSS
     }
     .product-content {
         margin-top: 20px;
-        
+
         h3 {
             margin-bottom: 0;
             font: {
                 weight: 600;
                 size: 18px;
-            };
+            }
             a {
                 color: $black-color;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                 }
             }
@@ -3134,7 +3223,8 @@ All Products Area CSS
                     border-radius: 50%;
                     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         color: $white-color;
                         background-color: $black-color;
                     }
@@ -3145,7 +3235,8 @@ All Products Area CSS
             }
         }
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         .product-image {
             img {
                 transform: scale(1.1) rotate(3deg);
@@ -3167,11 +3258,11 @@ All Products Area CSS
     padding: {
         left: 20px;
         right: 20px;
-    };
+    }
     margin: {
         left: -20px;
         right: -20px;
-    };
+    }
     .title {
         position: absolute;
         left: 20px;
@@ -3193,11 +3284,11 @@ All Products Area CSS
                 width: 12px;
                 height: 12px;
                 border: 1px solid $black-color;
-    
+
                 &::before {
                     position: absolute;
                     top: 0;
-                    content: '';
+                    content: "";
                     left: 0;
                     right: 0;
                     bottom: 0;
@@ -3222,9 +3313,9 @@ All Products Area CSS
                 text-align: center;
                 display: inline-block;
                 list-style: none;
-                transition: $transition;  
+                transition: $transition;
                 margin: 0 10px;
-                padding: 0 0 0 18px;  
+                padding: 0 0 0 18px;
 
                 &:last-child {
                     margin-right: 0;
@@ -3242,7 +3333,7 @@ All Products Area CSS
                         height: 3px;
                         width: 0;
                         background-color: $black-color;
-                        content: '';
+                        content: "";
                         position: absolute;
                         left: 0;
                         bottom: -7px;
@@ -3278,7 +3369,8 @@ All Products Area CSS
         .VueCarousel-navigation {
             margin-top: 0;
 
-            .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+            .VueCarousel-navigation-prev,
+            .VueCarousel-navigation-next {
                 position: absolute;
                 left: 0;
                 top: 40%;
@@ -3309,8 +3401,9 @@ All Products Area CSS
             }
         }
         &:hover {
-            .VueCarousel-navigation {    
-                .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+            .VueCarousel-navigation {
+                .VueCarousel-navigation-prev,
+                .VueCarousel-navigation-next {
                     left: -20px;
                     opacity: 1;
                     visibility: visible;
@@ -3329,7 +3422,7 @@ All Products Area CSS
     margin: {
         top: 15px;
         bottom: 30px;
-    };
+    }
     .slider-counter {
         display: inline-block;
         background-color: #f1f1f1;
@@ -3338,7 +3431,7 @@ All Products Area CSS
             size: 18px;
             weight: 500;
             style: italic;
-        };
+        }
     }
 }
 
@@ -3394,7 +3487,7 @@ Products QuickView Modal Area CSS
             }
             .price {
                 margin-bottom: 5px;
-                
+
                 span {
                     display: inline-block;
                     font-size: 18px;
@@ -3477,10 +3570,10 @@ Products QuickView Modal Area CSS
                             width: 25px;
                             height: 25px;
                             border-radius: 50%;
-        
+
                             &::before {
                                 position: absolute;
-                                content: '';
+                                content: "";
                                 left: 0;
                                 right: 0;
                                 top: 0;
@@ -3490,7 +3583,8 @@ Products QuickView Modal Area CSS
                                 margin: 2px;
                                 transition: $transition;
                             }
-                            &:hover, &:focus {
+                            &:hover,
+                            &:focus {
                                 border-color: $black-color;
                             }
                             &.color-white {
@@ -3603,7 +3697,8 @@ Products QuickView Modal Area CSS
                             color: #858585;
                             text-align: center;
 
-                            &:hover, &:focus {
+                            &:hover,
+                            &:focus {
                                 border-color: $black-color;
                                 color: $black-color;
                             }
@@ -3629,7 +3724,7 @@ Products QuickView Modal Area CSS
                     padding-top: 11px;
                     padding-bottom: 10px;
                     top: -1px;
-        
+
                     span {
                         position: absolute;
                         top: 0;
@@ -3641,7 +3736,7 @@ Products QuickView Modal Area CSS
                         line-height: 48px;
                         display: block;
                         transition: $transition;
-        
+
                         &.minus-btn {
                             left: 0;
                         }
@@ -3691,7 +3786,7 @@ Products QuickView Modal Area CSS
                     size: 15px;
                 }
                 &::before {
-                    content: '';
+                    content: "";
                     position: absolute;
                     bottom: 0;
                     left: 0;
@@ -3732,7 +3827,7 @@ Category Products Area CSS
     }
 
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -3740,7 +3835,7 @@ Category Products Area CSS
         height: 100%;
         background: $black-color;
         transition: $transition;
-        opacity: .45;
+        opacity: 0.45;
         z-index: 2;
     }
     img {
@@ -3770,13 +3865,16 @@ Category Products Area CSS
             background-color: transparent;
             color: $white-color;
             border-color: $white-color;
-        
-            &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>&.dropdown-toggle {
+
+            &:not(:disabled):not(.disabled).active,
+            &:not(:disabled):not(.disabled):active,
+            .show > &.dropdown-toggle {
                 color: $black-color;
                 background-color: $white-color;
                 border-color: $white-color;
             }
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 color: $black-color;
                 background-color: $white-color;
                 border-color: $white-color;
@@ -3791,7 +3889,8 @@ Category Products Area CSS
         height: 100%;
         z-index: 3;
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         img {
             transform: scale(1.1);
         }
@@ -3831,7 +3930,7 @@ Category Products Area CSS
         font: {
             size: 14px;
             weight: 500;
-        };
+        }
         &:hover {
             background-color: $black-color;
             color: $white-color;
@@ -3846,7 +3945,7 @@ Category Products Area CSS
         font: {
             size: 18px;
             weight: 700;
-        };
+        }
     }
     &:hover {
         img {
@@ -3901,7 +4000,7 @@ Category Products Area CSS
             font: {
                 size: 22px;
                 weight: 700;
-            };
+            }
         }
         span {
             display: block;
@@ -3921,7 +4020,7 @@ Category Products Area CSS
             font: {
                 weight: 400;
                 size: 14px;
-            };
+            }
             &:hover {
                 background-color: $black-color;
                 color: $white-color;
@@ -3941,7 +4040,7 @@ Category Products Area CSS
             .shop-now-btn {
                 border-color: $black-color;
                 color: $black-color;
-                
+
                 &:hover {
                     background-color: $black-color;
                     color: $white-color;
@@ -3989,7 +4088,7 @@ Category Products Area CSS
             font: {
                 size: 20px;
                 weight: 700;
-            };
+            }
         }
     }
     &:hover {
@@ -4017,7 +4116,8 @@ Trending Products Area CSS
         .VueCarousel-navigation {
             margin-top: 0;
 
-            .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+            .VueCarousel-navigation-prev,
+            .VueCarousel-navigation-next {
                 position: absolute;
                 left: -5px;
                 top: 30%;
@@ -4045,7 +4145,8 @@ Trending Products Area CSS
         }
         &:hover {
             .VueCarousel-navigation {
-                .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+                .VueCarousel-navigation-prev,
+                .VueCarousel-navigation-next {
                     left: -18px;
                     opacity: 1;
                     visibility: visible;
@@ -4093,7 +4194,8 @@ Best Sellers Area CSS
         .VueCarousel-navigation {
             margin-top: 0;
 
-            .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+            .VueCarousel-navigation-prev,
+            .VueCarousel-navigation-next {
                 position: absolute;
                 left: -5px;
                 top: 31%;
@@ -4121,7 +4223,8 @@ Best Sellers Area CSS
         }
         &:hover {
             .VueCarousel-navigation {
-                .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+                .VueCarousel-navigation-prev,
+                .VueCarousel-navigation-next {
                     left: -18px;
                     opacity: 1;
                     visibility: visible;
@@ -4191,7 +4294,7 @@ Facility Area CSS
 
         &::before {
             z-index: -1;
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
@@ -4213,7 +4316,8 @@ Facility Area CSS
         text-transform: uppercase;
         font-size: 15px;
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         .icon {
             i {
                 transform: rotateY(-180deg);
@@ -4235,7 +4339,7 @@ Testimonials Area CSS
         image: url(../../img/testimonials-bg.jpg);
     }
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 0;
@@ -4243,7 +4347,7 @@ Testimonials Area CSS
         height: 100%;
         z-index: -1;
         background: $black-color;
-        opacity: .70;
+        opacity: 0.7;
     }
     &.bg2 {
         background-image: url(../../img/testimonials-bg2.jpg);
@@ -4281,7 +4385,7 @@ Testimonials Area CSS
             display: block;
             color: $white-color;
             font-size: 13px;
-            opacity: .95;
+            opacity: 0.95;
         }
     }
 }
@@ -4292,8 +4396,9 @@ Testimonials Area CSS
         }
         .VueCarousel-dot {
             background: #a7a0a0 !important;
-            
-            &:hover, &.VueCarousel-dot--active {
+
+            &:hover,
+            &.VueCarousel-dot--active {
                 background: $white-color !important;
             }
         }
@@ -4328,7 +4433,7 @@ Products Offer Area CSS
     z-index: 1;
 
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         right: 0;
@@ -4376,7 +4481,7 @@ News Area CSS
     }
     .news-content {
         position: relative;
-        background: rgba(245, 245, 245, .95);
+        background: rgba(245, 245, 245, 0.95);
         z-index: 1;
         padding: 30px;
         margin: {
@@ -4393,7 +4498,8 @@ News Area CSS
             a {
                 color: $black-color;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                 }
             }
@@ -4409,7 +4515,8 @@ News Area CSS
                 display: inline-block;
                 color: $black-color;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                 }
             }
@@ -4491,7 +4598,8 @@ News Area CSS
             a {
                 color: $black-color;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                 }
             }
@@ -4510,7 +4618,8 @@ News Area CSS
             letter-spacing: 1px;
         }
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         .blog-image {
             a {
                 img {
@@ -4519,7 +4628,7 @@ News Area CSS
             }
             .post-tag {
                 top: 50px;
-    
+
                 a {
                     background: $black-color;
                     color: $white-color;
@@ -4546,7 +4655,7 @@ News Area CSS
                 position: relative;
 
                 &::before {
-                    content: '';
+                    content: "";
                     position: absolute;
                     right: -20px;
                     top: 10px;
@@ -4575,16 +4684,17 @@ News Area CSS
             margin: {
                 top: 10px;
                 bottom: 0;
-            };
+            }
             line-height: 27px;
             font: {
                 size: 18px;
                 weight: 600;
-            };
+            }
             a {
                 color: $black-color;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                 }
             }
@@ -4694,7 +4804,7 @@ News Details Area CSS
 
                     &::before {
                         position: absolute;
-                        content: '';
+                        content: "";
                         position: absolute;
                         left: 0;
                         top: 0;
@@ -4707,7 +4817,8 @@ News Details Area CSS
                         visibility: hidden;
                         transition: $transition;
                     }
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         color: $white-color;
 
                         &::before {
@@ -4757,7 +4868,7 @@ blockquote {
             weight: 700;
         }
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -4794,7 +4905,8 @@ blockquote {
                 weight: 600;
                 size: 13px;
             }
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 border-color: $black-color;
                 color: $white-color;
                 background-color: $black-color;
@@ -4812,7 +4924,8 @@ blockquote {
             top: 30px;
         }
     }
-    ol, ul {
+    ol,
+    ul {
         padding: 0;
         margin: 0;
         list-style-type: none;
@@ -4855,7 +4968,7 @@ blockquote {
         }
     }
     .comment-meta {
-        margin-bottom: .8em;
+        margin-bottom: 0.8em;
     }
     .comment-author {
         font-size: 15px;
@@ -4880,7 +4993,7 @@ blockquote {
     }
     .comment-metadata {
         color: $paragraph-color;
-        letter-spacing: 0.10em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         font: {
             size: 11px;
@@ -4944,7 +5057,19 @@ blockquote {
                 weight: 600;
             }
         }
-        input[type="date"], input[type="time"], input[type="datetime-local"], input[type="week"], input[type="month"], input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="tel"], input[type="number"], textarea {
+        input[type="date"],
+        input[type="time"],
+        input[type="datetime-local"],
+        input[type="week"],
+        input[type="month"],
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        input[type="password"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="number"],
+        textarea {
             display: block;
             width: 100%;
             background-color: $white-color;
@@ -5013,7 +5138,8 @@ blockquote {
                     weight: 600;
                     size: 14px;
                 }
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     background-color: $black-color;
                     color: $white-color;
                 }
@@ -5052,7 +5178,8 @@ Subscribe Area CSS
         transition: $transition;
         padding: 0 20px;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             background-color: #000000;
         }
     }
@@ -5094,7 +5221,7 @@ Instagram Area CSS
     position: relative;
 
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         width: 100%;
@@ -5127,10 +5254,11 @@ Instagram Area CSS
         top: 0;
         z-index: 2;
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         &::before {
             visibility: visible;
-            opacity: .65;
+            opacity: 0.65;
         }
         .icon {
             opacity: 1;
@@ -5165,12 +5293,13 @@ Page Title Area CSS
                 color: $paragraph-color;
                 font-size: 13px;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                 }
             }
             &::before {
-                content: '/';
+                content: "/";
                 position: absolute;
                 display: inline-block;
                 left: -10px;
@@ -5193,7 +5322,7 @@ Products Collections Area CSS
 =================================================*/
 .products-collections-area {
     padding-bottom: 30px;
-    
+
     .container-fluid {
         width: 90%;
     }
@@ -5239,7 +5368,7 @@ Products Collections Area CSS
             right: 40px;
         }
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             right: 0;
@@ -5275,7 +5404,8 @@ Products Collections Area CSS
         height: 100%;
         z-index: 3;
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         img {
             transform: scale(1.3);
         }
@@ -5330,7 +5460,8 @@ Products Collections Area CSS
         height: 100%;
         z-index: 3;
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         img {
             transform: scale(1.3);
         }
@@ -5374,13 +5505,14 @@ Products Collections Area CSS
                     display: block;
                     float: left;
                     border: 1px solid #d0d0d0;
-                    transition: border .2s;
-        
+                    transition: border 0.2s;
+
                     &:not(:first-child) {
                         margin-left: 1px;
                     }
                 }
-                &.active, &:hover {
+                &.active,
+                &:hover {
                     span {
                         border-color: $black-color;
                     }
@@ -5395,13 +5527,14 @@ Products Collections Area CSS
                     display: block;
                     float: left;
                     border: 1px solid #d0d0d0;
-                    transition: border .2s;
+                    transition: border 0.2s;
 
                     &:not(:first-child) {
                         margin-left: 1px;
                     }
                 }
-                &.active, &:hover {
+                &.active,
+                &:hover {
                     span {
                         border-color: $black-color;
                     }
@@ -5416,13 +5549,14 @@ Products Collections Area CSS
                     display: block;
                     float: left;
                     border: 1px solid #d0d0d0;
-                    transition: border .2s;
+                    transition: border 0.2s;
 
                     &:not(:first-child) {
                         margin-left: 1px;
                     }
                 }
-                &.active, &:hover {
+                &.active,
+                &:hover {
                     span {
                         border-color: $black-color;
                     }
@@ -5437,13 +5571,14 @@ Products Collections Area CSS
                     display: block;
                     float: left;
                     border: 1px solid #d0d0d0;
-                    transition: border .2s;
+                    transition: border 0.2s;
 
                     &:not(:first-child) {
                         margin-left: 1px;
                     }
                 }
-                &.active, &:hover {
+                &.active,
+                &:hover {
                     span {
                         border-color: $black-color;
                     }
@@ -5458,13 +5593,14 @@ Products Collections Area CSS
                     display: block;
                     float: left;
                     border: 1px solid #d0d0d0;
-                    transition: border .2s;
+                    transition: border 0.2s;
 
                     &:not(:first-child) {
                         margin-left: 1px;
                     }
                 }
-                &.active, &:hover {
+                &.active,
+                &:hover {
                     span {
                         border-color: $black-color;
                     }
@@ -5479,10 +5615,10 @@ Products Collections Area CSS
                     display: block;
                     position: relative;
                     background-color: #d0d0d0;
-                    transition: background-color .2s;
+                    transition: background-color 0.2s;
 
                     &::before {
-                        content: '';
+                        content: "";
                         position: absolute;
                         top: 0;
                         left: 6px;
@@ -5495,7 +5631,8 @@ Products Collections Area CSS
                         margin-top: 2px;
                     }
                 }
-                &.active, &:hover {
+                &.active,
+                &:hover {
                     span {
                         background-color: $black-color;
                     }
@@ -5509,7 +5646,7 @@ Products Collections Area CSS
     }
     .show-products-number {
         margin-right: 15px;
-        
+
         select {
             background-color: transparent;
             border: none;
@@ -5596,8 +5733,8 @@ Products Collections Area CSS
             display: flex;
             -ms-flex-wrap: wrap;
             flex-wrap: wrap;
-            -ms-flex-align: center!important;
-            align-items: center!important;
+            -ms-flex-align: center !important;
+            align-items: center !important;
             background-color: #fdfdfd;
 
             .product-content {
@@ -5628,7 +5765,7 @@ Products Collections Area CSS
         .product-box {
             display: flex;
             flex-wrap: wrap;
-            align-items: center!important;
+            align-items: center !important;
             background-color: #fdfdfd;
 
             .product-image {
@@ -5664,7 +5801,7 @@ Woocommerce Sidebar Area CSS
             padding-bottom: 7px;
 
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -5680,7 +5817,8 @@ Woocommerce Sidebar Area CSS
                 transition: $transition;
                 color: #858585;
             }
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 &::before {
                     width: 40px;
                 }
@@ -5699,7 +5837,7 @@ Woocommerce Sidebar Area CSS
             padding-bottom: 7px;
 
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -5743,7 +5881,8 @@ Woocommerce Sidebar Area CSS
                         position: relative;
                         text-align: center;
 
-                        &:hover, &:focus {
+                        &:hover,
+                        &:focus {
                             border-color: $black-color;
                             color: $black-color;
 
@@ -5752,12 +5891,12 @@ Woocommerce Sidebar Area CSS
                             }
                         }
                         &::before {
-                            content: 'x';
+                            content: "x";
                             position: absolute;
                             right: 12px;
                             top: 50%;
                             transition: $transition;
-                            transform: translateY(-50%);                        
+                            transform: translateY(-50%);
                         }
                     }
                     &.active {
@@ -5771,10 +5910,10 @@ Woocommerce Sidebar Area CSS
             .delete-selected-filters {
                 margin-top: 12px;
                 cursor: pointer;
-    
+
                 a {
                     color: $paragraph-color;
-                    
+
                     i {
                         transition: $transition;
                     }
@@ -5784,7 +5923,8 @@ Woocommerce Sidebar Area CSS
                         color: $paragraph-color;
                         text-decoration: underline;
                     }
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         i {
                             color: red;
                         }
@@ -5805,7 +5945,8 @@ Woocommerce Sidebar Area CSS
                 a {
                     color: #858585;
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         color: $black-color;
                     }
                 }
@@ -5832,7 +5973,8 @@ Woocommerce Sidebar Area CSS
                 a {
                     color: #858585;
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         color: $black-color;
                     }
                 }
@@ -5872,7 +6014,8 @@ Woocommerce Sidebar Area CSS
                     color: #858585;
                     text-align: center;
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         border-color: $black-color;
                         color: $black-color;
                     }
@@ -5898,7 +6041,8 @@ Woocommerce Sidebar Area CSS
                 a {
                     color: #858585;
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         color: $black-color;
                     }
                 }
@@ -5939,7 +6083,7 @@ Woocommerce Sidebar Area CSS
 
                     &::before {
                         position: absolute;
-                        content: '';
+                        content: "";
                         left: 0;
                         right: 0;
                         top: 0;
@@ -5949,7 +6093,8 @@ Woocommerce Sidebar Area CSS
                         margin: 2px;
                         transition: $transition;
                     }
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         border-color: $black-color;
                     }
                     &.color-white {
@@ -6050,7 +6195,8 @@ Woocommerce Sidebar Area CSS
                     color: #858585;
                     text-align: center;
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         border-color: $black-color;
                         color: $black-color;
                     }
@@ -6068,8 +6214,8 @@ Woocommerce Sidebar Area CSS
             display: -ms-flexbox;
             display: flex;
             margin-top: 20px;
-            -ms-flex-align: center!important;
-            align-items: center!important;
+            -ms-flex-align: center !important;
+            align-items: center !important;
 
             .products-image {
                 overflow: hidden;
@@ -6101,8 +6247,9 @@ Woocommerce Sidebar Area CSS
                     }
                     a {
                         color: $black-color;
-        
-                        &:hover, &:focus {
+
+                        &:hover,
+                        &:focus {
                             color: $black-color;
                         }
                     }
@@ -6122,7 +6269,8 @@ Woocommerce Sidebar Area CSS
                     }
                 }
             }
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 .products-image {
                     a {
                         img {
@@ -6137,7 +6285,7 @@ Woocommerce Sidebar Area CSS
             position: relative;
             text-align: center;
             margin-top: 25px;
-        
+
             .category {
                 position: absolute;
                 left: 0;
@@ -6176,7 +6324,8 @@ Woocommerce Sidebar Area CSS
                 height: 100%;
                 z-index: 3;
             }
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 img {
                     transform: scale(1.3);
                 }
@@ -6194,7 +6343,9 @@ Woocommerce Sidebar Area CSS
             .irs-handle {
                 cursor: pointer;
             }
-            .irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single {
+            .irs--flat .irs-from,
+            .irs--flat .irs-to,
+            .irs--flat .irs-single {
                 background-color: $black-color;
                 padding: 1px 5px 1px 11.5px;
 
@@ -6202,7 +6353,7 @@ Woocommerce Sidebar Area CSS
                     border-top-color: $black-color;
                 }
                 &::after {
-                    content: '$';
+                    content: "$";
                     position: absolute;
                     left: 5px;
                     top: 0.5px;
@@ -6211,14 +6362,15 @@ Woocommerce Sidebar Area CSS
             .irs--flat .irs-bar {
                 background-color: $black-color;
             }
-            .irs--flat .irs-handle>i:first-child {
+            .irs--flat .irs-handle > i:first-child {
                 background-color: $black-color;
             }
-            .irs--flat .irs-min, .irs--flat .irs-max {
+            .irs--flat .irs-min,
+            .irs--flat .irs-max {
                 padding: 1px 3px 1px 9.5px;
 
                 &::before {
-                    content: '$';
+                    content: "$";
                     position: absolute;
                     left: 3px;
                     top: 0.5px;
@@ -6286,7 +6438,8 @@ Products Filter Modal Area CSS
             i {
                 transition: $transition;
             }
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 color: $black-color;
 
                 i {
@@ -6325,7 +6478,7 @@ Gallery Area CSS
         transition: $transition;
 
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             left: 0;
             top: 0;
@@ -6348,7 +6501,8 @@ Gallery Area CSS
             }
         }
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         .gallery-content {
             bottom: 10px;
             opacity: 1;
@@ -6366,7 +6520,7 @@ Look Book Area CSS
 .single-lookbook-box {
     position: relative;
     margin-bottom: 30px;
-                         
+
     .category {
         transition: $transition;
         background-color: $white-color;
@@ -6423,7 +6577,8 @@ Sizing Guide Area CSS
             }
         }
         tr {
-            td, th {
+            td,
+            th {
                 border-top: none;
             }
         }
@@ -6532,7 +6687,7 @@ FAQs Area CSS
                         padding-left: 12px;
 
                         &::before {
-                            content: '';
+                            content: "";
                             position: absolute;
                             top: 10px;
                             left: 0;
@@ -6594,7 +6749,8 @@ Contact Area CSS
                 color: $paragraph-color;
                 display: inline-block;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                 }
             }
@@ -6633,7 +6789,7 @@ Contact Area CSS
         li {
             display: inline-block;
             margin-right: 4px;
-            
+
             a {
                 color: $paragraph-color;
                 border: 1px solid #eeeeee;
@@ -6644,7 +6800,8 @@ Contact Area CSS
                 text-align: center;
                 border-radius: 50%;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     background-color: $black-color;
                     color: $white-color;
                     border-color: $black-color;
@@ -6710,7 +6867,8 @@ Contact Area CSS
             margin: 0;
             font-size: 18px;
 
-            &.text-danger, &.text-success {
+            &.text-danger,
+            &.text-success {
                 margin-top: 15px;
             }
         }
@@ -6727,10 +6885,12 @@ Products Details Area CSS
 .products-page-gallery {
     text-align: center;
 
-    .vueperslides:not(.no-shadow):not(.vueperslides--3d) .vueperslides__parallax-wrapper:after, .vueperslides:not(.no-shadow):not(.vueperslides--3d) .vueperslides__parallax-wrapper:before {
+    .vueperslides:not(.no-shadow):not(.vueperslides--3d) .vueperslides__parallax-wrapper:after,
+    .vueperslides:not(.no-shadow):not(.vueperslides--3d) .vueperslides__parallax-wrapper:before {
         display: none;
     }
-    .vueperslide, .vueperslide__image {
+    .vueperslide,
+    .vueperslide__image {
         background-position: inherit;
     }
     .vueperslides__arrow svg {
@@ -6758,7 +6918,7 @@ Products Details Area CSS
     }
     .price {
         margin-bottom: 5px;
-        
+
         span {
             display: inline-block;
             font-size: 18px;
@@ -6858,7 +7018,7 @@ Products Details Area CSS
 
                     &::before {
                         position: absolute;
-                        content: '';
+                        content: "";
                         left: 0;
                         right: 0;
                         top: 0;
@@ -6868,7 +7028,8 @@ Products Details Area CSS
                         margin: 2px;
                         transition: $transition;
                     }
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         border-color: $black-color;
                     }
                     &.color-white {
@@ -6981,7 +7142,8 @@ Products Details Area CSS
                     color: #858585;
                     text-align: center;
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         border-color: $black-color;
                         color: $black-color;
                     }
@@ -7070,7 +7232,7 @@ Products Details Area CSS
             line-height: initial;
 
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 left: 0;
                 bottom: -2px;
@@ -7233,7 +7395,7 @@ Products Details Area CSS
                 padding-left: 18px;
                 text-transform: uppercase;
                 color: $paragraph-color;
-        
+
                 .dot {
                     position: absolute;
                     top: 4px;
@@ -7242,11 +7404,11 @@ Products Details Area CSS
                     height: 12px;
                     border: 1px solid $paragraph-color;
                     transition: $transition;
-        
+
                     &::before {
                         position: absolute;
                         top: 0;
-                        content: '';
+                        content: "";
                         left: 0;
                         right: 0;
                         bottom: 0;
@@ -7255,7 +7417,8 @@ Products Details Area CSS
                         transition: $transition;
                     }
                 }
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
 
                     .dot {
@@ -7288,7 +7451,8 @@ Products Details Area CSS
                 p {
                     margin-bottom: 20px;
                 }
-                ul, ol {
+                ul,
+                ol {
                     padding-left: 0;
                     list-style-type: none;
                     margin-bottom: 0;
@@ -7300,7 +7464,7 @@ Products Details Area CSS
                         color: $paragraph-color;
 
                         &::before {
-                            content: '';
+                            content: "";
                             position: absolute;
                             top: 7px;
                             left: 0;
@@ -7369,7 +7533,7 @@ Products Details Area CSS
                     }
                     .review-comments {
                         margin-top: 35px;
-                        
+
                         .review-item {
                             margin-top: 30px;
                             position: relative;
@@ -7444,7 +7608,7 @@ Products Details Area CSS
                                     height: 0;
                                     margin-top: 5px;
                                     visibility: hidden;
-                    
+
                                     svg {
                                         width: 1.5rem;
                                         height: 1.5rem;
@@ -7456,17 +7620,20 @@ Products Details Area CSS
                                     flex-direction: row-reverse;
                                     justify-content: center;
                                     width: 105px;
-                    
+
                                     label {
                                         cursor: pointer;
                                         margin-bottom: 0;
-                                        
+
                                         .star {
                                             color: transparent;
                                             transition: color 0.2s ease-in-out;
                                         }
                                     }
-                                    label:hover ~ label .star, svg.star:hover, input[name="star"]:focus ~ label .star, input[name="star"]:checked ~ label .star {
+                                    label:hover ~ label .star,
+                                    svg.star:hover,
+                                    input[name="star"]:focus ~ label .star,
+                                    input[name="star"]:checked ~ label .star {
                                         color: #f2b01e;
                                     }
                                     svg {
@@ -7484,7 +7651,7 @@ Products Details Area CSS
                                         &[name="star"]:checked {
                                             + label {
                                                 animation: scaleup 1s;
-                    
+
                                                 .star {
                                                     animation: starred 0.5s;
                                                 }
@@ -7549,14 +7716,15 @@ Products Details Area CSS
                 thead {
                     background-color: $black-color;
                     color: $white-color;
-        
+
                     th {
                         border-bottom: none;
                         color: $white-color;
                     }
                 }
                 tr {
-                    td, th {
+                    td,
+                    th {
                         border-top: none;
                     }
                 }
@@ -7620,7 +7788,7 @@ Products Details Area CSS
                     padding-left: 11px;
 
                     &::before {
-                        content: '';
+                        content: "";
                         position: absolute;
                         top: 7px;
                         left: 0;
@@ -7675,7 +7843,7 @@ Products Details Area CSS
 }
 .product-single-aside {
     height: 100%;
-    border-left: 1px solid #ebebeb;;
+    border-left: 1px solid #ebebeb;
     padding-left: 15px;
 
     .aside-trending-products {
@@ -7683,7 +7851,7 @@ Products Details Area CSS
         position: relative;
         text-align: center;
         margin-top: 25px;
-    
+
         .category {
             position: absolute;
             left: 0;
@@ -7722,7 +7890,8 @@ Products Details Area CSS
             height: 100%;
             z-index: 3;
         }
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             img {
                 transform: scale(1.3);
             }
@@ -7774,7 +7943,7 @@ Products Details Area CSS
             position: absolute;
             top: 0;
             left: 50%;
-            transform: translate3d(-50%,-50%,0);
+            transform: translate3d(-50%, -50%, 0);
             background-color: $white-color;
             padding: {
                 right: 10px;
@@ -7809,7 +7978,9 @@ Pagination Area CSS
             size: 16px;
             weight: 600;
         }
-        &.current, &:hover, &:focus {
+        &.current,
+        &:hover,
+        &:focus {
             background: $black-color;
             color: $white-color;
             box-shadow: unset;
@@ -7840,7 +8011,7 @@ Sidebar Area CSS
     .widget_comero_posts_thumb {
         position: relative;
         overflow: hidden;
-        
+
         .item {
             overflow: hidden;
             margin-bottom: 20px;
@@ -7927,7 +8098,7 @@ Sidebar Area CSS
                     position: absolute;
                     height: 7px;
                     width: 7px;
-                    content: '';
+                    content: "";
                     left: 0;
                     top: 50%;
                     transform: translateY(-50%);
@@ -7966,7 +8137,7 @@ Sidebar Area CSS
                     background: $black-color;
                     height: 7px;
                     width: 7px;
-                    content: '';
+                    content: "";
                     left: 0;
                     top: 50%;
                     transform: translateY(-50%);
@@ -8002,7 +8173,7 @@ Sidebar Area CSS
                     background: $black-color;
                     height: 7px;
                     width: 7px;
-                    content: '';
+                    content: "";
                     left: 0;
                     top: 50%;
                     transform: translateY(-50%);
@@ -8035,7 +8206,7 @@ Sidebar Area CSS
                     background: $black-color;
                     height: 7px;
                     width: 7px;
-                    content: '';
+                    content: "";
                     left: 0;
                     top: 50%;
                     transform: translateY(-50%);
@@ -8073,7 +8244,7 @@ Sidebar Area CSS
                     position: absolute;
                     height: 7px;
                     width: 7px;
-                    content: '';
+                    content: "";
                     left: 0;
                     top: 50%;
                     transform: translateY(-50%);
@@ -8097,7 +8268,8 @@ Sidebar Area CSS
                 top: 8px;
                 right: 4px;
             }
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 background-color: $black-color;
                 color: $white-color;
                 border-color: $black-color;
@@ -8167,7 +8339,7 @@ Cart Area CSS
                             margin-top: 10px;
                             margin-bottom: 0;
                             list-style-type: none;
-                            
+
                             li {
                                 color: #858585;
                                 font-size: 12px;
@@ -8206,7 +8378,7 @@ Cart Area CSS
                             padding-top: 11px;
                             padding-bottom: 10px;
                             top: -1px;
-                
+
                             span {
                                 position: absolute;
                                 top: 0;
@@ -8218,7 +8390,7 @@ Cart Area CSS
                                 line-height: 48px;
                                 display: block;
                                 transition: $transition;
-                
+
                                 &.minus-btn {
                                     left: 0;
                                 }
@@ -8282,14 +8454,14 @@ Cart Area CSS
         padding: 0;
         margin: 0 0 25px;
         list-style-type: none;
-        
+
         li {
             border: 1px solid #eaedff;
             padding: 10px 15px;
             color: $black-color;
             font-weight: 600;
             overflow: hidden;
-            
+
             &:first-child {
                 border: {
                     bottom: none;
@@ -8337,7 +8509,8 @@ Checkout CSS
             display: inline-block;
             color: $paragraph-color;
 
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 color: $black-color;
             }
         }
@@ -8418,7 +8591,7 @@ Checkout CSS
         table {
             margin-bottom: 0;
             text-align: left;
-    
+
             thead {
                 tr {
                     th {
@@ -8426,7 +8599,7 @@ Checkout CSS
                         vertical-align: middle;
                         border-color: #eaedff;
                         text-transform: uppercase;
-                        padding: 15px .75rem;
+                        padding: 15px 0.75rem;
                         font: {
                             weight: 600;
                             size: 15px;
@@ -8441,7 +8614,7 @@ Checkout CSS
                         color: $paragraph-color;
                         border-color: #eaedff;
                         font-size: 14px;
-    
+
                         &.product-name {
                             a {
                                 color: $paragraph-color;
@@ -8454,7 +8627,9 @@ Checkout CSS
                                 }
                             }
                         }
-                        &.order-subtotal, &.order-shipping , &.total-price {
+                        &.order-subtotal,
+                        &.order-shipping,
+                        &.total-price {
                             span {
                                 color: $black-color;
                                 font-weight: 600;
@@ -8475,12 +8650,14 @@ Checkout CSS
                 size: 14px;
             }
             [type="radio"] {
-                &:checked, &:not(:checked) {
+                &:checked,
+                &:not(:checked) {
                     display: none;
                 }
             }
             [type="radio"] {
-                &:checked, &:not(:checked) {
+                &:checked,
+                &:not(:checked) {
                     + label {
                         padding-left: 27px;
                         cursor: pointer;
@@ -8493,7 +8670,7 @@ Checkout CSS
                         margin-bottom: 8px;
 
                         &::before {
-                            content: '';
+                            content: "";
                             position: absolute;
                             left: 0;
                             top: 4px;
@@ -8504,7 +8681,7 @@ Checkout CSS
                             background: $white-color;
                         }
                         &::after {
-                            content: '';
+                            content: "";
                             width: 12px;
                             height: 12px;
                             background: $black-color;
@@ -8593,7 +8770,7 @@ Compare Area CSS
                 .single-product-box {
                     text-align: left;
                     margin-bottom: 0;
-    
+
                     .product-image {
                         a {
                             img {
@@ -8658,7 +8835,7 @@ Login Area CSS
         color: $paragraph-color;
         position: relative;
         font-size: 15px;
-        
+
         &::before {
             width: 100%;
             height: 1.5px;
@@ -8667,11 +8844,11 @@ Login Area CSS
             left: 0;
             position: absolute;
             transition: $transition;
-            content: '';
+            content: "";
         }
         &:hover {
             color: $black-color;
-            
+
             &::before {
                 width: 0;
             }
@@ -8734,7 +8911,7 @@ Signup Area CSS
         color: $paragraph-color;
         position: relative;
         font-size: 15px;
-        
+
         &::before {
             width: 100%;
             height: 1.5px;
@@ -8743,11 +8920,11 @@ Signup Area CSS
             left: 0;
             position: absolute;
             transition: $transition;
-            content: '';
+            content: "";
         }
         &:hover {
             color: $black-color;
-            
+
             &::before {
                 width: 0;
             }
@@ -8791,7 +8968,7 @@ Customer Service Area CSS
             padding-left: 11px;
 
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 left: 0;
                 top: 7.5px;
@@ -8832,7 +9009,7 @@ Pagination CSS
             margin: {
                 left: 1px;
                 right: 1px;
-            };
+            }
             .page-numbers {
                 display: inline-block;
                 width: 35px;
@@ -8842,17 +9019,18 @@ Pagination CSS
                 transition: $transition;
                 border: {
                     bottom: 1px solid $paragraph-color;
-                };
+                }
                 font: {
                     size: $font-size;
                     weight: 600;
-                };
+                }
                 &.dots {
                     border-color: $paragraph-color !important;
                     background-color: transparent !important;
                     color: $paragraph-color !important;
                 }
-                &:hover, &.current {
+                &:hover,
+                &.current {
                     background-color: $black-color;
                     color: $white-color;
                     border-color: $black-color;
@@ -8887,7 +9065,7 @@ Footer Area CSS
         padding-bottom: 5px;
 
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             bottom: 0;
             left: 0;
@@ -8913,7 +9091,8 @@ Footer Area CSS
                 color: $paragraph-color;
                 display: inline-block;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                     padding-left: 5px;
                 }
@@ -8937,7 +9116,8 @@ Footer Area CSS
                 color: $paragraph-color;
                 display: inline-block;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                     padding-left: 5px;
                 }
@@ -8969,7 +9149,8 @@ Footer Area CSS
                 color: $paragraph-color;
                 display: inline-block;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: $black-color;
                 }
             }
@@ -9002,18 +9183,18 @@ Footer Area CSS
 Go Top CSS
 =================================================*/
 .go-top {
-	position: fixed;
-	cursor: pointer;
-	bottom: 25px;
-	right: 15px;
-	color: $white-color;
-	background-color: $black-color;
-	z-index: 4;
-	width: 40px;
-	text-align: center;
-	height: 40px;
+    position: fixed;
+    cursor: pointer;
+    bottom: 25px;
+    right: 15px;
+    color: $white-color;
+    background-color: $black-color;
+    z-index: 4;
+    width: 40px;
+    text-align: center;
+    height: 40px;
     line-height: 40px;
-    
+
     i {
         position: absolute;
         top: 50%;
@@ -9029,7 +9210,8 @@ Go Top CSS
             top: 60%;
         }
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         i {
             &:first-child {
                 opacity: 0;
@@ -9054,6 +9236,6 @@ Go Top CSS
     color: #fff;
 }
 
-.vueperslides__parallax-wrapper{
+.vueperslides__parallax-wrapper {
     padding-bottom: 100% !important;
 }

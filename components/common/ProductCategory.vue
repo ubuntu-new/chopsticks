@@ -1,6 +1,6 @@
 <template>
   <!-- Start Category Products Area -->
-  <div class="category-products-area pb-60">
+  <div class="category-products-area ptb-60">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-12">
