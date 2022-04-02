@@ -20,7 +20,7 @@
           <div class="col-lg-2 col-md-2">
             <div class="top-header-logo">
               <nuxt-link to="/" class="d-inline-block">
-                <img src="../assets/img/logo.png" alt="image" />
+                <img src="../assets/img/logo.webp" alt="image" />
               </nuxt-link>
             </div>
           </div>

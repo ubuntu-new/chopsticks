@@ -6,7 +6,7 @@
           <div class="single-footer-widget">
             <div class="logo">
               <nuxt-link to="/"
-                ><img src="../assets/img/logo.png" alt="logo"
+                ><img src="../assets/img/logo.webp" alt="logo"
               /></nuxt-link>
             </div>
 

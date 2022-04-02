@@ -598,8 +598,12 @@ Top Header Area CSS
         }
     }
 }
-.top-header-logo {
+.top-header-logo,
+.logo {
     text-align: center;
+    img {
+        max-width: 150px;
+    }
 }
 .top-header-others-option {
     text-align: right;

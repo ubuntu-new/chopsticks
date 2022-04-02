@@ -5,7 +5,7 @@
         <div class="container">
           <nav class="navbar navbar-expand-md navbar-light">
             <nuxt-link class="navbar-brand" to="/">
-              <img src="../assets/img/logo.png" alt="logo" />
+              <img src="../assets/img/logo.webp" alt="logo" />
             </nuxt-link>
 
             <b-navbar-toggle target="navbarSupportedContent"></b-navbar-toggle>
@@ -180,11 +180,7 @@
                   </nuxt-link>
                 </li>
               </ul>
-              <!-- <div class="others-option">
-                <a href="tel: +995577335080">
-                  <i class="fas fa-phone"></i> Call Us:(+995) 577335080</a
-                >
-              </div> -->
+
               <div class="others-option">
                 <div v-if="!$store.state.authUser" class="option-item">
                   <nuxt-link to="/login">Login</nuxt-link>

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <TopHeader />
-    <Menubar />
+    <!-- <TopHeader /> -->
+    <TopHeaderStyleOne />
+    <MenubarStyleOne />
     <Banner></Banner>
     <PopularProducts></PopularProducts>
     <!-- <Offer></Offer>
@@ -19,8 +20,10 @@
 </template>
 
 <script>
-import TopHeader from '../layouts/TopHeader'
-import Menubar from '../layouts/Menubar'
+// import TopHeader from '../layouts/TopHeader'
+import TopHeaderStyleOne from '../layouts/TopHeaderStyleOne'
+// import MenubarStyleFour from '../layouts/MenubarStyleFour'
+import MenubarStyleOne from '../layouts/MenubarStyleOne'
 import Banner from '../components/diction-seven/Banner'
 import PopularProducts from '../components/common/PopularProducts'
 // import Offer from '../components/landing-one/Offer'
@@ -37,8 +40,10 @@ import Partner from '../components/common/Partner'
 
 export default {
   components: {
-    TopHeader,
-    Menubar,
+    // TopHeader,
+    TopHeaderStyleOne,
+    // MenubarStyleFour,
+    MenubarStyleOne,
     Banner,
     PopularProducts,
     // Offer,

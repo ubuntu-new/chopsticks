@@ -21,7 +21,16 @@
             </b-tab>
 
             <b-tab title="Men">
-              <TabMenProducts />
+              <div class="tabs_item">
+                <div class="row">
+                  <ProductItem
+                    v-for="(product, index) in products"
+                    :product="product"
+                    :key="index"
+                    @clicked="toggle"
+                  ></ProductItem>
+                </div>
+              </div>
             </b-tab>
 
             <b-tab title="Women">
