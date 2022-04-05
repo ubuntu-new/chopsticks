@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="top-header top-header-style-two">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-5 col-md-5">
             <ul class="top-header-nav">

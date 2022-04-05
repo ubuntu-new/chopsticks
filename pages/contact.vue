@@ -1,7 +1,7 @@
 <template>
   <div>
-    <TopHeader />
-    <Menubar />
+    <TopHeaderStyleOne />
+    <MenubarStyleOne />
     <div class="page-title-area">
       <div class="container">
         <ul>
@@ -97,8 +97,21 @@
               </ul>
             </div>
           </div>
-
           <div class="col-lg-7 col-md-12">
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <iframe
+                  width="100%"
+                  height="450"
+                  style="border: 0"
+                  loading="lazy"
+                  allowfullscreen
+                  src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJz_yieDdzREAR0IbQXfcUDu0&key=AIzaSyC2yohFI57BmwH0Kd8-gVQa9FE4zUgr7DY"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-lg-7 col-md-12">
             <div class="contact-form">
               <h3>Drop Us A Line</h3>
               <p>
@@ -170,7 +183,7 @@
                 </div>
               </form>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -178,13 +191,13 @@
 </template>
 
 <script>
-import TopHeader from '../layouts/TopHeader'
-import Menubar from '../layouts/Menubar'
+import TopHeaderStyleOne from '../layouts/TopHeaderStyleOne'
+import MenubarStyleOne from '../layouts/MenubarStyleOne'
 
 export default {
   components: {
-    TopHeader,
-    Menubar,
+    TopHeaderStyleOne,
+    MenubarStyleOne,
   },
 }
 </script>

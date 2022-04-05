@@ -32,7 +32,7 @@
                 </div>
               </div>
             </b-tab>
-
+            
             <b-tab title="Women">
               <div class="tabs_item">
                 <div class="row">
