@@ -9267,7 +9267,7 @@ Go Top CSS
 /* ScrollBarCustom */
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 6px;
   }
   
   /* Track */
@@ -9283,5 +9283,8 @@ Go Top CSS
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
+  }
+  ::-webkit-scrollbar:hover {
+    width: 10px !important;
   }
   
