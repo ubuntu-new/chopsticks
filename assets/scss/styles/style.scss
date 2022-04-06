@@ -3445,14 +3445,18 @@ Products QuickView Modal Area CSS
 .productQuickView {
     display: block !important;
     .modal-dialog {
-        max-width: 900px;
-        margin: 0 auto;
+        max-width: 400px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) !important;
     }
     .modal-content {
         border: none;
         padding: 40px;
-        border-radius: 0;
-
+        border-radius: 0;   
+        overflow: auto;
+        height: 90vh;
         button {
             &.close {
                 position: absolute;
@@ -3489,6 +3493,10 @@ Products QuickView Modal Area CSS
                     }
                 }
             }
+            span.price {
+                position: absolute;
+    right: 10px;
+            }
             .price {
                 margin-bottom: 5px;
 
@@ -3496,6 +3504,7 @@ Products QuickView Modal Area CSS
                     display: inline-block;
                     font-size: 18px;
                     color: $black-color;
+                    
                 }
             }
             .product-review {
@@ -3781,6 +3790,7 @@ Products QuickView Modal Area CSS
             }
             .view-full-info {
                 margin-top: 25px;
+                cursor: pointer;
                 color: $black-color;
                 line-height: initial;
                 display: inline-block;
@@ -9243,3 +9253,35 @@ Go Top CSS
 .vueperslides__parallax-wrapper {
     padding-bottom: 100% !important;
 }
+
+
+.form-check-input
+{
+    margin-left: -2.5em !important;
+    width: 24px;
+    height: 24px;
+}
+.form-check-label {
+    margin-top: 4px ;
+}
+/* ScrollBarCustom */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c2c2c2; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  

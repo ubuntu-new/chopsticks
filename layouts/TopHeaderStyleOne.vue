@@ -57,6 +57,7 @@
 
 <script>
 import SidebarPanel from '../layouts/SidebarPanel'
+import { mutations } from '../utils/sidebar-util'
 
 export default {
   name: 'TopHeaderStyleOne',
