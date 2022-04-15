@@ -135,7 +135,7 @@
                           >
                         </td>
                       </tr>
-                      <tr>
+                      <!-- <tr>
                         <td class="order-shipping">
                           <span>Shipping</span>
                         </td>
@@ -143,7 +143,7 @@
                         <td class="shipping-price">
                           <span>$10.00</span>
                         </td>
-                      </tr>
+                      </tr> -->
                       <tr>
                         <td class="total-price">
                           <span>Order Total</span>
@@ -151,7 +151,7 @@
 
                         <td class="product-subtotal">
                           <span class="subtotal-amount"
-                            >${{ parseFloat(cartTotal + 10).toFixed(2) }}</span
+                            >${{ parseFloat(cartTotal).toFixed(2) }}</span
                           >
                         </td>
                       </tr>

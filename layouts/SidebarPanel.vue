@@ -34,6 +34,15 @@
                                             <span class="price">${{cart.price}}</span>
                                         </div>
                                     </div>
+
+                                    <div class="product-content col-6">
+                                        <div class="qty">
+                                            <i class="fas fa-trash" v-if="cart.quantity == 1" @click="onDecrement(cart.id, cart.quantity)"></i>
+                                            <i class="fas fa-minus" v-else @click="onDecrement(cart.id, cart.quantity)"></i>
+                                            {{ cart.quantity }}
+                                            <i class="fas fa-plus" @click="onIncrement(cart.id, cart.quantity)"></i>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -69,7 +78,29 @@ import { store, mutations } from '../utils/sidebar-util';
 export default {
     name: 'SidebarPanel',
     methods: {
-        closeSidebarPanel: mutations.toggleNav
+        closeSidebarPanel: mutations.toggleNav,
+        removeItemFromCart(id){
+            this.$store.dispatch('deleteCart', id)
+        },
+        onIncrement(id){
+            this.$store.dispatch('updateCart', {
+                id,
+                unit: 1,
+                cart: this.cart
+            })
+        },
+        onDecrement(id, quantity){
+            if (quantity > 1) {
+                this.$store.dispatch('updateCart', {
+                    id,
+                    unit: -1,
+                    cart: this.cart
+                })
+            } else {
+                this.removeItemFromCart(id);
+                this.$toast.warning("Item deleted!");
+            }
+        },
     },
     computed: {
         isPanelOpen(){

@@ -13,37 +13,11 @@
           :alt="product.name"
           class="rounded mx-auto d-block"
         />
-        <!-- </nuxt-link> -->
-
-        <!-- <ul>
-          <li>
-            <a
-              href="javascript:void(0)"
-              title="Quick View"
-              v-b-tooltip.hover
-              @click.prevent="quickView"
-            >
-              <i class="far fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" title="Add to Wishlist" v-b-tooltip.hover>
-              <i class="far fa-heart"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" title="Add to Compare" v-b-tooltip.hover>
-              <i class="fas fa-sync"></i>
-            </a>
-          </li>
-        </ul> -->
       </div>
 
       <div class="product-content">
         <h3>
-          <!-- <nuxt-link :to="`/products-details/${product.id}`"> -->
           {{ product.name }}
-          <!-- </nuxt-link> -->
         </h3>
 
         <div class="product-price text-left p-3">
@@ -55,49 +29,13 @@
             class="btn btn-light"
             href="javascript:void(0)"
             style="width: 100px; float: right"
-            title="Quick View"
+            :title="product.name"
             v-b-tooltip.hover
             @click.prevent="quickView"
           >
             Select
           </a>
         </div>
-
-        <!-- <div class="rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="far fa-star"></i>
-        </div> -->
-
-        <!-- <a
-          class="btn btn-light"
-          href="javascript:void(0)"
-          title="Quick View"
-          v-b-tooltip.hover
-          @click.prevent="quickView"
-        >
-          Select
-        </a> -->
-
-        <!-- <a
-          v-if="getExistPId === product.id"
-          href="javascript:void(0)"
-          class="btn btn-light added-btn"
-          @click="addToCart(product)"
-        >
-          Added Already!
-        </a>
-
-        <a
-          v-else
-          href="javascript:void(0)"
-          class="btn btn-light"
-          @click="addToCart(product)"
-        >
-          Add to Cart
-        </a> -->
       </div>
     </div>
   </div>

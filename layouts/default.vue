@@ -1,5 +1,7 @@
 <template>
   <div>
+    <TopHeaderStyleOne></TopHeaderStyleOne>
+    <MenubarStyleOne></MenubarStyleOne>
     <Nuxt />
     <Footer></Footer>
     <SiteLoader v-if="loading" />
@@ -11,11 +13,15 @@
 import Footer from './Footer'
 import BackToTop from './BackToTop'
 import SiteLoader from './SiteLoder'
+import TopHeaderStyleOne from './TopHeaderStyleOne'
+import MenubarStyleOne from './MenubarStyleOne'
 export default {
   components: {
     Footer,
     BackToTop,
     SiteLoader,
+    TopHeaderStyleOne,
+    MenubarStyleOne,
   },
   data() {
     return {

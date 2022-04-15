@@ -19,18 +19,20 @@
         </div>
 
         <div class="col-lg-3 col-md-6 col-sm-6">
-          <div class="single-footer-widget">
+          
+          <!-- <div class="single-footer-widget">
             <h3>Quick Links</h3>
 
             <ul class="quick-links">
-              <!-- <li><nuxt-link to="/gallery-one">Gallery</nuxt-link></li> -->
+              <li><nuxt-link to="/gallery-one">Gallery</nuxt-link></li>
               <li><nuxt-link to="/cart">Cart</nuxt-link></li>
               <li><nuxt-link to="/checkout">Checkout</nuxt-link></li>
               <li><nuxt-link to="/login">Login</nuxt-link></li>
               <li><nuxt-link to="/signup">Signup</nuxt-link></li>
-              <!-- <li><nuxt-link to="/contact">Contact Us</nuxt-link></li> -->
+              <li><nuxt-link to="/contact">Contact Us</nuxt-link></li>
             </ul>
-          </div>
+          </div> -->
+
         </div>
 
         <div class="col-lg-3 col-md-6 col-sm-6">
@@ -78,7 +80,7 @@
             <p>Copyright &copy; 2022 Webertela.Online. All Rights Reserved</p>
           </div>
 
-          <div class="col-lg-6 col-md-6">
+          <!-- <div class="col-lg-6 col-md-6">
             <ul class="payment-card">
               <li>
                 <a href="#" target="_blank"
@@ -106,7 +108,8 @@
                 /></a>
               </li>
             </ul>
-          </div>
+          </div> -->
+
         </div>
       </div>
     </div>

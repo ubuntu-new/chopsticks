@@ -12,107 +12,15 @@
               is-nav
             >
               <ul class="navbar-nav">
-                <li class="nav-item">
-                  <nuxt-link to="/" class="nav-link active"> Wok </nuxt-link>
+                <li class="nav-item" v-for="(category, index) in categories" :key="index">
+                  <nuxt-link :to="`/category/${category.id}`"> {{ category.name }} </nuxt-link>
                 </li>
-                <li class="nav-item">
-                  <nuxt-link to="/" class="nav-link active"> Sushi </nuxt-link>
-                </li>
-                <li class="nav-item">
-                  <nuxt-link to="/" class="nav-link active">
-                    Salads & Poke Bowls
-                  </nuxt-link>
-                </li>
-                <li class="nav-item">
-                  <nuxt-link to="/" class="nav-link active"> Soups </nuxt-link>
-                </li>
-                <li class="nav-item">
-                  <nuxt-link to="/" class="nav-link active">
-                    Dumplings
-                  </nuxt-link>
-                </li>
-                <li class="nav-item">
-                  <nuxt-link to="/" class="nav-link active">
-                    Spring Rols
-                  </nuxt-link>
-                </li>
-                <li class="nav-item">
-                  <nuxt-link to="/" class="nav-link active">
-                    Hot Dishes
-                  </nuxt-link>
-                </li>
-                <li class="nav-item">
-                  <nuxt-link to="/" class="nav-link active"> Burger </nuxt-link>
-                </li>
-                <li class="nav-item">
-                  <nuxt-link to="/" class="nav-link active"> Sides </nuxt-link>
-                </li>
-                <li class="nav-item">
-                  <nuxt-link to="/diction-two" class="nav-link active">
-                    Sause
-                  </nuxt-link>
-                </li>
-                <li class="nav-item">
-                  <nuxt-link to="/diction-two" class="nav-link active">
-                    Deserts
-                  </nuxt-link>
-                </li>
-                <li class="nav-item">
-                  <nuxt-link to="/diction-two" class="nav-link active">
-                    Soft & Alcolol Drinks
-                  </nuxt-link>
-                </li>
-                <!-- <li class="nav-item">
-                      <nuxt-link to="/diction-three" class="nav-link active">
-                        Home Style Three
-                      </nuxt-link>
-                    </li>
-                    <li class="nav-item">
-                      <nuxt-link to="/diction-four" class="nav-link active">
-                        Home Style Four
-                      </nuxt-link>
-                    </li>
-                    <li class="nav-item">
-                      <nuxt-link to="/diction-five" class="nav-link active">
-                        Home Style Five
-                      </nuxt-link>
-                    </li>
-                    <li class="nav-item">
-                      <nuxt-link to="/diction-six" class="nav-link active">
-                        Home Style Six
-                      </nuxt-link>
-                    </li>
-                    <li class="nav-item">
-                      <nuxt-link to="/diction-seven" class="nav-link active">
-                        Home Style Seven
-                      </nuxt-link>
-                    </li>
-                    <li class="nav-item">
-                      <nuxt-link to="/diction-eight" class="nav-link active">
-                        Home Style Eight
-                      </nuxt-link>
-                    </li>
-                    <li class="nav-item">
-                      <nuxt-link to="/diction-nine" class="nav-link active">
-                        Home Style Nine
-                      </nuxt-link>
-                    </li>
-                    <li class="nav-item">
-                      <nuxt-link to="/diction-ten" class="nav-link active">
-                        Home Style Ten
-                      </nuxt-link>
-                    </li>
-                    <li class="nav-item">
-                      <nuxt-link to="/diction-eleven" class="nav-link active">
-                        Home Style Eleven
-                      </nuxt-link>
-                    </li> -->
-
                 <li class="nav-item">
                   <nuxt-link to="/contact" class="nav-link">
                     Contact
                   </nuxt-link>
                 </li>
+                
               </ul>
             </b-collapse>
           </nav>
@@ -123,14 +31,36 @@
 </template>
 
 <script>
+import axios from 'axios'
+import config from "@/nuxt.config"
+
 export default {
   name: 'MenubarStyleOne',
   data() {
     return {
+      API_URL: config.head.API_URL,
       isSticky: false,
+      categories: [],
     }
   },
   mounted() {
+
+    const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
+      axios
+      .request({
+        method: "post",
+        url: this.API_URL + "product_categories/list",
+        headers: {
+          Authorization: "Bearer " + TOKEN,
+        },
+      })
+      .then((response) => {
+        this.categories = response.data;
+        this.categories.forEach(x => {
+          x.URL = "category/" + x.id;
+        });
+      });  
+
     const that = this
     window.addEventListener('scroll', () => {
       let scrollPos = window.scrollY

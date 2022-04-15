@@ -22,7 +22,7 @@
               <div class="col-sm-12">
                 <div class="productQuickView-image pb-3">
                   <img
-                    src="../../assets/img/img7-alaska_roll.jpg"
+                    :src="selectedProduct.image"
                     alt="image"
                     class="rounded mx-auto d-block"
                   />
@@ -32,165 +32,88 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="product-content">
-                  <h3><a href="#">ქათმის პოკებოლი შიტაკის სოკოთი</a></h3>
+                  <h3><a href="#">{{ selectedProduct.name }}</a></h3>
 
                   <div class="price">
-                    <span class="new-price">191.00 GEL</span>
+                    <span class="new-price">{{ changePrice() }} GEL</span>
                   </div>
                   <div class="col">
                     <span class="description">
-                      კვერცხი, კომბოსტო, ხახვი, სტაფილო, სოიოს ღერები და საფირმო
-                      სოუსით
+                      {{ selectedProduct.description }}
                     </span>
                   </div>
 
-                  <!-- <div class="product-review">
-                    <div class="rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <a href="#" class="rating-count">3 reviews</a>
-                  </div> -->
                   <h6 class="mt-3 view-full-info">აირჩიე ტოპინგები</h6>
                   <div class="col-auto">
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" id="1" />
-                      <label class="form-check-label" for="1">
-                        ქათამი
 
-                        <span class="price"> +GEL 4.00 </span></label
+                    <div class="form-check mb-2 unselectable" v-for="(topping, index) in toppings" :key="index" @click="increaseTopping(topping)">
+                      <!-- <input class="form-check-input" type="checkbox" :id="index" /> -->
+                      <i class="fa fa-plus" aria-hidden="true" ></i>
+                      <label class="form-check-label" >
+                        <span v-if="topping.qty == null">
+                          {{ topping.name }}
+                        </span>
+                        <span v-else>
+                          {{ topping.name }} X {{ topping.qty }}
+                        </span>
+
+                        <span class="price"> 
+                          <span v-if="topping.qty == null || topping.qty == 0">
+                            +GEL {{ topping.price }} 
+                          </span>
+                          <span v-else>
+                            +GEL {{ Number(topping.price) * Number(topping.qty) }} 
+                          </span>
+                        </span></label
                       >
                     </div>
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" id="2" />
-                      <label class="form-check-label" for="2">
-                        ფრანგული ლობიო
 
-                        <span class="price"> +GEL 4.00 </span></label
-                      >
-                    </div>
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" id="3" />
-                      <label class="form-check-label" for="3">
-                        ქათამი
-
-                        <span class="price"> +GEL 4.00 </span></label
-                      >
-                    </div>
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" id="4" />
-                      <label class="form-check-label" for="4">
-                        ქათამი
-
-                        <span class="price"> +GEL 4.00 </span></label
-                      >
-                    </div>
                   </div>
                   <h6 class="mt-3 view-full-info">აირჩიე სოუსი</h6>
                   <div class="col-auto">
-                    <div class="form-check">
+
+                    <div class="form-check unselectable" v-for="(sauce, index) in sauces" :key="index" @click="selectSauce(sauce)">
                       <input
                         class="form-check-input"
                         type="radio"
                         name="exampleRadios"
-                        id="exampleRadios1"
+                        :id="index"
                         value="option1"
-                        checked
                       />
                       <label
                         class="form-check-labe view-full-infol"
                         for="exampleRadios1"
                       >
-                        მოტკბო მომჟაო
+                        {{ sauce.name }}
                       </label>
                     </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="exampleRadios"
-                        id="exampleRadios2"
-                        value="option2"
-                      />
-                      <label class="form-check-label" for="exampleRadios2">
-                        ტაი ქარი
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="exampleRadios"
-                        id="exampleRadios2"
-                        value="option2"
-                      />
-                      <label class="form-check-label" for="exampleRadios2">
-                        ნიპოლ ტერიაკი
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="exampleRadios"
-                        id="exampleRadios2"
-                        value="option2"
-                      />
-                      <label class="form-check-label" for="exampleRadios2">
-                        ბალი ქოქონათ ქარი
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="exampleRadios"
-                        id="exampleRadios2"
-                        value="option2"
-                      />
-                      <label class="form-check-label" for="exampleRadios2">
-                        რედ ქარი
-                      </label>
-                    </div>
+
                   </div>
 
                   <h6 class="mt-3 view-full-info">ექსტრა ტოპინგი</h6>
                   <div class="col-auto">
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" id="1" />
-                      <label class="form-check-label" for="1">
-                        ქათამი
 
-                        <span class="price"> +GEL 4.00 </span></label
+                    <div class="form-check mb-2 unselectable" v-for="(extra, index) in extras" :key="index" @click="increaseExtra(extra)">
+                      <i class="fa fa-plus" aria-hidden="true" ></i>
+                      <label class="form-check-label" >
+                        <span v-if="extra.qty == null">
+                          {{ extra.name }}
+                        </span>
+                        <span v-else>
+                          {{ extra.name }} X {{ extra.qty }}
+                        </span>
+
+                        <span class="price"> 
+                          <span v-if="extra.qty == null || extra.qty == 0">
+                            +GEL {{ extra.price }} 
+                          </span>
+                          <span v-else>
+                            +GEL {{ Number(extra.price) * Number(extra.qty) }} 
+                          </span>
+                        </span></label
                       >
                     </div>
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" id="2" />
-                      <label class="form-check-label" for="2">
-                        ფრანგული ლობიო
-
-                        <span class="price"> +GEL 4.00 </span></label
-                      >
-                    </div>
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" id="3" />
-                      <label class="form-check-label" for="3">
-                        ქათამი
-
-                        <span class="price"> +GEL 4.00 </span></label
-                      >
-                    </div>
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" id="4" />
-                      <label class="form-check-label" for="4">
-                        ქათამი
-
-                        <span class="price"> +GEL 4.00 </span></label
-                      >
-                    </div>
+                    
                   </div>
                   <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-primary">
@@ -208,7 +131,7 @@
                     <button
                       type="submit"
                       class="btn btn-primary"
-                      @click="addToCart(item)"
+                      @click="addToCart(selectedProduct)"
                     >
                       <i class="fas fa-cart-plus"></i> Add to Cart
                     </button>
@@ -225,40 +148,131 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { store, mutations } from '../../utils/sidebar-util'
+import config from "@/nuxt.config"
+
 export default {
   name: 'QuckView',
   data() {
     return {
       quantity: 1,
-      item: {
-        id: 4,
-        name: 'Criss-cross V neck bodycon',
-        price: 200.0,
-        offer: false,
-        offerPrice: 7,
-        latest: true,
-        bestSellers: false,
-        trending: false,
-        image: require('../../assets/img/img4.jpg'),
-        imageHover: require('../../assets/img/img-hover4.jpg'),
-        timePeriod: false,
-        dateTime: new Date('December 19, 2020 17:00:00 PDT'),
-      },
+      ingredients: [],
+      toppings: [],
+      sauces: [],
+      extras: [],
+      selectedToppings: [],
+      selectedExtra: [],
+      selectedSauce: {},      
+      API_URL: config.head.API_URL,
+
     }
   },
+  mounted(){
+    const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
+      axios
+      .request({
+        method: "post",
+        url: this.API_URL + "products/get-ingredients",
+        headers: {
+          Authorization: "Bearer " + TOKEN,
+        },
+      })
+      .then((response) => {
+        this.ingredients = response.data;
+
+        this.ingredients.forEach(x => {
+          if(x.product_category_id == 1){
+            x.qty = null;
+            this.toppings.push(x);
+          } else if(x.product_category_id == 2){
+            this.sauces.push(x);
+          } else if(x.product_category_id == 3){
+            x.qty = null;
+            this.extras.push(x);
+          }
+        });
+      });
+  },
   methods: {
+    increaseTopping(topping){
+      if (
+          this.selectedToppings.filter((x) => x.name === topping.name)
+            .length > 0
+        ) {
+          var index = this.selectedToppings.indexOf(topping);
+          if (this.selectedToppings[index].qty < 4) {
+            this.selectedToppings[index].qty =
+            this.selectedToppings[index].qty + 1;
+            topping.qty = this.selectedToppings[index].qty;
+          } else {
+            // alert('DELETE TOPPING');
+
+            // this.selectedToppings[index].qty = null;
+            this.selectedToppings.splice(index,1);
+            topping.qty = null;
+          }
+          
+        } else {
+          topping.qty = 1;
+          this.selectedToppings.push(topping);
+        }
+      this.changePrice();
+      this.$forceUpdate();
+    },
+    increaseExtra(extra){
+      if (
+          this.selectedExtra.filter((x) => x.name === extra.name)
+            .length > 0
+        ) {
+          var index = this.selectedExtra.indexOf(extra);
+          if (this.selectedExtra[index].qty < 4) {
+            this.selectedExtra[index].qty =
+            this.selectedExtra[index].qty + 1;
+            extra.qty = this.selectedExtra[index].qty;
+          } else {
+            // alert('DELETE TOPPING');
+
+            // this.selectedToppings[index].qty = null;
+            this.selectedExtra.splice(index,1);
+            extra.qty = null;
+          }
+        } else {
+          extra.qty = 1;
+          this.selectedExtra.push(extra);
+        }
+      this.changePrice();
+      this.$forceUpdate();
+    },
+    selectSauce(sauce){
+      this.selectedSauce = sauce;
+    },
     closeQuickView: mutations.toggleQuickView,
     addToCart(item) {
-      const product = [
+      var newItem = {};
+      if(item.category_name == "WOK"){
+        newItem.id = item.id;
+        newItem.name = item.name;
+        newItem.price = item.price;
+        newItem.image = item.image;
+        newItem.toppings = this.selectedToppings;
+        newItem.extras = this.selectedExtra;
+        newItem.sauce = this.selectedSauce;
+        newItem.quantity = this.quantity;
+        }
+
+        const product = [
         {
           id: item.id,
           name: item.name,
-          price: item.price,
+          price: this.changePrice(),
           image: item.image,
-          quantity: this.quantity,
+          toppings: this.selectedToppings,
+          extras: this.selectedExtra,
+          sauce: this.selectedSauce,
+          quantity: newItem.quantity,
         },
-      ]
+      ];
 
       if (this.cart.length > 0) {
         let id = item.id
@@ -286,7 +300,10 @@ export default {
           icon: 'fas fa-cart-plus',
         })
       }
-
+      this.quantity = 1;
+      this.selectedSauce = {};
+      this.selectedToppings = [];
+      this.selectedExtra = [];
       this.closeQuickView()
     },
     increaseQuantity() {
@@ -307,6 +324,22 @@ export default {
         this.quantity--
       }
     },
+    changePrice(){
+      // var additionalPrice = 0;
+
+      var price = Number(this.$store.getters.selectedItem.price);
+
+      this.selectedToppings.forEach(x => {
+        price = price + (Number(x.price) * Number(x.qty));
+      });
+
+      this.selectedExtra.forEach(y => {
+        price = price + (Number(y.price) * Number(y.qty));
+      });
+      
+
+      return price;
+    },
   },
   computed: {
     isQuickViewOpen() {
@@ -315,6 +348,20 @@ export default {
     cart() {
       return this.$store.getters.cart
     },
+    selectedProduct() {
+      return this.$store.getters.selectedItem
+    },
+    itemPrice(){
+      // var additionalPrice = 0;
+
+      var price = Number(this.$store.getters.selectedItem.price);
+
+      this.selectedToppings.forEach(x => {
+        price = price + (Number(x.price) * Number(x.qty));
+      });
+
+      return price;
+    }
   },
 }
 </script>

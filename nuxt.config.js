@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser'
 import session from 'express-session'
+import i18n from "./config/i18n";
 
 export default {
     mode: 'universal',
@@ -7,6 +8,9 @@ export default {
     ** Headers of the page
     */
     head: {
+        API_URL: "https://chopsticks.webertela.online/back_api/rest/web/index.php?r=v1/",
+        LOGIN_URL: "https://api.ronnys.info/rest/web/index.php?r=auth",
+
         htmlAttrs: {
             lang: 'en',
         },
@@ -55,6 +59,7 @@ export default {
         { src: '~/plugins/vue-backtotop', ssr: false },
         { src: '~/plugins/vue-toastification', ssr: false },
         { src: '~/plugins/vueperslides', ssr: false },
+        { src: '~/plugins/persistedState.client.js', ssr: false },
         // { src: '~/plugins/firebase' },
     ],
     /*
@@ -70,6 +75,7 @@ export default {
         'bootstrap-vue/nuxt',
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
+        '@nuxtjs/i18n',
     ],
     /*
     /*
@@ -90,6 +96,25 @@ export default {
     axios: {
         proxy: true
     },
+
+    i18n: {
+        defaultLocale: 'en',
+        locales: [
+          {
+            code: 'en',
+            name: 'English'
+          },
+          {
+            code: 'ka',
+            name: 'Georgian'
+          },
+          {
+            code: 'ru',
+            name: 'Russian'
+          }
+        ],
+        vueI18n: i18n
+      },
     /*
     ** Globally configure <nuxt-link> default active class.
     */

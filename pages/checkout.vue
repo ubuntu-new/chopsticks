@@ -1,7 +1,7 @@
 <template>
     <div>
-        <TopHeader />
-        <Menubar />
+        <!-- <TopHeader /> -->
+        <!-- <Menubar /> -->
         <CheckoutItem />
     </div>
 </template>

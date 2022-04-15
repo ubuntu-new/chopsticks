@@ -6,7 +6,8 @@ const state = () => ({
     totalAmount: 0,
     totalQuantity: 0,
     orders: [],
-    authUser: null
+    authUser: null,
+    selectedProduct: {},
 });
 
 export const totals = (paylodArr) => {
@@ -30,15 +31,20 @@ const mutations = {
     'GET_ORDER'(state, payload){
         state.orders = payload
     },
+    'SELECT_ITEM'(state, payload){
+        // alert(payload);
+        state.selectedProduct = payload
+    },
     'GET_CART'(state, payload){
         state.cart = payload
         state.totalAmount = totals(payload).amount
         state.totalQuantity = totals(payload).qty
     },
     'ADD_TO_CART'(state, payload){
-        state.cart = [...state.cart, ...payload]
+        state.cart = [ ...state.cart, ...payload ]
         state.totalAmount = totals(state.cart).amount
         state.totalQuantity = totals(state.cart).qty
+        // state.cart.push(...payload);
     },
     'DELETE_CART'(state, id){
         const currentCartToDelete = state.cart
@@ -95,6 +101,10 @@ const actions = {
         commit('DELETE_CART', id)
     },
 
+    selectProduct({ commit }, payload){
+        commit('SELECT_ITEM', payload)
+    },
+
     updateCart({ commit }, payload){
         // console.log(payload.unit)
         const currentCartToUpdate = payload.cart
@@ -129,6 +139,9 @@ const getters = {
     },
     getOrders(state){
         return state.orders
+    },
+    selectedItem(state){
+        return state.selectedProduct
     }
 };
 

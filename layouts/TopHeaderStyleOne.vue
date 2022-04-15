@@ -44,6 +44,15 @@
                     Cart({{ cart.length }}) <i class="fas fa-shopping-bag"></i>
                   </a>
                 </div>
+                <div class="option-item" v-if="$i18n.locale == 'ka'">
+                  <nuxt-link :to="switchLocalePath('en')">EN</nuxt-link>
+                </div>
+                <div class="option-item" v-else-if="$i18n.locale == 'en'">
+                  <nuxt-link :to="switchLocalePath('ru')">RUS</nuxt-link>
+                </div>
+                <div class="option-item" v-else>
+                  <nuxt-link :to="switchLocalePath('ka')">ქარ</nuxt-link>
+                </div>
               </div>
             </div>
           </div>
