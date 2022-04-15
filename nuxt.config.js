@@ -1,5 +1,5 @@
-import bodyParser from 'body-parser'
-import session from 'express-session'
+// import bodyParser from 'body-parser'
+// import session from 'express-session'
 import i18n from "./config/i18n";
 
 export default {
@@ -35,14 +35,14 @@ export default {
     */
     serverMiddleware: [
         // body-parser middleware
-        bodyParser.json(),
-        // session middleware
-        session({
-            secret: 'fsdfvcbchgdfdf535455uhvbcvzdfgn',
-            resave: false,
-            saveUninitialized: false,
-            cookie: { maxAge: 60000 }
-        }),
+        // bodyParser.json(),
+        // // session middleware
+        // session({
+        //     secret: 'fsdfvcbchgdfdf535455uhvbcvzdfgn',
+        //     resave: false,
+        //     saveUninitialized: false,
+        //     cookie: { maxAge: 60000 }
+        // }),
         // API middleware servd
         // We add /api/login & /api/Logout routes etc..
         '~/api'
@@ -129,6 +129,7 @@ export default {
         ** You can extend webpack config here
         */
         extend(config, ctx) {
-        }
+        },
+    target: 'static',
     }
 }

@@ -8,7 +8,7 @@
               <li v-if="!$store.state.authUser">
                 <nuxt-link to="/login">Login</nuxt-link>
               </li>
-              <li v-else @click="logout">
+              <li v-else >
                 <nuxt-link to="#">Logout</nuxt-link>
               </li>
               <li><nuxt-link to="/signup">Signup</nuxt-link></li>
@@ -36,7 +36,7 @@
                 <div v-if="!$store.state.authUser" class="option-item">
                   <nuxt-link to="/login">Login</nuxt-link>
                 </div>
-                <div v-else @click="logout" class="option-item">
+                <div v-else  class="option-item">
                   <nuxt-link to="#">Logout</nuxt-link>
                 </div>
                 <div class="option-item">
