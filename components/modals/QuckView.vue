@@ -48,7 +48,8 @@
 
                     <div class="form-check mb-2 unselectable" v-for="(topping, index) in toppings" :key="index" @click="increaseTopping(topping)">
                       <!-- <input class="form-check-input" type="checkbox" :id="index" /> -->
-                      <i class="fa fa-plus" aria-hidden="true" ></i>
+                      <i class="fa fa-plus" aria-hidden="true" v-if="topping.qty == null"></i>
+                      <i class="fa fa-check" aria-hidden="true" v-else></i>
                       <label class="form-check-label" >
                         <span v-if="topping.qty == null">
                           {{ topping.name }}
@@ -92,9 +93,9 @@
 
                   <h6 class="mt-3 view-full-info">ექსტრა ტოპინგი</h6>
                   <div class="col-auto">
-
                     <div class="form-check mb-2 unselectable" v-for="(extra, index) in extras" :key="index" @click="increaseExtra(extra)">
-                      <i class="fa fa-plus" aria-hidden="true" ></i>
+                      <i class="fa fa-plus" aria-hidden="true" v-if="extra.qty == null"></i>
+                      <i class="fa fa-check" aria-hidden="true" v-else></i>
                       <label class="form-check-label" >
                         <span v-if="extra.qty == null">
                           {{ extra.name }}

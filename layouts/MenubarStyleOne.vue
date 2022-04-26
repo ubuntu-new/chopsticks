@@ -75,14 +75,9 @@ export default {
     toggle() {
       mutations.toggleNav()
     },
-    async logout(e) {
-      e.preventDefault()
-      try {
-        await this.$store.dispatch('logout')
-        this.$router.push('/')
-      } catch (error) {
-        this.formError = error.message
-      }
+    logout(){
+        this.$store.dispatch("logoutUser");
+        this.$router.push("/");
     },
   },
 }

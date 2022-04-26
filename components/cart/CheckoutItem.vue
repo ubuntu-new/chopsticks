@@ -206,18 +206,21 @@
 </template>
 
 <script>
-import firebase from '../../plugins/firebase'
+import axios from 'axios'
+import config from "@/nuxt.config"
 export default {
   data() {
     return {
+      API_URL: config.head.API_URL,
       personDetails: {
-        fullName: 'John Doe',
-        address: 'Town hall, av 02',
-        city: 'New York',
-        email: 'john@gmail.com',
-        phone: '+990198378372',
-        createdAt: new Date(),
+        fullName: '',
+        address: '',
+        city: '',
+        email: '',
+        phone: '',
       },
+      order_data: {},
+      response: {},
     }
   },
   computed: {
@@ -230,18 +233,20 @@ export default {
   },
   methods: {
     add() {
-      const cartData = {
-        details: this.personDetails,
-        items: this.cart,
-      }
-      const db = firebase.firestore()
-      const dbOrderRef = db.collection('orders')
-      dbOrderRef.add(cartData)
-      this.$toast.success(`Thanks for the order`, {
-        icon: 'fas fa-cart-plus',
-      })
-      this.$store.dispatch('cartEmpty')
-      this.$router.push('/')
+      this.order_data.items = this.cart;
+      this.order_data.customer = this.personDetails;
+      const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
+      axios.request({
+        method: "post",
+        url:
+          this.API_URL + "webertela/orders/create",
+        headers: {
+          Authorization: "Bearer " + TOKEN,
+        },
+        data: { order: this.order_data },
+      }).then((response) => {
+        this.response = response.data;
+      });
     },
   },
 }

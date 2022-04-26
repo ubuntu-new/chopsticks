@@ -8,6 +8,7 @@ const state = () => ({
     orders: [],
     authUser: null,
     selectedProduct: {},
+    loggedUser: { isAuth: false },
 });
 
 export const totals = (paylodArr) => {
@@ -25,9 +26,7 @@ export const totals = (paylodArr) => {
     }
 };
 const mutations = {
-    'SET_USER'(state, user) {
-        state.authUser = user
-    },
+
     'GET_ORDER'(state, payload){
         state.orders = payload
     },
@@ -66,7 +65,16 @@ const mutations = {
         state.cart = []
         state.totalAmount = 0
         state.totalQuantity = 0
-    }
+    },
+    'SET_USER'(state, payload){
+        state.loggedUser = payload
+        state.loggedUser.isAuth = true
+    },
+
+    'LOGOUT_USER'(state){
+        state.loggedUser = {}
+        state.loggedUser.isAuth = false
+    },
 };
 
 const actions = {
@@ -92,6 +100,14 @@ const actions = {
     //     await axios.post('/api/logout')
     //     commit('SET_USER', null)
     // },
+    
+    addUser({ commit }, payload) {
+        commit('SET_USER', payload)
+    },
+
+    logoutUser({ commit }) {
+        commit('LOGOUT_USER')
+    },
 
     addToCart({ commit }, payload){
         commit('ADD_TO_CART', payload)
@@ -142,7 +158,10 @@ const getters = {
     },
     selectedItem(state){
         return state.selectedProduct
-    }
+    },
+    getUser(state){
+        return state.loggedUser
+    },
 };
 
 export default{

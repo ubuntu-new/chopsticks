@@ -22,8 +22,8 @@
 
               <form
                 class="login-form"
-                v-if="!$store.state.authUser"
-                @submit.prevent="login"
+                v-if="!loggedUser.isAuth"
+                @submit.prevent="submit"
               >
                 <p v-if="formError" class="error">
                   {{ formError }}
@@ -83,8 +83,11 @@
 </template>
 
 <script>
+import axios from 'axios'
 import TopHeader from '../layouts/TopHeader'
 import Menubar from '../layouts/Menubar'
+import config from "@/nuxt.config"
+
 
 export default {
   components: {
@@ -93,26 +96,45 @@ export default {
   },
   data() {
     return {
+      LOGIN_URL: config.head.LOGIN_URL,
       formError: null,
       formUsername: '',
       formPassword: '',
     }
   },
-  methods: {
-    async login() {
-      try {
-        await this.$store.dispatch('login', {
-          username: this.formUsername,
-          password: this.formPassword,
-        })
-        this.formUsername = ''
-        this.formPassword = ''
-        this.formError = null
-        this.$router.push('/')
-      } catch (error) {
-        this.formError = error.message
-      }
+  computed: {
+    loggedUser() {
+      return this.$store.getters.getUser;
     },
+  },
+  methods: {
+    submit(){
+            var bodyFormData=new FormData();
+            bodyFormData.set("username", this.formUsername);
+            bodyFormData.set("password", this.formPassword);
+
+            axios.request({
+                    method: "post",
+                    url: this.LOGIN_URL,
+                    data: bodyFormData,
+            }).then((response) => {  
+                    if(!response.data.is_error) {
+                        // alert('LOGIN');
+                        this.response = response;
+                        // this.onPinSubmit(pin);
+                        this.$store.dispatch("addUser", response.data.data);
+                        this.$router.push('/');
+                    }
+                    else {
+                       alert(response.data.error_message);
+                        this.loginDialog = true;
+                        this.email = '';
+                        this.password = '';
+                        this.response = response;
+                    }
+                }
+            );
+        },
   },
 }
 </script>

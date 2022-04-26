@@ -5,11 +5,11 @@
         <div class="row align-items-center">
           <div class="col-lg-5 col-md-5">
             <ul class="top-header-nav">
-              <li v-if="!$store.state.authUser">
+              <li v-if="!loggedUser.isAuth">
                 <nuxt-link to="/login">Login</nuxt-link>
               </li>
               <li v-else >
-                <nuxt-link to="#">Logout</nuxt-link>
+                <nuxt-link to="#" @click="logout">Logout</nuxt-link>
               </li>
               <li><nuxt-link to="/signup">Signup</nuxt-link></li>
               <li><nuxt-link to="/products">Products</nuxt-link></li>
@@ -33,11 +33,11 @@
                     <i class="fas fa-phone"></i> Call Us:(+995) 577335080</a
                   >
                 </div>
-                <div v-if="!$store.state.authUser" class="option-item">
+                <div v-if="!loggedUser.isAuth" class="option-item">
                   <nuxt-link to="/login">Login</nuxt-link>
                 </div>
                 <div v-else  class="option-item">
-                  <nuxt-link to="#">Logout</nuxt-link>
+                  <span @click="logout">Logout</span>
                 </div>
                 <div class="option-item">
                   <a @click.prevent="toggle" href="#">
@@ -59,7 +59,6 @@
         </div>
       </div>
     </div>
-
     <SidebarPanel></SidebarPanel>
   </div>
 </template>
@@ -82,24 +81,21 @@ export default {
     onTopPanelClose(value) {
       this.isShowing = value
     },
-    async logout(e) {
-      e.preventDefault()
-      try {
-        await this.$store.dispatch('logout')
-        this.$router.push('/')
-      } catch (error) {
-        this.formError = error.message
-      }
+    logout(){
+      alert("LOGOUT");
+        this.$store.dispatch("logoutUser");
+        this.$router.push("/");
+    },
+    toggle() {
+      mutations.toggleNav()
     },
   },
   computed: {
     cart() {
       return this.$store.getters.cart
     },
-  },
-  methods: {
-    toggle() {
-      mutations.toggleNav()
+    loggedUser() {
+      return this.$store.getters.getUser;
     },
   },
 }
