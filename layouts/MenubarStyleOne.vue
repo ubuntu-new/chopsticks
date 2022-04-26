@@ -12,15 +12,15 @@
               is-nav
             >
               <ul class="navbar-nav">
-                <li class="nav-item" v-for="(category, index) in categories" :key="index">
-                  <nuxt-link :to="`/category/${category.id}`"> {{ category.name }} </nuxt-link>
-                </li>
-                <li class="nav-item">
-                  <nuxt-link to="/contact" class="nav-link">
-                    Contact
+                <li
+                  class="nav-item"
+                  v-for="(category, index) in categories"
+                  :key="index"
+                >
+                  <nuxt-link :to="`/category/${category.id}`">
+                    {{ category.name }}
                   </nuxt-link>
                 </li>
-                
               </ul>
             </b-collapse>
           </nav>
@@ -32,7 +32,7 @@
 
 <script>
 import axios from 'axios'
-import config from "@/nuxt.config"
+import config from '@/nuxt.config'
 
 export default {
   name: 'MenubarStyleOne',
@@ -44,22 +44,21 @@ export default {
     }
   },
   mounted() {
-
-    const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
-      axios
+    const TOKEN = 'TodKtEjTTqj8HBVGmQPE3gW5TFY'
+    axios
       .request({
-        method: "post",
-        url: this.API_URL + "product_categories/list",
+        method: 'post',
+        url: this.API_URL + 'product_categories/list',
         headers: {
-          Authorization: "Bearer " + TOKEN,
+          Authorization: 'Bearer ' + TOKEN,
         },
       })
       .then((response) => {
-        this.categories = response.data;
-        this.categories.forEach(x => {
-          x.URL = "category/" + x.id;
-        });
-      });  
+        this.categories = response.data
+        this.categories.forEach((x) => {
+          x.URL = 'category/' + x.id
+        })
+      })
 
     const that = this
     window.addEventListener('scroll', () => {

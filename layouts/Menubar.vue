@@ -146,11 +146,11 @@
                       </nuxt-link>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <nuxt-link to="/contact" class="nav-link">
                         Contact
                       </nuxt-link>
-                    </li>
+                    </li> -->
                   </ul>
                 </li>
 
