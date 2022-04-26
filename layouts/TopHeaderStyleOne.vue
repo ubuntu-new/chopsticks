@@ -8,7 +8,7 @@
               <li v-if="!$store.state.authUser">
                 <nuxt-link to="/login">Login</nuxt-link>
               </li>
-              <li v-else >
+              <li v-else>
                 <nuxt-link to="#">Logout</nuxt-link>
               </li>
               <li><nuxt-link to="/signup">Signup</nuxt-link></li>
@@ -36,7 +36,7 @@
                 <div v-if="!$store.state.authUser" class="option-item">
                   <nuxt-link to="/login">Login</nuxt-link>
                 </div>
-                <div v-else  class="option-item">
+                <div v-else class="option-item">
                   <nuxt-link to="#">Logout</nuxt-link>
                 </div>
                 <div class="option-item">
@@ -45,10 +45,10 @@
                   </a>
                 </div>
                 <div class="option-item" v-if="$i18n.locale == 'ka'">
-                  <nuxt-link :to="switchLocalePath('en')">EN</nuxt-link>
+                  <nuxt-link :to="switchLocalePath('en')">En</nuxt-link>
                 </div>
                 <div class="option-item" v-else-if="$i18n.locale == 'en'">
-                  <nuxt-link :to="switchLocalePath('ru')">RUS</nuxt-link>
+                  <nuxt-link :to="switchLocalePath('ru')">Рус</nuxt-link>
                 </div>
                 <div class="option-item" v-else>
                   <nuxt-link :to="switchLocalePath('ka')">ქარ</nuxt-link>

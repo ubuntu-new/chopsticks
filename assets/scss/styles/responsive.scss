@@ -10,8 +10,8 @@ $value_five: 1199px;
 @media only #{$media} and ($feature_max : $value_one) {
 
     .btn {
-        padding: 11px 23px;
-        font-size: 12px;
+        padding: 6px 10px;
+        font-size: 1.12rem;
     }
 
     .ptb-60 {
@@ -366,7 +366,7 @@ $value_five: 1199px;
         }
         .product-content {
             h3 {
-                font-size: 17px;
+                font-size: 1.5rem;
             }
             .product-price {
                 span {
@@ -1332,7 +1332,7 @@ $value_five: 1199px;
         &.modal {
             &.right {
                 .modal-dialog {
-                    width: 290px;
+                    width: 100%;
                 }
             }
         }
@@ -1341,7 +1341,7 @@ $value_five: 1199px;
         &.modal {
             &.left {
                 .modal-dialog {
-                    width: 290px;
+                    width: 100%;
                 }
             }
         }
@@ -1351,7 +1351,11 @@ $value_five: 1199px;
 
         .modal-content {
             padding: 10px;
-
+            // width: 350px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-53%, -50%) !important;
             .product-content {
                 margin-top: 20px;
 
@@ -1360,7 +1364,7 @@ $value_five: 1199px;
                 }
                 .price {
                     span {
-                        font-size: 12px;
+                        font-size: 1rem;
                     }
                 }
                 .product-info {
@@ -1744,6 +1748,15 @@ $value_five: 1199px;
                 font-size: 17px;
             }
         }
+    }
+
+    .new-price
+    {
+        font-size:1.3rem !important
+    }
+    .modal-dialog
+    {
+        width: 100%;
     }
 
 }

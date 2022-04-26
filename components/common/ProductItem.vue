@@ -19,12 +19,13 @@
         <h3>
           {{ product.name }}
         </h3>
+        <small class=""> {{ product.description }} </small>
 
         <div class="product-price text-left p-3">
           <span class="old-price" v-if="product.offer">
-            ${{ product.price - product.offerPrice }}
+            {{ product.price - product.offerPrice }} &#8382;
           </span>
-          <span class="new-price">${{ product.price }}</span>
+          <span class="new-price">{{ product.price }} &#8382;</span>
           <a
             class="btn btn-light"
             href="javascript:void(0)"

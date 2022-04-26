@@ -62,12 +62,17 @@ $font-size: 14px;
 $paragraph-color: #666666;
 $black-color: #222222;
 $white-color: #ffffff;
+$green: green;
+$blue: rgb(0, 157, 224) ;
 $transition: 0.5s;
 
 :root {
     scroll-behavior: inherit;
 }
-
+body.modal-dialog{
+    overflow: hidden !important;
+    position: fixed;
+  }
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -105,6 +110,10 @@ a {
         text-decoration: none;
     }
 }
+.green 
+{
+    color: $green;
+}
 .d-table {
     width: 100%;
     height: 100%;
@@ -124,6 +133,10 @@ a {
 }
 .pt-60 {
     padding-top: 60px;
+}
+.fs-20
+{
+    font-size: 20px !important;
 }
 .h1,
 .h2,
@@ -625,7 +638,6 @@ Top Header Area CSS
 
         a {
             color: $black-color;
-            text-transform: uppercase;
             position: relative;
 
             &::before {
@@ -1041,7 +1053,6 @@ Navbar Area CSS
                         size: 14px;
                     }
                     color: $black-color;
-                    text-transform: uppercase;
                     padding: {
                         left: 0;
                         right: 0;
@@ -2844,6 +2855,7 @@ All Products Area CSS
         h3 {
             font-size: 18px;
             margin-bottom: 0;
+            text-transform: capitalize; 
 
             a {
                 color: $black-color;
@@ -3454,7 +3466,7 @@ Products QuickView Modal Area CSS
 .productQuickView {
     display: block !important;
     .modal-dialog {
-        max-width: 400px;
+        max-width: 520px;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -3465,7 +3477,7 @@ Products QuickView Modal Area CSS
         padding: 40px;
         border-radius: 0;   
         overflow: auto;
-        height: 90vh;
+        height: 99vh;
         button {
             &.close {
                 position: absolute;
@@ -3798,15 +3810,21 @@ Products QuickView Modal Area CSS
                 }
             }
             .view-full-info {
-                margin-top: 25px;
+                font-feature-settings: "kern";
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizelegibility;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+                line-height: 1.5rem;
+                font-style: normal;
+                font-stretch: normal;
+                text-transform: none;
+                color: rgb(32, 33, 37);
+                margin: 0px;
+                padding: 0px;
                 cursor: pointer;
-                color: $black-color;
-                line-height: initial;
-                display: inline-block;
-                position: relative;
                 font: {
-                    weight: 600;
-                    size: 15px;
+                    weight: 700;
+                    size: 1rem;
                 }
                 &::before {
                     content: "";
@@ -8595,11 +8613,13 @@ Checkout CSS
             padding-top: 15px;
         }
     }
+    
     .form-check {
         margin-bottom: 15px;
 
         .form-check-label {
             color: $paragraph-color;
+       
         }
         label {
             font: {
@@ -8663,6 +8683,7 @@ Checkout CSS
             }
         }
     }
+   
     .payment-method {
         margin-top: 40px;
         border-top: 1px solid #eaedff;
@@ -9273,6 +9294,106 @@ Go Top CSS
 .form-check-label {
     margin-top: 4px ;
 }
+.description
+{
+font-feature-settings: "kern";
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizelegibility;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+font-size: 1rem !important;
+line-height: 1.5rem;
+font-style: normal;
+font-stretch: normal;
+text-transform: none;
+font-weight: 400;
+color: $black-color;
+margin-top: 2rem;
+margin-bottom: 0px;
+white-space: pre-line;
+}
+.modal_product_name
+{
+    font-feature-settings: "kern", "ss01", "ss05", "ss07";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;
+    font-variant-ligatures: common-ligatures;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    text-transform: none;
+    color: rgb(32, 33, 37);
+    margin: 0px;
+}
+.new-price
+{
+    font-feature-settings: "kern";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-style: normal;
+    font-stretch: normal;
+    text-transform: none;
+    font-weight: 500;
+}
+.topping-title
+    {
+            font-feature-settings: "kern";
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizelegibility;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            font-style: normal;
+            font-stretch: normal;
+            text-transform: none;
+            padding-left: 20px;
+            font-weight: 500;
+            width: 100%;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            margin-inline-start: 1rem;
+            color: $black-color;
+    }
+    .view-full-infol
+    {
+        font-feature-settings: "kern";
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizelegibility;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-style: normal;
+        font-stretch: normal;
+        text-transform: none;
+        padding-left: 5px;
+        font-weight: 500;
+        width: 100%;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin-inline-start: 1rem;
+        color: $black-color;
+        // position: relative;
+        padding-top: 3px;
+    }
+
+
+
+
+
+
+//   .racxa
+//   {
+//     position: fixed;
+//     bottom: 20px;
+//     width: 100%;
+//     background: rebeccapurple;
+//     left: 0px;
+//   }  
 /* ScrollBarCustom */
 /* width */
 ::-webkit-scrollbar {
