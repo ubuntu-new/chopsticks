@@ -57,17 +57,62 @@
                     </div>
                   </div>
 
-                  <div class="col-lg-12 col-md-6">
+                  <div class="col-lg-6 col-md-6">
                     <div class="form-group">
-                      <label>Town / City <span class="required">*</span></label>
+                      <label
+                        >Enterance to building</label
+                      >
                       <input
-                        type="text"
-                        id="city"
-                        v-model="personDetails.city"
+                        type="email"
+                        id="email"
+                        v-model="personDetails.enterance"
                         class="form-control"
                       />
                     </div>
                   </div>
+
+                  <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                      <label
+                        >Enterance security code</label
+                      >
+                      <input
+                        type="email"
+                        id="email"
+                        v-model="personDetails.security"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                      <label
+                        >Floor</label
+                      >
+                      <input
+                        type="email"
+                        id="email"
+                        v-model="personDetails.floor"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                      <label
+                        >Flat Number</label
+                      >
+                      <input
+                        type="email"
+                        id="email"
+                        v-model="personDetails.flat"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
 
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
@@ -119,7 +164,7 @@
 
                         <td class="product-total">
                           <span class="subtotal-amount"
-                            >${{ cart.price * cart.quantity }}</span
+                            >{{ (cart.price * cart.quantity).toFixed(2) }}</span
                           >
                         </td>
                       </tr>
@@ -131,7 +176,7 @@
 
                         <td class="order-subtotal-price">
                           <span class="order-subtotal-amount"
-                            >${{ cartTotal }}</span
+                            >{{ cartTotal }} &#8382;</span
                           >
                         </td>
                       </tr>
@@ -141,7 +186,7 @@
                         </td>
 
                         <td class="shipping-price">
-                          <span>$10.00</span>
+                          <span>GEL 10.00</span>
                         </td>
                       </tr> -->
                       <tr>
@@ -151,7 +196,7 @@
 
                         <td class="product-subtotal">
                           <span class="subtotal-amount"
-                            >${{ parseFloat(cartTotal).toFixed(2) }}</span
+                            >{{ parseFloat(cartTotal).toFixed(2) }} &#8382;</span
                           >
                         </td>
                       </tr>
@@ -161,23 +206,8 @@
 
                 <div class="payment-method">
                   <p>
-                    <input
-                      type="radio"
-                      id="direct-bank-transfer"
-                      name="radio-group"
-                      checked
-                    />
-                    <label for="direct-bank-transfer"
-                      >Direct Bank Transfer</label
-                    >
-
-                    Make your payment directly into our bank account. Please use
-                    your Order ID as the payment reference. Your order will not
-                    be shipped until the funds have cleared in our account.
-                  </p>
-                  <p>
-                    <input type="radio" id="paypal" name="radio-group" />
-                    <label for="paypal">PayPal</label>
+                    <input type="radio" id="card" name="radio-group" />
+                    <label for="card">Pay by Card</label>
                   </p>
                   <p>
                     <input
@@ -215,9 +245,12 @@ export default {
       personDetails: {
         fullName: '',
         address: '',
-        city: '',
         email: '',
         phone: '',
+        enterance: '',
+        security: '',
+        floor: '',
+        flat: '',
       },
       order_data: {},
       response: {},
@@ -233,20 +266,27 @@ export default {
   },
   methods: {
     add() {
-      this.order_data.items = this.cart;
-      this.order_data.customer = this.personDetails;
-      const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
-      axios.request({
-        method: "post",
-        url:
-          this.API_URL + "webertela/orders/create",
-        headers: {
-          Authorization: "Bearer " + TOKEN,
-        },
-        data: { order: this.order_data },
-      }).then((response) => {
-        this.response = response.data;
-      });
+      if(this.personDetails.fullName == '' || this.personDetails.address == '' || this.personDetails.phone == ''){
+        alert('Fullname, Address and Phone Fields Are Required!');
+      } else {
+        this.order_data.items = this.cart;
+        this.order_data.customer = this.personDetails;
+        this.$store.dispatch('addOrder', this.order_data)
+        const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
+        axios.request({
+          method: "post",
+          url:
+            this.API_URL + "orders/create",
+          headers: {
+            Authorization: "Bearer " + TOKEN,
+          },
+          data: this.order_data,
+        }).then((response) => {
+          this.response = response.data;
+          this.$store.dispatch('cartEmpty');
+          // this.$router.push('/');
+        });
+      }
     },
   },
 }

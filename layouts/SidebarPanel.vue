@@ -31,7 +31,7 @@
                                         <div class="product-price">
                                             <span>{{cart.quantity}}</span>
                                             <span>x</span>
-                                            <span class="price">${{cart.price}}</span>
+                                            <span class="price">{{cart.price}} &#8382;</span>
                                         </div>
                                     </div>
 
@@ -50,7 +50,7 @@
                             <div class="product-cart-subtotal">
                                 <span>Subtotal</span>
 
-                                <span class="subtotal">${{cartTotal}}</span>
+                                <span class="subtotal">{{cartTotal}} &#8382;</span>
                             </div>
 
                             <div @click="closeSidebarPanel" class="product-cart-btn">

@@ -45,6 +45,7 @@ export default {
       API_URL: config.head.API_URL,
       id: this.$route.params.id,
       filteredProducts: [],
+      currentLang: this.$i18n.locale,
     }
   },
   components: {
@@ -61,7 +62,7 @@ export default {
       const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
       var bodyFormData = new FormData();
       bodyFormData.set("category_id", this.id);
-
+      // alert(this.currentLang+ "cat");
       axios
       .request({
         method: "post",
@@ -75,8 +76,24 @@ export default {
         this.filteredProducts = response.data.data;
 
         this.filteredProducts.forEach(x => {
-          x.image = x.s;
-          x.imageHover = x.m;
+          if(this.currentLang == 'ka'){
+            x.description_en = x.description;
+            x.name_en = x.name;
+            x.description = x.description_ge;
+            x.name = x.name_ge;
+          } else if(this.currentLang == 'ru'){
+            x.description_en = x.description;
+            x.name_en = x.name;
+            x.description = x.description_ru;
+            x.name = x.name_ru;
+          }
+           if(x.s != null || x.m != null) {
+            x.image = x.s;
+            x.imageHover = x.m;
+          } else {
+            x.image = "https://highresbio.com/wp-content/uploads/2018/03/placeholder-260x260.png";
+            x.imageHover = "https://highresbio.com/wp-content/uploads/2018/03/placeholder-260x260.png";
+          } 
         });
       });
   },

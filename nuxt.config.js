@@ -9,7 +9,7 @@ export default {
     */
     head: {
         API_URL: "https://chopsticks.webertela.online/back_api/rest/web/index.php?r=v1/",
-        LOGIN_URL: "https://api.ronnys.info/rest/web/index.php?r=auth",
+        LOGIN_URL: "https://chopsticks.webertela.online/back_api/rest/web/index.php?r=auth",
 
         htmlAttrs: {
             lang: 'en',
@@ -98,7 +98,7 @@ export default {
     },
 
     i18n: {
-        defaultLocale: 'en',
+        defaultLocale: 'ka',
         locales: [
           {
             code: 'en',

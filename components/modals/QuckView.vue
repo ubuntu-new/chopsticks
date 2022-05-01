@@ -68,10 +68,10 @@
 
                         <span class="price">
                           <span v-if="topping.qty == null || topping.qty == 0">
-                            {{ topping.price }} &#8382;
+                            {{ addZeroes(topping.price) }} &#8382;
                           </span>
                           <span v-else>
-                            {{ Number(topping.price) * Number(topping.qty) }}
+                            {{ addZeroes(Number(topping.price) * Number(topping.qty)) }}
                             &#8382;
                           </span>
                         </span></label
@@ -94,8 +94,8 @@
                         value="option1"
                       />
                       <label
+                        :for="index"
                         class="form-check-labe view-full-infol"
-                        for="exampleRadios"
                       >
                         {{ sauce.name }}
                       </label>
@@ -120,10 +120,10 @@
                             class="topping-title"
                             v-if="extra.qty == null || extra.qty == 0"
                           >
-                            {{ extra.price }} &#8382;
+                            {{ addZeroes(extra.price) }} &#8382;
                           </span>
                           <span class="topping-title" v-else>
-                            {{ Number(extra.price) * Number(extra.qty) }}
+                            {{ addZeroes(Number(extra.price) * Number(extra.qty)) }}
                             &#8382;
                           </span>
                         </span></label
@@ -215,6 +215,9 @@ export default {
       })
   },
   methods: {
+    addZeroes(num) {
+      return num.toLocaleString("en", {useGrouping: false, minimumFractionDigits: 2})
+    },
     increaseTopping(topping) {
       if (
         this.selectedToppings.filter((x) => x.name === topping.name).length > 0

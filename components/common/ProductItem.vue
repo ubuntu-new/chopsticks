@@ -23,9 +23,9 @@
 
         <div class="product-price text-left p-3">
           <span class="old-price" v-if="product.offer">
-            {{ product.price - product.offerPrice }} &#8382;
+            {{ addZeroes(product.price - product.offerPrice) }} &#8382;
           </span>
-          <span class="new-price">{{ product.price }} &#8382;</span>
+          <span class="new-price" v-else>{{ addZeroes(product.price) }} &#8382;</span>
           <a
             class="btn btn-light"
             href="javascript:void(0)"
@@ -33,9 +33,24 @@
             :title="product.name"
             v-b-tooltip.hover
             @click.prevent="quickView"
+            v-if="product.category_id == 1 || product.category_id == 8"
           >
-            Select
+            {{ $t("select") }}
           </a>
+          <div class="price d-flex align-center" v-else>
+              <div class="qty">
+                 <i class="fa fa-minus" aria-hidden="true" @click="decreaseQty"></i>
+                {{ itemQty }}
+                <i class="fa fa-plus" aria-hidden="true" @click="increaseQty"></i>
+              </div>
+              <button
+                type="button"
+                class="btn btn-light"
+                @click="addToCart(product)"
+              >
+                {{ $t("addCart") }}
+              </button>
+            </div>
         </div>
       </div>
     </div>
@@ -48,6 +63,7 @@ export default {
   data() {
     return {
       getExistPId: null,
+      itemQty: 1,
     }
   },
   props: ['product'],
@@ -57,6 +73,17 @@ export default {
     },
   },
   methods: {
+    addZeroes(num) {
+      return num.toLocaleString("en", {useGrouping: false, minimumFractionDigits: 2})
+    },
+     decreaseQty() {
+      if (this.itemQty > 1) {
+        this.itemQty--;
+      }
+    },
+    increaseQty() {
+      this.itemQty++;
+    },
     quickView(e) {
       this.$emit('clicked')
     },
@@ -67,7 +94,7 @@ export default {
           name: item.name,
           price: item.price,
           image: item.image,
-          quantity: 1,
+          quantity: this.itemQty,
         },
       ]
 
@@ -97,6 +124,7 @@ export default {
           icon: 'fas fa-cart-plus',
         })
       }
+      this.itemQty = 1;
     },
   },
 }

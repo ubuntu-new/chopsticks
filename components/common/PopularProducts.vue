@@ -45,15 +45,18 @@ export default {
     return {
       API_URL: config.head.API_URL,
       products: [],
+      currentLang: this.$i18n.locale,
     }
   },
   mounted() {
     this.getproducts();
+    // alert(this.currentLang);
+    this.$store.dispatch('activeLang', this.currentLang);
   },
   methods: {
     toggle(product) {
         this.$store.dispatch('selectProduct', product)
-        if(product.category_name == "WOK"){
+        if(product.category_id == 1){
           mutations.toggleQuickView()
         } else if(product.category_id == 8) {
           mutations.toggleDumplingView()
@@ -109,6 +112,20 @@ export default {
       .then((response) => {
         this.products = response.data;
         this.products.forEach(x => {
+          // PRODUCT LANG CHECK
+          if(this.currentLang == 'ka'){
+            x.description_en = x.description;
+            x.name_en = x.name;
+            x.description = x.description_ge;
+            x.name = x.name_ge;
+          } else if(this.currentLang == 'ru'){
+            x.description_en = x.description;
+            x.name_en = x.name;
+            x.description = x.description_ru;
+            x.name = x.name_ru;
+          }
+          // END OF PRODUCT LANG CHECK
+
           if(x.s != null || x.m != null) {
             x.image = x.s;
             x.imageHover = x.m;

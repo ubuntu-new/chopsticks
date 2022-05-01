@@ -1,4 +1,5 @@
 <template>
+<client-only>
   <div>
     <div class="page-title-area">
       <div class="container">
@@ -119,6 +120,7 @@
       </div>
     </div>
   </div>
+</client-only>
 </template>
 
 <script>

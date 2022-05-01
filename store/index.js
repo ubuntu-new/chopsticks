@@ -6,9 +6,11 @@ const state = () => ({
     totalAmount: 0,
     totalQuantity: 0,
     orders: [],
+    order: [],
     authUser: null,
     selectedProduct: {},
     loggedUser: { isAuth: false },
+    lang: null,
 });
 
 export const totals = (paylodArr) => {
@@ -27,8 +29,8 @@ export const totals = (paylodArr) => {
 };
 const mutations = {
 
-    'GET_ORDER'(state, payload){
-        state.orders = payload
+    'ADD_ORDER'(state, payload){
+        state.order =  { ...state.order, ...payload }
     },
     'SELECT_ITEM'(state, payload){
         // alert(payload);
@@ -75,6 +77,9 @@ const mutations = {
         state.loggedUser = {}
         state.loggedUser.isAuth = false
     },
+    'CHANGE_LANGUAGE'(state, payload){
+        state.lang = payload
+    },
 };
 
 const actions = {
@@ -105,8 +110,16 @@ const actions = {
         commit('SET_USER', payload)
     },
 
+    addOrder({ commit }, payload) {
+        commit('ADD_ORDER', payload)
+    },
+
     logoutUser({ commit }) {
         commit('LOGOUT_USER')
+    },
+
+    activeLang({ commit }, payload) {
+        commit('CHANGE_LANGUAGE', payload)
     },
 
     addToCart({ commit }, payload){
@@ -162,6 +175,9 @@ const getters = {
     getUser(state){
         return state.loggedUser
     },
+    getOrder(state) {
+        return state.order
+    }
 };
 
 export default{

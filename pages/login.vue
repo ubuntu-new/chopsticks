@@ -1,85 +1,85 @@
 <template>
-  <div>
-    <TopHeader />
-    <Menubar />
-    <div class="page-title-area">
-      <div class="container">
-        <ul>
-          <li><nuxt-link to="/">Home</nuxt-link></li>
-          <li>Login</li>
-        </ul>
+  <client-only>
+    <div>
+      <div class="page-title-area">
+        <div class="container">
+          <ul>
+            <li><nuxt-link to="/">Home</nuxt-link></li>
+            <li>Login</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="login-area ptb-60">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-12">
-            <div class="login-content">
-              <div class="section-title">
-                <h2><span class="dot"></span> Login</h2>
-              </div>
-
-              <form
-                class="login-form"
-                v-if="!loggedUser.isAuth"
-                @submit.prevent="submit"
-              >
-                <p v-if="formError" class="error">
-                  {{ formError }}
-                </p>
-                <div class="form-group">
-                  <label>Username</label>
-                  <input
-                    v-model="formUsername"
-                    type="text"
-                    class="form-control"
-                    placeholder="demo"
-                    name="username"
-                  />
+      <div class="login-area ptb-60">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              <div class="login-content">
+                <div class="section-title">
+                  <h2><span class="dot"></span> Login</h2>
                 </div>
 
-                <div class="form-group">
-                  <label>Password</label>
-                  <input
-                    v-model="formPassword"
-                    type="password"
-                    class="form-control"
-                    placeholder="demo"
-                    name="password"
-                  />
-                </div>
-
-                <button type="submit" class="btn btn-primary">Login</button>
-
-                <nuxt-link to="/" class="forgot-password"
-                  >Lost your password?</nuxt-link
+                <form
+                  class="login-form"
+                  v-if="!loggedUser.isAuth"
+                  @submit.prevent="submit"
                 >
-              </form>
-            </div>
-          </div>
+                  <p v-if="formError" class="error">
+                    {{ formError }}
+                  </p>
+                  <div class="form-group">
+                    <label>Username</label>
+                    <input
+                      v-model="formUsername"
+                      type="text"
+                      class="form-control"
+                      placeholder="demo"
+                      name="username"
+                    />
+                  </div>
 
-          <div class="col-lg-6 col-md-12">
-            <div class="new-customer-content">
-              <div class="section-title">
-                <h2><span class="dot"></span> New Customer</h2>
+                  <div class="form-group">
+                    <label>Password</label>
+                    <input
+                      v-model="formPassword"
+                      type="password"
+                      class="form-control"
+                      placeholder="demo"
+                      name="password"
+                    />
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Login</button>
+
+                  <a href="https://chopsticks.webertela.online/back_api/frontend/web/site/request-password-reset" class="forgot-password"
+                    >Lost your password?</a
+                  >
+                </form>
               </div>
+            </div>
 
-              <span>Create a Account</span>
-              <p>
-                Sign up for a free account at our store. Registration is quick
-                and easy. It allows you to be able to order from our shop. To
-                start shopping click register.
-              </p>
-              <nuxt-link to="/signup" class="btn btn-light"
-                >Create A Account</nuxt-link
-              >
+            <div class="col-lg-6 col-md-12">
+              <div class="new-customer-content">
+                <div class="section-title">
+                  <h2><span class="dot"></span> New Customer</h2>
+                </div>
+
+                <span>Create a Account</span>
+                <p>
+                  Sign up for a free account at our store. Registration is quick
+                  and easy. It allows you to be able to order from our shop. To
+                  start shopping click register.
+                </p>
+                <nuxt-link to="/signup" class="btn btn-light"
+                  >Create A Account</nuxt-link
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </client-only>
 </template>
 
 <script>
@@ -107,6 +107,11 @@ export default {
       return this.$store.getters.getUser;
     },
   },
+  mounted() {
+    if(this.loggedUser.isAuth){
+      this.$router.push('/');
+    }
+  },
   methods: {
     submit(){
             var bodyFormData=new FormData();
@@ -123,7 +128,7 @@ export default {
                         this.response = response;
                         // this.onPinSubmit(pin);
                         this.$store.dispatch("addUser", response.data.data);
-                        this.$router.push('/');
+                        this.$router.push('/user');
                     }
                     else {
                        alert(response.data.error_message);

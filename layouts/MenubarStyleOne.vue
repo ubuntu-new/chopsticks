@@ -17,7 +17,7 @@
                   v-for="(category, index) in categories"
                   :key="index"
                 >
-                  <nuxt-link :to="`/category/${category.id}`">
+                  <nuxt-link :to="category.URL">
                     {{ category.name }}
                   </nuxt-link>
                 </li>
@@ -41,24 +41,19 @@ export default {
       API_URL: config.head.API_URL,
       isSticky: false,
       categories: [],
+      currentLang: this.$i18n.locale,
     }
   },
+  props: ['locale'],
+  computed: {
+    localLang() {
+      this.currentLang = this.$i18n.locale;
+      this.getCat();
+      return this.currentLang;
+    },
+  },
   mounted() {
-    const TOKEN = 'TodKtEjTTqj8HBVGmQPE3gW5TFY'
-    axios
-      .request({
-        method: 'post',
-        url: this.API_URL + 'product_categories/list',
-        headers: {
-          Authorization: 'Bearer ' + TOKEN,
-        },
-      })
-      .then((response) => {
-        this.categories = response.data
-        this.categories.forEach((x) => {
-          x.URL = 'category/' + x.id
-        })
-      })
+    this.getCat();
 
     const that = this
     window.addEventListener('scroll', () => {
@@ -77,6 +72,37 @@ export default {
     logout(){
         this.$store.dispatch("logoutUser");
         this.$router.push("/");
+    },
+    getCat(){
+      const TOKEN = 'TodKtEjTTqj8HBVGmQPE3gW5TFY'
+      axios
+        .request({
+          method: 'post',
+          url: this.API_URL + 'product_categories/list',
+          headers: {
+            Authorization: 'Bearer ' + TOKEN,
+          },
+        })
+        .then((response) => {
+          this.categories = response.data
+          this.categories.forEach((x) => {
+            x.URL = '/category/' + x.id;
+
+            if(this.currentLang == 'ka'){
+              x.name_en = x.name;
+              x.name = x.name_ge;
+              x.URL = '/category/' + x.id;
+            } else if(this.currentLang == 'ru'){
+              x.name_en = x.name;
+              x.name = x.name_ru;
+              x.URL = '/ru/category/' + x.id;
+            } else if(this.currentLang == 'en'){
+              x.URL = '/en/category/' + x.id;
+            }
+            // alert(x.URL);
+          });
+
+        });
     },
   },
 }

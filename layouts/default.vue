@@ -1,7 +1,7 @@
 <template>
   <div>
-    <TopHeaderStyleOne></TopHeaderStyleOne>
-    <MenubarStyleOne></MenubarStyleOne>
+    <TopHeaderStyleOne @onLocaleChange="updateLocale"></TopHeaderStyleOne>
+    <MenubarStyleOne :locale="localeLang" :key="localeChange"></MenubarStyleOne>
     <Nuxt />
     <Footer></Footer>
     <SiteLoader v-if="loading" />
@@ -26,7 +26,16 @@ export default {
   data() {
     return {
       loading: true,
+      localeLang: '',
+      localeChange: 0,
     }
+  },
+  methods: {
+    updateLocale(locale) {
+      // alert("UPDATEEE "+locale);
+      this.localeLang = locale;
+      this.localeChange++;
+    },
   },
   watch: {
     $route(pathUrl) {

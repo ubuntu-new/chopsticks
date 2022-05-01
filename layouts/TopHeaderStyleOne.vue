@@ -5,6 +5,7 @@
         <div class="row align-items-center">
           <div class="col-lg-5 col-md-5">
             <ul class="top-header-nav">
+              
               <li v-if="!loggedUser.isAuth">
                 <nuxt-link to="/login">Login</nuxt-link>
               </li>
@@ -39,19 +40,23 @@
                 <div v-else  class="option-item">
                   <span @click="logout">Logout</span>
                 </div>
+                <div v-if="loggedUser.isAuth" class="option-item">
+                  <nuxt-link to="/user">User Page</nuxt-link>
+                </div>
                 <div class="option-item">
                   <a @click.prevent="toggle" href="#">
                     Cart({{ cart.length }}) <i class="fas fa-shopping-bag"></i>
                   </a>
                 </div>
                 <div class="option-item" v-if="$i18n.locale == 'ka'">
-                  <nuxt-link :to="switchLocalePath('en')">En</nuxt-link>
+                  <span @click="changeLang('en')">En</span>
                 </div>
                 <div class="option-item" v-else-if="$i18n.locale == 'en'">
-                  <nuxt-link :to="switchLocalePath('ru')">Рус</nuxt-link>
+                  <span @click="changeLang('ru')">Рус</span>
                 </div>
                 <div class="option-item" v-else>
-                  <nuxt-link :to="switchLocalePath('ka')">ქარ</nuxt-link>
+                  <!-- <nuxt-link :to="switchLocalePath('ka')">ქარ</nuxt-link> -->
+                  <span @click="changeLang('ka')">ქარ</span>
                 </div>
               </div>
             </div>
@@ -75,14 +80,29 @@ export default {
   data() {
     return {
       isShowing: true,
+      currentLang: this.$i18n.locale,
     }
   },
+  mounted(){
+    this.$emit("onLocaleChange", this.currentLang);
+    // this.currentLang = this.$i18n.locale;
+    // alert(this.currentLang);
+  },
+  watch: {
+    currentLang(val){
+      // alert(val);
+    },
+  },
   methods: {
+    changeLang(val){
+       this.$i18n.setLocale(val);
+       this.$emit("onLocaleChange", val);
+      //  alert(val);
+    },
     onTopPanelClose(value) {
       this.isShowing = value
     },
     logout(){
-      alert("LOGOUT");
         this.$store.dispatch("logoutUser");
         this.$router.push("/");
     },
