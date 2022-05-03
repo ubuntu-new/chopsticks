@@ -41,13 +41,15 @@
                   <div class="price">
                     <span class="new-price">{{ changePrice() }} &#8382;</span>
                   </div>
-                  <div class="col">
+                  <div class="col p-0">
                     <span class="description">
                       {{ selectedProduct.description }}
                     </span>
                   </div>
 
-                  <h6 class="mt-3 view-full-info mb-3">{{ $t('choose') }}</h6>
+                  <h6 class="mt-3 view-full-info mb-3 green">
+                    {{ $t('choose') }}
+                  </h6>
                   <div class="col-auto p-0">
                     <div
                       class="form-check mb-2 unselectable p-0"
@@ -56,10 +58,18 @@
                       @click="increaseTopping(topping)"
                     >
                       <!-- <input class="form-check-input" type="checkbox" :id="index" /> -->
-                      <i class="fa fa-plus" aria-hidden="true" v-if="topping.qty == null"></i>
-                      <i class="fa fa-check" aria-hidden="true" v-else></i>
-                      <label class="form-check-label" >
-                        <span v-if="topping.qty == null">
+                      <i
+                        class="fa fa-plus font-icons"
+                        aria-hidden="true"
+                        v-if="topping.qty == null"
+                      ></i>
+                      <i
+                        class="fa fa-check green font-icons"
+                        aria-hidden="true"
+                        v-else
+                      ></i>
+                      <label class="form-check-label">
+                        <span class="topping-title" v-if="topping.qty == null">
                           {{ topping.name }}
                         </span>
                         <span class="topping-title" v-else>
@@ -67,19 +77,28 @@
                         </span>
 
                         <span class="price">
-                          <span v-if="topping.qty == null || topping.qty == 0">
+                          <span
+                            class="topping-title"
+                            v-if="topping.qty == null || topping.qty == 0"
+                          >
                             {{ addZeroes(topping.price) }} &#8382;
                           </span>
-                          <span v-else>
-                            {{ addZeroes(Number(topping.price) * Number(topping.qty)) }}
+                          <span class="topping-title" v-else>
+                            {{
+                              addZeroes(
+                                Number(topping.price) * Number(topping.qty)
+                              )
+                            }}
                             &#8382;
                           </span>
                         </span></label
                       >
                     </div>
                   </div>
-                  <h6 class="mt-3 view-full-info mb-3">აირჩიე სოუსი</h6>
-                  <div class="col-auto">
+                  <h6 class="mt-3 view-full-info mb-3 green">
+                    {{ $t('sauce') }}
+                  </h6>
+                  <div class="col-auto p-0">
                     <div
                       class="form-check unselectable"
                       v-for="(sauce, index) in sauces"
@@ -102,13 +121,28 @@
                     </div>
                   </div>
 
-                  <h6 class="mt-3 view-full-info">ექსტრა ტოპინგი</h6>
-                  <div class="col-auto">
-                    <div class="form-check mb-2 unselectable" v-for="(extra, index) in extras" :key="index" @click="increaseExtra(extra)">
-                      <i class="fa fa-plus" aria-hidden="true" v-if="extra.qty == null"></i>
-                      <i class="fa fa-check" aria-hidden="true" v-else></i>
-                      <label class="form-check-label" >
-                        <span v-if="extra.qty == null">
+                  <h6 class="mt-3 view-full-info mb-3 green">
+                    {{ $t('extra') }}
+                  </h6>
+                  <div class="col-auto p-0">
+                    <div
+                      class="form-check mb-2 p-0 unselectable"
+                      v-for="(extra, index) in extras"
+                      :key="index"
+                      @click="increaseExtra(extra)"
+                    >
+                      <i
+                        class="fa fa-plus font-icons"
+                        aria-hidden="true"
+                        v-if="extra.qty == null"
+                      ></i>
+                      <i
+                        class="fa fa-check green font-icons"
+                        aria-hidden="true"
+                        v-else
+                      ></i>
+                      <label class="form-check-label">
+                        <span class="topping-title" v-if="extra.qty == null">
                           {{ extra.name }}
                         </span>
                         <span class="topping-title" v-else>
@@ -123,7 +157,9 @@
                             {{ addZeroes(extra.price) }} &#8382;
                           </span>
                           <span class="topping-title" v-else>
-                            {{ addZeroes(Number(extra.price) * Number(extra.qty)) }}
+                            {{
+                              addZeroes(Number(extra.price) * Number(extra.qty))
+                            }}
                             &#8382;
                           </span>
                         </span></label
@@ -136,13 +172,13 @@
                         <button type="button" class="btn btn-primary">
                           <div class="input-counter">
                             <span @click="decreaseQuantity()" class="minus-btn"
-                              ><i class="fas fa-minus"></i
+                              ><i class="fas fa-minus font-icons"></i
                             ></span>
                             <span class="cartquantity p-2">
                               {{ quantity }}
                             </span>
                             <span @click="increaseQuantity()" class="plus-btn"
-                              ><i class="fas fa-plus"></i
+                              ><i class="fas fa-plus font-icons"></i
                             ></span>
                           </div>
                         </button>
@@ -152,7 +188,8 @@
                           class="btn btn-primary"
                           @click="addToCart(selectedProduct)"
                         >
-                          <i class="fas fa-cart-plus"></i> Add to Cart
+                          <i class="fas fa-cart-plus font-icons"></i> Add to
+                          Cart
                         </button>
                       </div>
                     </div>
@@ -216,7 +253,10 @@ export default {
   },
   methods: {
     addZeroes(num) {
-      return num.toLocaleString("en", {useGrouping: false, minimumFractionDigits: 2})
+      return num.toLocaleString('en', {
+        useGrouping: false,
+        minimumFractionDigits: 2,
+      })
     },
     increaseTopping(topping) {
       if (
@@ -301,7 +341,7 @@ export default {
         if (cartIndex == -1) {
           this.$store.dispatch('addToCart', product)
           this.$toast('Added to cart', {
-            icon: 'fas fa-cart-plus',
+            icon: 'fas fa-cart-plus  font-icons',
           })
         } else {
           this.$store.dispatch('updateCart', {
@@ -314,7 +354,7 @@ export default {
       } else {
         this.$store.dispatch('addToCart', product)
         this.$toast('Added to cart', {
-          icon: 'fas fa-cart-plus',
+          icon: 'fas fa-cart-plus  font-icons',
         })
       }
       this.quantity = 1
@@ -326,7 +366,7 @@ export default {
     increaseQuantity() {
       if (this.quantity > 9) {
         this.$toast.error("Can't add more than 10", {
-          icon: 'fas fa-cart-plus',
+          icon: 'fas fa-cart-plu  font-iconss',
         })
       } else {
         this.quantity++
@@ -335,7 +375,7 @@ export default {
     decreaseQuantity() {
       if (this.quantity < 2) {
         this.$toast.error("Can't add less than 1", {
-          icon: 'fas fa-cart-plus',
+          icon: 'fas fa-cart-plus  font-icons',
         })
       } else {
         this.quantity--
