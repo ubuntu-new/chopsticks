@@ -1,4 +1,5 @@
 <template>
+<client-only>
   <div>
     <div class="top-header top-header-style-two">
       <div class="container">
@@ -66,6 +67,7 @@
     </div>
     <SidebarPanel></SidebarPanel>
   </div>
+</client-only>
 </template>
 
 <script>

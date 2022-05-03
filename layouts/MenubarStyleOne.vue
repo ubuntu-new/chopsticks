@@ -1,4 +1,5 @@
 <template>
+<client-only>
   <div>
     <div :class="['navbar-area navbar-style-two', { 'is-sticky': isSticky }]">
       <div class="comero-nav">
@@ -28,6 +29,7 @@
       </div>
     </div>
   </div>
+</client-only>
 </template>
 
 <script>

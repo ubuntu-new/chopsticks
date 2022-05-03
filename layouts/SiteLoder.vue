@@ -1,8 +1,10 @@
 <template>
+<client-only>
     <div class="pre-loader">
         <!-- <h1>Loading...</h1> -->
         <img src="../assets/img/Infinity.svg" alt="Loading" />
     </div>
+</client-only>
 </template>
 
 <style lang="scss" scoped>

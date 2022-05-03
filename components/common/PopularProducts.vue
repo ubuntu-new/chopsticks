@@ -1,4 +1,5 @@
 <template>
+<client-only>
   <div>
     <div class="popular-products-area ptb-60">
       <div class="container">
@@ -24,6 +25,7 @@
     <QuckView />
     <DumplingView />
   </div>
+</client-only>
 </template>
 
 <script>

@@ -1,4 +1,5 @@
 <template>
+<client-only>
   <div class="col-lg-3 col-md-6 col-sm-6 mb-5">
     <div class="single-product-box">
       <div class="product-image pb-3">
@@ -55,6 +56,7 @@
       </div>
     </div>
   </div>
+</client-only>
 </template>
 
 <script>
