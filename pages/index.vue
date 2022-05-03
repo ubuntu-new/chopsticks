@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <Banner></Banner> -->
+    <Banner></Banner>
     <PopularProducts></PopularProducts>
     <!-- <ProductCategory></ProductCategory> -->
     <Partner></Partner>

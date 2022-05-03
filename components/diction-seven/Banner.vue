@@ -12,12 +12,12 @@
             <div class="d-table-cell">
               <div class="container">
                 <div class="main-banner-content white-color">
-                  <span>Limited Time Offer!</span>
-                  <h1>Winter-spring 2021!</h1>
-                  <p>Take 20% Off ‘Sale Must-Haves'</p>
+                  <span>Some Title Here</span>
+                  <h1>Category Name</h1>
+                  <p>Take 20% Off ‘Sale'</p>
 
-                  <a href="#" class="btn btn-primary">Shop Women's</a>
-                  <a href="#" class="btn btn-light">Shop Men's</a>
+                  <!-- <a href="#" class="btn btn-primary">Shop Women's</a>
+                  <a href="#" class="btn btn-light">Shop Men's</a> -->
                 </div>
               </div>
             </div>
@@ -25,7 +25,7 @@
         </div>
       </slide>
 
-      <slide>
+      <!-- <slide>
         <div class="main-banner item-bg11">
           <div class="d-table">
             <div class="d-table-cell">
@@ -42,9 +42,9 @@
             </div>
           </div>
         </div>
-      </slide>
+      </slide> -->
 
-      <slide>
+      <!-- <slide>
         <div class="main-banner item-bg12">
           <div class="d-table">
             <div class="d-table-cell">
@@ -61,7 +61,7 @@
             </div>
           </div>
         </div>
-      </slide>
+      </slide> -->
     </carousel>
   </div>
 </template>

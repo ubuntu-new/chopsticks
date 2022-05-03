@@ -5,16 +5,19 @@
         <div class="row align-items-center">
           <div class="col-lg-5 col-md-5">
             <ul class="top-header-nav">
-              
-              <li v-if="!loggedUser.isAuth">
+              <!-- <li v-if="!loggedUser.isAuth">
                 <nuxt-link to="/login">Login</nuxt-link>
               </li>
-              <li v-else >
+              <li v-else>
                 <nuxt-link to="#" @click="logout">Logout</nuxt-link>
-              </li>
-              <li><nuxt-link to="/signup">Signup</nuxt-link></li>
+              </li> 
+              <li><nuxt-link to="/signup">Signup</nuxt-link></li>-->
               <li><nuxt-link to="/products">Products</nuxt-link></li>
-              <li><nuxt-link to="/contact">Contact</nuxt-link></li>
+              <li class="option-item">
+                <a href="tel: +995577335080">
+                  <i class="fas fa-phone"></i> Call Us:(+995) 577335080</a
+                >
+              </li>
             </ul>
           </div>
 
@@ -29,15 +32,13 @@
           <div class="col-lg-5 col-md-6">
             <div class="top-header-others-option">
               <div class="others-option">
-                <div class="option-item">
-                  <a href="tel: +995577335080">
-                    <i class="fas fa-phone"></i> Call Us:(+995) 577335080</a
-                  >
-                </div>
                 <div v-if="!loggedUser.isAuth" class="option-item">
                   <nuxt-link to="/login">Login</nuxt-link>
                 </div>
-                <div v-else  class="option-item">
+                <div v-if="!loggedUser.isAuth" class="option-item">
+                  <nuxt-link to="/signup">Signup</nuxt-link>
+                </div>
+                <div v-else class="option-item">
                   <span @click="logout">Logout</span>
                 </div>
                 <div v-if="loggedUser.isAuth" class="option-item">
@@ -83,28 +84,28 @@ export default {
       currentLang: this.$i18n.locale,
     }
   },
-  mounted(){
-    this.$emit("onLocaleChange", this.currentLang);
+  mounted() {
+    this.$emit('onLocaleChange', this.currentLang)
     // this.currentLang = this.$i18n.locale;
     // alert(this.currentLang);
   },
   watch: {
-    currentLang(val){
+    currentLang(val) {
       // alert(val);
     },
   },
   methods: {
-    changeLang(val){
-       this.$i18n.setLocale(val);
-       this.$emit("onLocaleChange", val);
+    changeLang(val) {
+      this.$i18n.setLocale(val)
+      this.$emit('onLocaleChange', val)
       //  alert(val);
     },
     onTopPanelClose(value) {
       this.isShowing = value
     },
-    logout(){
-        this.$store.dispatch("logoutUser");
-        this.$router.push("/");
+    logout() {
+      this.$store.dispatch('logoutUser')
+      this.$router.push('/')
     },
     toggle() {
       mutations.toggleNav()
@@ -115,7 +116,7 @@ export default {
       return this.$store.getters.cart
     },
     loggedUser() {
-      return this.$store.getters.getUser;
+      return this.$store.getters.getUser
     },
   },
 }
