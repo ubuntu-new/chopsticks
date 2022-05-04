@@ -107,13 +107,13 @@ export default {
       axios
       .request({
         method: "post",
-        url: this.API_URL + "products/get-productssite",
+        url: this.API_URL + "webertela/products/list",
         headers: {
           Authorization: "Bearer " + TOKEN,
         },
       })
       .then((response) => {
-        this.products = response.data;
+        this.products = response.data.data;
         this.products.forEach(x => {
           // PRODUCT LANG CHECK
           if(this.currentLang == 'ka'){
@@ -137,6 +137,7 @@ export default {
             x.imageHover = "https://highresbio.com/wp-content/uploads/2018/03/placeholder-260x260.png";
           } 
         });
+
       });
     },
   },
