@@ -33,7 +33,7 @@
                       v-model="formUsername"
                       type="text"
                       class="form-control"
-                      placeholder="demo"
+                      placeholder="Your username"
                       name="username"
                     />
                   </div>
@@ -44,7 +44,7 @@
                       v-model="formPassword"
                       type="password"
                       class="form-control"
-                      placeholder="demo"
+                      placeholder="Your password"
                       name="password"
                     />
                   </div>
@@ -114,32 +114,30 @@ export default {
   },
   methods: {
     submit(){
-            var bodyFormData=new FormData();
-            bodyFormData.set("username", this.formUsername);
-            bodyFormData.set("password", this.formPassword);
+        var bodyFormData=new FormData();
+        bodyFormData.set("username", this.formUsername);
+        bodyFormData.set("password", this.formPassword);
 
-            axios.request({
-                    method: "post",
-                    url: this.LOGIN_URL,
-                    data: bodyFormData,
-            }).then((response) => {  
-                    if(!response.data.is_error) {
-                        // alert('LOGIN');
-                        this.response = response;
-                        // this.onPinSubmit(pin);
-                        this.$store.dispatch("addUser", response.data.data);
-                        this.$router.push('/user');
-                    }
-                    else {
-                       alert(response.data.error_message);
-                        this.loginDialog = true;
-                        this.email = '';
-                        this.password = '';
-                        this.response = response;
-                    }
+        axios.request({
+                method: "post",
+                url: this.LOGIN_URL,
+                data: bodyFormData,
+        }).then((response) => {  
+                if(!response.data.is_error) {
+                    this.response = response;
+                    this.$store.dispatch("addUser", response.data.data);
+                    this.$router.push('/'); 
                 }
-            );
-        },
+                else {
+                    alert(response.data.error_message);
+                    this.loginDialog = true;
+                    this.email = '';
+                    this.password = '';
+                    this.response = response;
+                }
+            }
+        );
+    },
   },
 }
 </script>

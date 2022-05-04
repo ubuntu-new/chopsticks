@@ -170,26 +170,6 @@
                       </tr>
 
                       <tr>
-                        <td class="order-subtotal">
-                          <span>Cart Subtotal</span>
-                        </td>
-
-                        <td class="order-subtotal-price">
-                          <span class="order-subtotal-amount"
-                            >{{ cartTotal }} &#8382;</span
-                          >
-                        </td>
-                      </tr>
-                      <!-- <tr>
-                        <td class="order-shipping">
-                          <span>Shipping</span>
-                        </td>
-
-                        <td class="shipping-price">
-                          <span>GEL 10.00</span>
-                        </td>
-                      </tr> -->
-                      <tr>
                         <td class="total-price">
                           <span>Order Total</span>
                         </td>
@@ -206,19 +186,23 @@
 
                 <div class="payment-method">
                   <p>
-                    <input type="radio" id="card" name="radio-group" />
-                    <label for="card">Pay by Card</label>
-                  </p>
-                  <p>
                     <input
                       type="radio"
                       id="cash-on-delivery"
                       name="radio-group"
+                      checked
                     />
                     <label for="cash-on-delivery">Cash on Delivery</label>
                   </p>
                 </div>
 
+                <div>
+                  <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our კონფიდენციალურობის პოლიტიკა.</p>
+                  <p>
+                    <input type="checkbox" id="terms" v-model="termsChecked" />
+                    მე გავეცანი და ვეთანხმები საიტის წესებს, <u @click="$refs['terms-modal'].show();">წესები და პირობები *</u>
+                  </p>
+                </div>
                 <a
                   href="javascript:void(0)"
                   @click="add"
@@ -232,6 +216,28 @@
       </div>
     </div>
     <!-- End Checkout Area -->
+
+    <b-modal ref="accept-modal" hide-footer>
+      <div class="d-block text-center">
+        <h3>თქვენი შეკვეთა მიღებულია და მუშავდება</h3>
+      </div>
+      <b-button class="mt-3" variant="outline-danger" block @click="closeModal">Close</b-button>
+    </b-modal>
+
+    <b-modal ref="terms-modal" hide-footer title="Terms & Conditions">
+      <div class="d-block text-center">
+        <h3>In good faith we make your order fresh from scratch, expecting payment when your pizza is delivered. Trust is important to us here at Ronny’s. Thanks for being part of our story since 2009.</h3>
+      </div>
+      <b-button class="mt-3" variant="outline-danger" block @click="acceptTermsModal">Accept</b-button>
+      <b-button class="mt-3" variant="outline-danger" block @click="declineTermsModal">Decline</b-button>
+    </b-modal>
+
+    <b-modal ref="check-modal" hide-footer >
+      <div class="d-block text-center">
+        <h3>{{ checkMessage }}</h3>
+      </div>
+      <b-button class="mt-3" variant="outline-danger" block @click="closeCheckModal">OK</b-button>
+    </b-modal>
   </div>
 </template>
 
@@ -254,23 +260,61 @@ export default {
       },
       order_data: {},
       response: {},
+      termsChecked: false,
+      checkMessage: "",
     }
   },
   computed: {
     cart() {
       return this.$store.getters.cart
     },
+    loggedUser() {
+      return this.$store.getters.getUser
+    },
     cartTotal() {
       return this.$store.getters.totalAmount
     },
   },
+  mounted() {
+    if(this.cart.length == 0){
+      this.$router.push('/');
+    }
+  },
   methods: {
+    openCheckModal(error){
+      this.$refs['check-modal'].show();
+      this.checkMessage = error;
+    },
+    closeCheckModal(){
+      this.$refs['check-modal'].hide();
+    },
+    closeModal(){
+      this.$refs['accept-modal'].hide();
+      this.$store.dispatch('cartEmpty');
+      this.$router.push('/');
+    },
+    acceptTermsModal(){
+      this.termsChecked = true;
+      this.$refs['terms-modal'].hide();
+    },
+    declineTermsModal(){
+      this.termsChecked = false;
+      this.$refs['terms-modal'].hide();
+    },
     add() {
       if(this.personDetails.fullName == '' || this.personDetails.address == '' || this.personDetails.phone == ''){
-        alert('Fullname, Address and Phone Fields Are Required!');
+        this.openCheckModal('Fullname, Address and Phone Fields Are Required!');
+      } else if(!this.termsChecked){
+        this.openCheckModal('Accept Terms And Conditions!');
       } else {
         this.order_data.items = this.cart;
         this.order_data.customer = this.personDetails;
+        this.order_data.paymentMethod = "cash-on-delivery";
+        if(this.loggedUser.isAuth){
+          this.order_data.user_id = this.loggedUser.id;
+        } else {
+          this.order_data.user_id = -10;
+        }
         this.$store.dispatch('addOrder', this.order_data)
         const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
         axios.request({
@@ -283,7 +327,9 @@ export default {
           data: this.order_data,
         }).then((response) => {
           this.response = response.data;
-          this.$store.dispatch('cartEmpty');
+          this.$refs['accept-modal'].show();
+          // this.closeModal();
+          // this.$store.dispatch('cartEmpty');
           // this.$router.push('/');
         });
       }

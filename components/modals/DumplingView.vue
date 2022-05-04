@@ -53,6 +53,7 @@
                         name="exampleRadios"
                         :id="index"
                         value="option1"
+                        checked
                       />
                       <label
                         class="form-check-labe view-full-infol"
@@ -61,7 +62,6 @@
                         {{ type }}
                       </label>
                     </div>
-
                   </div>
 
                   
@@ -107,16 +107,12 @@ export default {
   data() {
     return {
       quantity: 1,
-      types: ["Boiled", "Fried"],
-      selectedType: null,      
+      types: ["Fried", "Boiled"],
+      selectedType: "Boiled",      
       API_URL: config.head.API_URL,
     }
   },
-  mounted(){
-    
-  },
   methods: {
-    
     selectType(type){
       this.selectedType = type;
     },
@@ -130,8 +126,8 @@ export default {
         newItem.image = item.image;
         newItem.types = this.selectedType;
         newItem.quantity = this.quantity;
+        newItem.category_id = item.category_id;
         }
-
         const product = [
         {
           id: item.id,
@@ -140,16 +136,15 @@ export default {
           image: item.image,
           type: this.selectedType,
           quantity: newItem.quantity,
+          category_id: newItem.category_id,
         },
       ];
-
       if (this.cart.length > 0) {
         let id = item.id
         this.getExistPId = id
         let cartIndex = this.cart.findIndex((cart) => {
           return cart.id == id
         })
-
         if (cartIndex == -1) {
           this.$store.dispatch('addToCart', product)
           this.$toast('Added to cart', {
@@ -193,22 +188,6 @@ export default {
         this.quantity--
       }
     },
-    // changePrice(){
-    //   // var additionalPrice = 0;
-
-    //   var price = Number(this.$store.getters.selectedItem.price);
-
-    //   this.selectedToppings.forEach(x => {
-    //     price = price + (Number(x.price) * Number(x.qty));
-    //   });
-
-    //   this.selectedExtra.forEach(y => {
-    //     price = price + (Number(y.price) * Number(y.qty));
-    //   });
-      
-
-    //   return price;
-    // },
   },
   computed: {
     isDumplingViewOpen() {

@@ -46,6 +46,7 @@ export default {
       id: this.$route.params.id,
       filteredProducts: [],
       currentLang: this.$i18n.locale,
+      categories: [],
     }
   },
   components: {
@@ -59,9 +60,32 @@ export default {
     },
   },
   mounted(){
-      const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
+    const TOKEN = 'TodKtEjTTqj8HBVGmQPE3gW5TFY'
+      axios
+      .request({
+        method: 'post',
+        url: this.API_URL + 'product_categories/list',
+        headers: {
+          Authorization: 'Bearer ' + TOKEN,
+        },
+      })
+      .then((response) => {
+          this.categories = response.data
+        //   this.categories.forEach((x) => {
+        //     if(x.url == this.$route.params.id){
+        //       this.getProducts(x.id);
+        //     }
+        // });
+      });
+
+      this.getProducts();
+      
+  },
+  methods: {
+    getProducts(){
+      const TOKEN = 'TodKtEjTTqj8HBVGmQPE3gW5TFY'
       var bodyFormData = new FormData();
-      bodyFormData.set("category_id", this.id);
+      bodyFormData.set("url", this.id);
       // alert(this.currentLang+ "cat");
       axios
       .request({
@@ -96,8 +120,7 @@ export default {
           } 
         });
       });
-  },
-  methods: {
+    },
     toggle(product) {
       this.$store.dispatch('selectProduct', product)
       if(product.category_name == "WOK"){

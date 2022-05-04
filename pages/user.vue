@@ -113,7 +113,7 @@ export default {
 
         const TOKEN = 'TodKtEjTTqj8HBVGmQPE3gW5TFY'
         var bodyFormData = new FormData();
-        bodyFormData.set("user_id", this.id);
+        bodyFormData.set("user_id", this.loggedUser.id);
         axios
           .request({
             method: 'post',

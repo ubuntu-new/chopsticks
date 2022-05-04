@@ -96,6 +96,7 @@ export default {
           name: item.name,
           price: item.price,
           image: item.image,
+          category_id: item.category_id,
           quantity: this.itemQty,
         },
       ]

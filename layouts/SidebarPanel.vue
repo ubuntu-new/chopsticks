@@ -61,8 +61,7 @@
                         <div class="modal-body" v-else>
                             <h3>Empty!</h3>
                             <div @click="closeSidebarPanel" class="product-cart-btn">
-                                <nuxt-link to="/products" class="btn btn-primary">Browse All Time Hot!</nuxt-link>
-                                <nuxt-link to="/products" class="btn btn-light">Browse Latest!</nuxt-link>
+                                Cart is empty!
                             </div>
                         </div>
                     </div>

@@ -25,18 +25,27 @@
                     </td>
 
                     <td class="product-name">
-                      <nuxt-link :to="`/products-details/${cart.id}`">
                         {{ cart.name }}
-                      </nuxt-link>
-                      <ul>
-                        <li>Color: <strong>Light Blue</strong></li>
-                        <li>Size: <strong>XL</strong></li>
-                        <li>Material: <strong>Cotton</strong></li>
-                      </ul>
+                      <span v-if="cart.category_id == 1">
+                        <ul>
+                          <li v-for="(topping, index) in cart.toppings" :key="index">{{ topping.name }} - {{ topping.price }} &#8382; </li>
+                        </ul>
+                        <ul>
+                          <li>Sauce: {{ cart.sauce.name }}</li>
+                        </ul>
+                         <ul>
+                          <li v-for="(extra, index) in cart.extras" :key="index">{{ extra.name }} - {{ extra.price }} &#8382; </li>
+                        </ul>
+                      </span>
+                      <span v-if="cart.category_id == 8">
+                        <ul> 
+                          <li>{{ cart.type }}</li>
+                        </ul>
+                      </span>
                     </td>
 
                     <td class="product-price">
-                      <span class="unit-amount">${{ cart.price }}</span>
+                      <span class="unit-amount">{{ cart.price }} &#8382;</span>
                     </td>
 
                     <td class="product-quantity">
@@ -55,9 +64,8 @@
 
                     <td class="product-subtotal">
                       <span class="subtotal-amount"
-                        >${{ cart.price * cart.quantity }}</span
+                        >{{ cart.price * cart.quantity }} &#8382;</span
                       >
-
                       <a
                         href="javascript:void(0)"
                         @click="removeItemFromCart(cart.id)"
@@ -85,15 +93,12 @@
                     <h3>Cart Totals</h3>
 
                     <ul>
-                      <li>
-                        Subtotal <span>${{ cartTotal }}</span>
-                      </li>
-                      <li>Shipping <span>$10.00</span></li>
+
                       <li>
                         Total
                         <span
                           ><b
-                            >${{ parseFloat(cartTotal + 10).toFixed(2) }}</b
+                            >${{ parseFloat(cartTotal).toFixed(2) }} &#8382;</b
                           ></span
                         >
                       </li>

@@ -1,4 +1,5 @@
 <template>
+<client-only>
   <footer class="footer-area">
     <div class="container">
       <div class="row">
@@ -114,4 +115,5 @@
       </div>
     </div>
   </footer>
+</client-only>
 </template>

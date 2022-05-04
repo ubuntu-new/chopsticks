@@ -75,6 +75,9 @@ export default {
         this.$store.dispatch("logoutUser");
         this.$router.push("/");
     },
+    selectCat(cat){
+      this.$store.dispatch("activeCat", cat.id)
+    },
     getCat(){
       const TOKEN = 'TodKtEjTTqj8HBVGmQPE3gW5TFY'
       axios
@@ -88,22 +91,20 @@ export default {
         .then((response) => {
           this.categories = response.data
           this.categories.forEach((x) => {
-            x.URL = '/category/' + x.id;
+            x.URL = '/category/' + x.url;
 
             if(this.currentLang == 'ka'){
               x.name_en = x.name;
               x.name = x.name_ge;
-              x.URL = '/category/' + x.id;
+              x.URL = '/category/' + x.url;
             } else if(this.currentLang == 'ru'){
               x.name_en = x.name;
               x.name = x.name_ru;
-              x.URL = '/ru/category/' + x.id;
+              x.URL = '/ru/category/' + x.url;
             } else if(this.currentLang == 'en'){
-              x.URL = '/en/category/' + x.id;
+              x.URL = '/en/category/' + x.url;
             }
-            // alert(x.URL);
           });
-
         });
     },
   },

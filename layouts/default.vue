@@ -1,11 +1,13 @@
 <template>
   <div>
-    <TopHeaderStyleOne @onLocaleChange="updateLocale"></TopHeaderStyleOne>
-    <MenubarStyleOne :locale="localeLang" :key="localeChange"></MenubarStyleOne>
-    <Nuxt />
-    <Footer></Footer>
-    <SiteLoader v-if="loading" />
-    <BackToTop></BackToTop>
+    <client-only>
+      <TopHeaderStyleOne @onLocaleChange="updateLocale"></TopHeaderStyleOne>
+      <MenubarStyleOne :locale="localeLang" :key="localeChange"></MenubarStyleOne>
+      <Nuxt />
+      <Footer></Footer>
+      <SiteLoader v-if="loading" />
+      <BackToTop></BackToTop>
+    </client-only>
   </div>
 </template>
 

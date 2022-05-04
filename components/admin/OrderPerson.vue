@@ -6,9 +6,7 @@
                 {{ loggedUser.first_name }}'s Orders ({{data.order_data.length}} Items)
             </h3>
             <ul>
-                <li><a href="#">View</a></li>
-                <li><a href="#">Edit</a></li>
-                <li ><button>Delete</button></li>
+                <li><button @click="reorder(data.order_data)">Reorder</button></li>
             </ul>
         </div>
 
@@ -36,7 +34,7 @@
 
 <script>
 import OrderItem from './OrderItem';
-import firebase from '../../plugins/firebase';
+// import firebase from '../../plugins/firebase';
 
 export default {
     components: {
@@ -49,6 +47,12 @@ export default {
     computed: {
         loggedUser(){
             return this.$store.getters.getUser
+        },
+    },
+    methods: {
+        reorder(data){
+            this.$store.dispatch('reorderItem', data);
+            this.$router.push('/');
         },
     },
 }

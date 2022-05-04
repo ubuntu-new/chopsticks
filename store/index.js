@@ -11,6 +11,7 @@ const state = () => ({
     selectedProduct: {},
     loggedUser: { isAuth: false },
     lang: null,
+    catID: null,
 });
 
 export const totals = (paylodArr) => {
@@ -47,6 +48,10 @@ const mutations = {
         state.totalQuantity = totals(state.cart).qty
         // state.cart.push(...payload);
     },
+    'REORDER_ITEM'(state, payload){
+        state.cart = [];
+        state.cart = payload;
+    },
     'DELETE_CART'(state, id){
         const currentCartToDelete = state.cart
         const indexToDelete = currentCartToDelete.findIndex(cart => {
@@ -79,6 +84,9 @@ const mutations = {
     },
     'CHANGE_LANGUAGE'(state, payload){
         state.lang = payload
+    },
+    'CHANGE_CAT'(state, payload){
+        state.catID = payload
     },
 };
 
@@ -122,8 +130,16 @@ const actions = {
         commit('CHANGE_LANGUAGE', payload)
     },
 
+    activeCat({ commit }, payload) {
+        commit('CHANGE_CAT', payload)
+    },
+
     addToCart({ commit }, payload){
         commit('ADD_TO_CART', payload)
+    },
+
+    reorderItem({ commit }, payload){
+        commit('REORDER_ITEM', payload)
     },
 
     deleteCart({ commit }, id){
@@ -177,6 +193,9 @@ const getters = {
     },
     getOrder(state) {
         return state.order
+    },
+    getActiveCat(state) {
+        return state.catID
     }
 };
 

@@ -70,6 +70,7 @@ export default {
             image: product.image,
             nutritional: product.nutritional,
             description: product.description,
+            category_id: product.category_id,
             quantity: 1,
           }];
 

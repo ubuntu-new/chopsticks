@@ -223,6 +223,7 @@ export default {
       selectedExtra: [],
       selectedSauce: {},
       API_URL: config.head.API_URL,
+      currentLang: this.$i18n.locale
     }
   },
   mounted() {
@@ -239,6 +240,14 @@ export default {
         this.ingredients = response.data
 
         this.ingredients.forEach((x) => {
+          if(this.currentLang == 'ka'){
+            x.name_en = x.name;
+            x.name = x.name_ge;
+          } else if(this.currentLang == 'ru'){
+            x.name_en = x.name;
+            x.name = x.name_ru;
+          }
+
           if (x.product_category_id == 1) {
             x.qty = null
             this.toppings.push(x)
@@ -316,6 +325,7 @@ export default {
         newItem.extras = this.selectedExtra
         newItem.sauce = this.selectedSauce
         newItem.quantity = this.quantity
+        newItem.category_id = item.category_id
       }
 
       const product = [
@@ -328,6 +338,7 @@ export default {
           extras: this.selectedExtra,
           sauce: this.selectedSauce,
           quantity: newItem.quantity,
+          category_id: newItem.category_id,
         },
       ]
 
