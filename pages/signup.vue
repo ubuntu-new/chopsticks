@@ -91,7 +91,7 @@ export default {
       var bodyFormData = new FormData();
       bodyFormData.set("username", this.username);
       bodyFormData.set("email", this.email);
-      bodyFormData.set("password_hash", this.password);
+      bodyFormData.set("password", this.password);
         axios.request({
           method: "post",
           url:
