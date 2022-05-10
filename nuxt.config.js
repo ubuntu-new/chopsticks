@@ -100,21 +100,21 @@ export default {
     i18n: {
         defaultLocale: 'ka',
         locales: [
-          {
-            code: 'en',
-            name: 'English'
-          },
-          {
-            code: 'ka',
-            name: 'Georgian'
-          },
-          {
-            code: 'ru',
-            name: 'Russian'
-          }
+            {
+                code: 'en',
+                name: 'English'
+            },
+            {
+                code: 'ka',
+                name: 'Georgian'
+            },
+            {
+                code: 'ru',
+                name: 'Russian'
+            }
         ],
         vueI18n: i18n
-      },
+    },
     /*
     ** Globally configure <nuxt-link> default active class.
     */
@@ -130,6 +130,6 @@ export default {
         */
         extend(config, ctx) {
         },
-    target: 'static',
+        target: 'static',
     }
 }

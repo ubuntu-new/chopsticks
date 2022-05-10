@@ -1230,6 +1230,7 @@ Navbar Area CSS
                     position: relative;
                 }
                 a {
+                    text-transform: lowercase;
                     font: {
                         size: 14px;
                     }
@@ -1665,6 +1666,7 @@ Modal CSS
                             color: $paragraph-color;
                         }
                         .product-price {
+                            justify-content: space-around;
                             span {
                                 display: inline-block;
                                 margin-bottom: 0;
@@ -3034,13 +3036,12 @@ All Products Area CSS
         margin-top: 20px;
 
         h3 {
-            font-size: 18px;
-            margin-bottom: 0;
+            font-size: 1.15rem;
+            margin-bottom: 20px;
             text-transform: capitalize; 
-
+            font-weight: 600;
             a {
                 color: $black-color;
-
                 &:hover,
                 &:focus {
                     color: $black-color;
@@ -9570,9 +9571,28 @@ white-space: pre-line;
 
     .modal-footer
     {
-        justify-content: space-around !important;
+        justify-content: space-between !important;
     }
-
+    .hover
+    {
+        cursor:pointer;
+    }
+    .descr
+    {
+        height: 120px;
+    }
+    .qty
+    {
+        width: 80px;
+      
+            font-size: 1.1rem;
+       
+    }
+    .single-product-box .product-content .btn
+    {
+        width: auto;
+        text-transform: lowercase;
+    }
 
 //   .racxa
 //   {

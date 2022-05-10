@@ -1,62 +1,74 @@
 <template>
-<client-only>
-  <div class="col-lg-3 col-md-6 col-sm-6 mb-5">
-    <div class="single-product-box">
-      <div class="product-image pb-3">
-        <!-- <nuxt-link :to="`/products-details/${product.id}`"> -->
-        <img
-          :src="product.image"
-          :alt="product.name"
-          class="rounded mx-auto d-block"
-        />
-        <img
-          :src="product.imageHover"
-          :alt="product.name"
-          class="rounded mx-auto d-block"
-        />
-      </div>
+  <client-only>
+    <div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+      <div class="single-product-box">
+        <div class="product-image pb-3">
+          <!-- <nuxt-link :to="`/products-details/${product.id}`"> -->
+          <img
+            :src="product.image"
+            :alt="product.name"
+            class="rounded mx-auto d-block"
+          />
+          <img
+            :src="product.imageHover"
+            :alt="product.name"
+            class="rounded mx-auto d-block"
+          />
+        </div>
 
-      <div class="product-content">
-        <h3>
-          {{ product.name }}
-        </h3>
-        <small class=""> {{ product.description }} </small>
+        <div class="product-content">
+          <h3>
+            {{ product.name }}
+          </h3>
+          <div class="descr">
+            <small v-html="product.description"></small>
+          </div>
 
-        <div class="product-price text-left p-3">
-          <span class="old-price" v-if="product.offer">
-            {{ addZeroes(product.price - product.offerPrice) }} &#8382;
-          </span>
-          <span class="new-price" v-else>{{ addZeroes(product.price) }} &#8382;</span>
-          <a
-            class="btn btn-light"
-            href="javascript:void(0)"
-            style="width: 100px; float: right"
-            :title="product.name"
-            v-b-tooltip.hover
-            @click.prevent="quickView"
-            v-if="product.category_id == 1 || product.category_id == 8"
-          >
-            {{ $t("select") }}
-          </a>
-          <div class="price d-flex align-center" v-else>
-              <div class="qty">
-                 <i class="fa fa-minus" aria-hidden="true" @click="decreaseQty"></i>
+          <div class="p-2 modal-footer">
+            <span class="old-price" v-if="product.offer">
+              {{ addZeroes(product.price - product.offerPrice) }} &#8382;
+            </span>
+            <span class="new-price" v-else
+              >{{ addZeroes(product.price) }} &#8382;</span
+            >
+            <a
+              class="btn btn-light"
+              href="javascript:void(0)"
+              style="width: 100px; float: right"
+              :title="product.name"
+              v-b-tooltip.hover
+              @click.prevent="quickView"
+              v-if="product.category_id == 1 || product.category_id == 8"
+            >
+              {{ $t('select') }}
+            </a>
+            <div class="price d-flex align-content-around" v-else>
+              <div class="qty p-1">
+                <i
+                  class="fa fa-minus"
+                  aria-hidden="true"
+                  @click="decreaseQty"
+                ></i>
                 {{ itemQty }}
-                <i class="fa fa-plus" aria-hidden="true" @click="increaseQty"></i>
+                <i
+                  class="fa fa-plus"
+                  aria-hidden="true"
+                  @click="increaseQty"
+                ></i>
               </div>
               <button
                 type="button"
                 class="btn btn-light"
                 @click="addToCart(product)"
               >
-                {{ $t("addCart") }}
+                {{ $t('addCart') }}
               </button>
             </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</client-only>
+  </client-only>
 </template>
 
 <script>
@@ -76,15 +88,18 @@ export default {
   },
   methods: {
     addZeroes(num) {
-      return num.toLocaleString("en", {useGrouping: false, minimumFractionDigits: 2})
+      return num.toLocaleString('en', {
+        useGrouping: false,
+        minimumFractionDigits: 2,
+      })
     },
-     decreaseQty() {
+    decreaseQty() {
       if (this.itemQty > 1) {
-        this.itemQty--;
+        this.itemQty--
       }
     },
     increaseQty() {
-      this.itemQty++;
+      this.itemQty++
     },
     quickView(e) {
       this.$emit('clicked')
@@ -127,7 +142,7 @@ export default {
           icon: 'fas fa-cart-plus',
         })
       }
-      this.itemQty = 1;
+      this.itemQty = 1
     },
   },
 }

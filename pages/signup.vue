@@ -53,7 +53,9 @@
               />
             </div>
 
-            <button type="submit" @click="submit" class="btn btn-primary">Signup</button>
+            <button type="submit" @click="submit" class="btn btn-primary">
+              Signup
+            </button>
 
             <nuxt-link to="/" class="return-store"
               >or Return to Store</nuxt-link
@@ -68,16 +70,16 @@
 <script>
 import TopHeader from '../layouts/TopHeader'
 import Menubar from '../layouts/Menubar'
-import config from "@/nuxt.config"
+import config from '@/nuxt.config'
 import axios from 'axios'
 
 export default {
   data() {
     return {
       API_URL: config.head.API_URL,
-      username: "",
-      password: "",
-      email: "",
+      username: '',
+      password: '',
+      email: '',
       response: null,
     }
   },
@@ -86,24 +88,25 @@ export default {
     Menubar,
   },
   methods: {
-    submit(){
-      const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
-      var bodyFormData = new FormData();
-      bodyFormData.set("username", this.username);
-      bodyFormData.set("email", this.email);
-      bodyFormData.set("password_hash", this.password);
-        axios.request({
-          method: "post",
-          url:
-            this.API_URL + "s-user/signup",
+    submit() {
+      const TOKEN = 'TodKtEjTTqj8HBVGmQPE3gW5TFY'
+      var bodyFormData = new FormData()
+      bodyFormData.set('username', this.username)
+      bodyFormData.set('email', this.email)
+      bodyFormData.set('password', this.password)
+      axios
+        .request({
+          method: 'post',
+          url: this.API_URL + 's-user/signup',
           headers: {
-            Authorization: "Bearer " + TOKEN,
+            Authorization: 'Bearer ' + TOKEN,
           },
           data: bodyFormData,
-        }).then((response) => {
-          this.response = response.data;
-          this.$router.push("/login");
-        });
+        })
+        .then((response) => {
+          this.response = response.data
+          this.$router.push('/login')
+        })
     },
   },
 }
