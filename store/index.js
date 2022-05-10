@@ -51,6 +51,8 @@ const mutations = {
     'REORDER_ITEM'(state, payload){
         state.cart = [];
         state.cart = payload;
+        state.totalAmount = totals(state.cart).amount
+        state.totalQuantity = totals(state.cart).qty
     },
     'DELETE_CART'(state, id){
         const currentCartToDelete = state.cart

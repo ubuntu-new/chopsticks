@@ -13,7 +13,6 @@
                 <nuxt-link to="#" @click="logout">Logout</nuxt-link>
               </li> 
               <li><nuxt-link to="/signup">Signup</nuxt-link></li>-->
-              <li><nuxt-link to="/products">Products</nuxt-link></li>
               <li class="option-item">
                 <a href="tel: +995577335080">
                   <i class="fas fa-phone"></i> Call Us:(+995) 577335080</a
@@ -24,7 +23,13 @@
 
           <div class="col-lg-2 col-md-2">
             <div class="top-header-logo">
-              <nuxt-link to="/" class="d-inline-block">
+              <nuxt-link to="/" v-if="$i18n.locale == 'ka'" class="d-inline-block">
+                <img src="../assets/img/logo.webp" alt="image" />
+              </nuxt-link>
+              <nuxt-link to="/en" v-else-if="$i18n.locale == 'en'" class="d-inline-block">
+                <img src="../assets/img/logo.webp" alt="image" />
+              </nuxt-link>
+              <nuxt-link to="/ru" v-else-if="$i18n.locale == 'ru'" class="d-inline-block">
                 <img src="../assets/img/logo.webp" alt="image" />
               </nuxt-link>
             </div>

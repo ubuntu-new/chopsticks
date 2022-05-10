@@ -63,8 +63,8 @@
                         >Enterance to building</label
                       >
                       <input
-                        type="email"
-                        id="email"
+                        type="text"
+                        id="enterance"
                         v-model="personDetails.enterance"
                         class="form-control"
                       />
@@ -77,8 +77,8 @@
                         >Enterance security code</label
                       >
                       <input
-                        type="email"
-                        id="email"
+                        type="text"
+                        id="security"
                         v-model="personDetails.security"
                         class="form-control"
                       />
@@ -91,8 +91,8 @@
                         >Floor</label
                       >
                       <input
-                        type="email"
-                        id="email"
+                        type="text"
+                        id="floor"
                         v-model="personDetails.floor"
                         class="form-control"
                       />
@@ -105,8 +105,8 @@
                         >Flat Number</label
                       >
                       <input
-                        type="email"
-                        id="email"
+                        type="text"
+                        id="flat"
                         v-model="personDetails.flat"
                         class="form-control"
                       />
@@ -217,14 +217,21 @@
     </div>
     <!-- End Checkout Area -->
 
-    <b-modal ref="accept-modal" hide-footer>
+    <b-modal ref="accept-modal" no-close-on-backdrop hide-footer>
       <div class="d-block text-center">
         <h3>თქვენი შეკვეთა მიღებულია და მუშავდება</h3>
       </div>
       <b-button class="mt-3" variant="outline-danger" block @click="closeModal">Close</b-button>
     </b-modal>
 
-    <b-modal ref="terms-modal" hide-footer title="Terms & Conditions">
+    <b-modal ref="error-modal" no-close-on-backdrop hide-footer>
+      <div class="d-block text-center">
+        <h3>შეკვეთის მიღებისას მოხდა შეცდომა!</h3>
+      </div>
+      <b-button class="mt-3" variant="outline-danger" block @click="closeErrorModal">Close</b-button>
+    </b-modal>
+
+    <b-modal ref="terms-modal" no-close-on-backdrop hide-footer title="Terms & Conditions">
       <div class="d-block text-center">
         <h3>In good faith we make your order fresh from scratch, expecting payment when your pizza is delivered. Trust is important to us here at Ronny’s. Thanks for being part of our story since 2009.</h3>
       </div>
@@ -232,7 +239,7 @@
       <b-button class="mt-3" variant="outline-danger" block @click="declineTermsModal">Decline</b-button>
     </b-modal>
 
-    <b-modal ref="check-modal" hide-footer >
+    <b-modal ref="check-modal" no-close-on-backdrop hide-footer >
       <div class="d-block text-center">
         <h3>{{ checkMessage }}</h3>
       </div>
@@ -293,6 +300,9 @@ export default {
       this.$store.dispatch('cartEmpty');
       this.$router.push('/');
     },
+    closeErrorModal(){
+      this.$refs['error-modal'].hide();
+    },
     acceptTermsModal(){
       this.termsChecked = true;
       this.$refs['terms-modal'].hide();
@@ -327,7 +337,11 @@ export default {
           data: this.order_data,
         }).then((response) => {
           this.response = response.data;
-          this.$refs['accept-modal'].show();
+          if(response.data == null){
+            this.$refs['error-modal'].show();
+          } else {
+            this.$refs['accept-modal'].show();
+          }
           // this.closeModal();
           // this.$store.dispatch('cartEmpty');
           // this.$router.push('/');

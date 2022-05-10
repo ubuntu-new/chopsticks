@@ -111,9 +111,11 @@ export default {
             x.description = x.description_ru;
             x.name = x.name_ru;
           }
-           if(x.s != null || x.m != null) {
-            x.image = x.s;
-            x.imageHover = x.m;
+          var serverPath = "https://chopsticks.webertela.online/back_api/backend/web/images/store/";
+
+          if(x.filePath != null ) {
+            x.image = serverPath + x.filePath;
+            x.imageHover = serverPath + x.filePath;
           } else {
             x.image = "https://highresbio.com/wp-content/uploads/2018/03/placeholder-260x260.png";
             x.imageHover = "https://highresbio.com/wp-content/uploads/2018/03/placeholder-260x260.png";
@@ -123,7 +125,7 @@ export default {
     },
     toggle(product) {
       this.$store.dispatch('selectProduct', product)
-      if(product.category_name == "WOK"){
+      if(product.category_id == 1){
         mutations.toggleQuickView()
       } else if(product.category_id == 8) {
         mutations.toggleDumplingView()
