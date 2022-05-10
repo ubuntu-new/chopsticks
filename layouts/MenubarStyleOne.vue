@@ -104,6 +104,7 @@ export default {
             } else if(this.currentLang == 'en'){
               x.URL = '/en/category/' + x.url;
             }
+            
           });
         });
     },
