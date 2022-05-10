@@ -27,7 +27,6 @@
 
                                     <div class="product-content">
                                         <h3><a href="#">{{cart.name}}</a></h3>
-                                        <span>Blue / XS</span>
                                         <div class="product-price">
                                             <span>{{cart.quantity}}</span>
                                             <span>x</span>

@@ -316,7 +316,7 @@ export default {
     closeQuickView: mutations.toggleQuickView,
     addToCart(item) {
       var newItem = {}
-      if (item.category_name == 'WOK') {
+      if (item.category_id == 1) {
         newItem.id = item.id
         newItem.name = item.name
         newItem.price = item.price

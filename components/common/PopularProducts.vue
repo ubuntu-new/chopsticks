@@ -131,9 +131,12 @@ export default {
             }
             // END OF PRODUCT LANG CHECK
 
-            if (x.s != null || x.m != null) {
-              x.image = x.s
-              x.imageHover = x.m
+            var serverPath =
+              'https://chopsticks.webertela.online/back_api/backend/web/images/store/'
+
+            if (x.filePath != null) {
+              x.image = serverPath + x.filePath
+              x.imageHover = serverPath + x.filePath
             } else {
               x.image =
                 'https://highresbio.com/wp-content/uploads/2018/03/placeholder-260x260.png'
@@ -141,6 +144,16 @@ export default {
                 'https://highresbio.com/wp-content/uploads/2018/03/placeholder-260x260.png'
             }
           })
+
+          if (x.s != null || x.m != null) {
+            x.image = x.s
+            x.imageHover = x.m
+          } else {
+            x.image =
+              'https://highresbio.com/wp-content/uploads/2018/03/placeholder-260x260.png'
+            x.imageHover =
+              'https://highresbio.com/wp-content/uploads/2018/03/placeholder-260x260.png'
+          }
         })
     },
   },

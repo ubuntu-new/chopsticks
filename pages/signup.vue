@@ -88,7 +88,6 @@ export default {
     Menubar,
   },
   methods: {
-<<<<<<< HEAD
     submit() {
       const TOKEN = 'TodKtEjTTqj8HBVGmQPE3gW5TFY'
       var bodyFormData = new FormData()
@@ -99,18 +98,6 @@ export default {
         .request({
           method: 'post',
           url: this.API_URL + 's-user/signup',
-=======
-    submit(){
-      const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
-      var bodyFormData = new FormData();
-      bodyFormData.set("username", this.username);
-      bodyFormData.set("email", this.email);
-      bodyFormData.set("password", this.password);
-        axios.request({
-          method: "post",
-          url:
-            this.API_URL + "s-user/signup",
->>>>>>> 418a99f558aacd2340c01b553d9315f319e835e1
           headers: {
             Authorization: 'Bearer ' + TOKEN,
           },
