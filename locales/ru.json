@@ -1,16 +1,16 @@
 {
     "shop": "Some English Quote",
-    "choose": "Choose Toppings",
+    "choose": "Выберите топпинги",
     "extras": "Extras",
     "drinks": "Drinks",
     "sticks": "Sticks",
     "contact": "Contact",
-    "add t oppings": "Add toppings",
-    "login": "Login",
-    "cart": "Cart",
-    "select": "Select",
-    "addCart": "Add To Cart Rus",
+    "add t oppings": "Добавить топпинги",
+    "login": "Вход",
+    "cart": "Корзина",
+    "select": "Выбрать",
+    "addCart": "Добавить в корзину",
     "sauce": "выберите соус",
     "extstra": "Екстра Топпингс",
-    "from": "From"
+    "from": "От"
 }

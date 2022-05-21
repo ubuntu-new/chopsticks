@@ -13,25 +13,38 @@
                 <nuxt-link to="#" @click="logout">Logout</nuxt-link>
               </li> 
               <li><nuxt-link to="/signup">Signup</nuxt-link></li>-->
-              <li class="option-item">
-                <a href="tel: +995577335080">
-                  <i class="fas fa-phone"></i> Call Us:(+995) 577335080</a
-                >
-              </li>
-            </ul>
-          </div>
+                <li class="option-item">
+                  <a href="tel: +995577335080">
+                    <i class="fas fa-phone"></i> Call Us:(+995) 577335080</a
+                  >
+                </li>
+              </ul>
+            </div>
 
-          <div class="col-lg-2 col-md-2">
-            <div class="top-header-logo">
-              <nuxt-link to="/" v-if="$i18n.locale == 'ka'" class="d-inline-block">
-                <img src="../assets/img/logo.webp" alt="image" />
-              </nuxt-link>
-              <nuxt-link to="/en" v-else-if="$i18n.locale == 'en'" class="d-inline-block">
-                <img src="../assets/img/logo.webp" alt="image" />
-              </nuxt-link>
-              <nuxt-link to="/ru" v-else-if="$i18n.locale == 'ru'" class="d-inline-block">
-                <img src="../assets/img/logo.webp" alt="image" />
-              </nuxt-link>
+            <div class="col-lg-2 col-md-2">
+              <div class="top-header-logo">
+                <nuxt-link
+                  to="/"
+                  v-if="$i18n.locale == 'ka'"
+                  class="d-inline-block"
+                >
+                  <img src="../assets/img/logo.webp" alt="image" />
+                </nuxt-link>
+                <nuxt-link
+                  to="/en"
+                  v-else-if="$i18n.locale == 'en'"
+                  class="d-inline-block"
+                >
+                  <img src="../assets/img/logo.webp" alt="image" />
+                </nuxt-link>
+                <nuxt-link
+                  to="/ru"
+                  v-else-if="$i18n.locale == 'ru'"
+                  class="d-inline-block"
+                >
+                  <img src="../assets/img/logo.webp" alt="image" />
+                </nuxt-link>
+              </div>
             </div>
 
             <div class="col-lg-5 col-md-6">
@@ -55,16 +68,14 @@
                       <i class="fas fa-shopping-bag"></i>
                     </a>
                   </div>
-                  <div class="option-item hover" v-if="$i18n.locale == 'ka'">
+                  <div class="option-item" v-if="$i18n.locale == 'ka'">
                     <span @click="changeLang('en')">En</span>
                   </div>
-                  <div
-                    class="option-item hover"
-                    v-else-if="$i18n.locale == 'en'"
-                  >
+                  <div class="option-item" v-else-if="$i18n.locale == 'en'">
                     <span @click="changeLang('ru')">Рус</span>
                   </div>
-                  <div class="option-item hover" v-else>
+                  <div class="option-item" v-else>
+                    <!-- <nuxt-link :to="switchLocalePath('ka')">ქარ</nuxt-link> -->
                     <span @click="changeLang('ka')">ქარ</span>
                   </div>
                 </div>
