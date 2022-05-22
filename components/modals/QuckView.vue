@@ -100,6 +100,34 @@
                   </h6>
                   <div class="col-auto p-0">
                     <div
+                      class="form-check mb-2 p-0 unselectable"
+                      v-for="(sauce, index) in sauces"
+                      :key="index"
+                      @click="increaseSauce(sauce)"
+                    >
+                      <i
+                        class="fa fa-plus font-icons"
+                        aria-hidden="true"
+                        v-if="sauce.qty == null"
+                      ></i>
+                      <i
+                        class="fa fa-check green font-icons"
+                        aria-hidden="true"
+                        v-else
+                      ></i>
+                      <label class="form-check-label">
+                        <span class="topping-title" v-if="sauce.qty == null">
+                          {{ sauce.name }}
+                        </span>
+                        <span class="topping-title" v-else>
+                          {{ sauce.name }} X {{ sauce.qty }}
+                        </span>
+
+                        </label
+                      >
+                    </div>
+                    
+                    <!-- <div
                       class="form-check unselectable"
                       v-for="(sauce, index) in sauces"
                       :key="index"
@@ -118,7 +146,7 @@
                       >
                         {{ sauce.name }}
                       </label>
-                    </div>
+                    </div> -->
                   </div>
 
                   <h6 class="mt-3 view-full-info mb-3 green">
@@ -221,7 +249,7 @@ export default {
       extras: [],
       selectedToppings: [],
       selectedExtra: [],
-      selectedSauce: {},
+      selectedSauce: [],
       API_URL: config.head.API_URL,
       currentLang: this.$i18n.locale
     }
@@ -306,6 +334,26 @@ export default {
       } else {
         extra.qty = 1
         this.selectedExtra.push(extra)
+      }
+      this.changePrice()
+      this.$forceUpdate()
+    },
+    increaseSauce(sauce) {
+      if (this.selectedSauce.filter((x) => x.name === sauce.name).length > 0) {
+        var index = this.selectedSauce.indexOf(sauce)
+        if (this.selectedSauce[index].qty < 4) {
+          this.selectedSauce[index].qty = this.selectedSauce[index].qty + 1
+          sauce.qty = this.selectedSauce[index].qty
+        } else {
+          // alert('DELETE TOPPING');
+
+          // this.selectedToppings[index].qty = null;
+          this.selectedSauce.splice(index, 1)
+          sauce.qty = null
+        }
+      } else {
+        sauce.qty = 1
+        this.selectedSauce.push(sauce)
       }
       this.changePrice()
       this.$forceUpdate()

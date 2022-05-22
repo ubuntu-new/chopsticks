@@ -28,12 +28,15 @@
                         {{ cart.name }}
                       <span v-if="cart.category_id == 1">
                         <ul>
+                          Toppings
                           <li v-for="(topping, index) in cart.toppings" :key="index">{{ topping.name }} - {{ topping.price }} &#8382; </li>
                         </ul>
                         <ul>
-                          <li>Sauce: {{ cart.sauce.name }}</li>
+                          Sauces
+                          <li v-for="(sauce, index) in cart.sauce" :key="index"> {{ sauce.name }}</li>
                         </ul>
                          <ul>
+                           Extras
                           <li v-for="(extra, index) in cart.extras" :key="index">{{ extra.name }} - {{ extra.price }} &#8382; </li>
                         </ul>
                       </span>

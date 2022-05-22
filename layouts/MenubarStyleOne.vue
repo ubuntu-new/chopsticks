@@ -18,9 +18,9 @@
                   v-for="(category, index) in categories"
                   :key="index"
                 >
-                  <nuxt-link :to="category.URL">
+                  <!-- <nuxt-link :to="category.url">
                     {{ category.name }}
-                  </nuxt-link>
+                  </nuxt-link> -->
                 </li>
               </ul>
             </b-collapse>
@@ -42,7 +42,7 @@ export default {
     return {
       API_URL: config.head.API_URL,
       isSticky: false,
-      categories: [],
+      categories: {},
       currentLang: this.$i18n.locale,
     }
   },
@@ -104,7 +104,6 @@ export default {
             } else if(this.currentLang == 'en'){
               x.URL = '/en/category/' + x.url;
             }
-            
           });
         });
     },
