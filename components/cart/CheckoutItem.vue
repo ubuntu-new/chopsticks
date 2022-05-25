@@ -48,12 +48,11 @@
                   <div class="col-lg-12 col-md-6">
                     <div class="form-group">
                       <label>Address <span class="required">*</span></label>
-                      <input
-                        type="text"
-                        id="address"
-                        v-model="personDetails.address"
-                        class="form-control"
-                      />
+                      <gmap-autocomplete
+                          placeholder=""
+                          class="form-control"
+                          @place_changed="setPlace">
+                      </gmap-autocomplete>
                     </div>
                   </div>
 
@@ -254,6 +253,8 @@ import config from "@/nuxt.config"
 export default {
   data() {
     return {
+      place: {},
+      mapURL: "",
       API_URL: config.head.API_URL,
       personDetails: {
         fullName: '',
@@ -265,6 +266,7 @@ export default {
         floor: '',
         flat: '',
       },
+      smsMessage: "Your Order has Been Accepted!",
       order_data: {},
       response: {},
       termsChecked: false,
@@ -288,6 +290,11 @@ export default {
     }
   },
   methods: {
+    setPlace(place) {
+      this.personDetails.address = place.name;
+        this.place = place;
+        this.mapURL = "https://www.google.com/maps/search/?api=1&query=qwerty&query_place_id=" + this.place.place_id;
+    },
     openCheckModal(error){
       this.$refs['check-modal'].show();
       this.checkMessage = error;
@@ -311,6 +318,26 @@ export default {
       this.termsChecked = false;
       this.$refs['terms-modal'].hide();
     },
+    sendSMS(number, message){
+
+        const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
+        var bodyFormData = new FormData();
+        bodyFormData.set("mobile", number);
+        bodyFormData.set("text", message);
+
+        axios
+            .request({
+            method: "post",
+            url: this.API_URL + "sms/send",
+            headers: {
+                Authorization: "Bearer " + TOKEN,
+            },
+            data: bodyFormData,
+            })
+            .then((response) => {
+            // this.response = response.data;
+        });
+    },
     add() {
       if(this.personDetails.fullName == '' || this.personDetails.address == '' || this.personDetails.phone == ''){
         this.openCheckModal('Fullname, Address and Phone Fields Are Required!');
@@ -319,6 +346,7 @@ export default {
       } else {
         this.order_data.items = this.cart;
         this.order_data.customer = this.personDetails;
+        this.order_data.customer.mapURL = this.mapURL;
         this.order_data.paymentMethod = "cash-on-delivery";
         if(this.loggedUser.isAuth){
           this.order_data.user_id = this.loggedUser.id;
@@ -341,6 +369,8 @@ export default {
             this.$refs['error-modal'].show();
           } else {
             this.$refs['accept-modal'].show();
+            this.smsMessage = this.smsMessage + " MAP: " + this.mapURL;
+            this.sendSMS(this.personDetails.phone, this.smsMessage);
           }
           // this.closeModal();
           // this.$store.dispatch('cartEmpty');

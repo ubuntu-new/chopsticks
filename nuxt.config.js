@@ -90,6 +90,7 @@ export default {
         { src: '~/plugins/vue-toastification', ssr: false },
         { src: '~/plugins/vueperslides', ssr: false },
         { src: '~/plugins/persistedState.client.js', ssr: false },
+        { src: '~/plugins/maps.js', ssr: false },
         // { src: '~/plugins/firebase' },
     ],
     /*

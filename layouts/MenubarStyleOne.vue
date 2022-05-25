@@ -18,9 +18,9 @@
                   v-for="(category, index) in categories"
                   :key="index"
                 >
-                  <!-- <nuxt-link :to="category.url">
+                  <nuxt-link :to="category.URL">
                     {{ category.name }}
-                  </nuxt-link> -->
+                  </nuxt-link>
                 </li>
               </ul>
             </b-collapse>

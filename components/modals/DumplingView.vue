@@ -22,7 +22,14 @@
               <div class="col-sm-12">
                 <div class="productQuickView-image pb-3">
                   <img
+                    v-if="selectedType == 'Boiled'"
                     :src="selectedProduct.image"
+                    alt="image"
+                    class="rounded mx-auto d-block"
+                  />
+                  <img
+                    v-else
+                    src="https://chopsticks.webertela.online/back_api/backend/web/images/store/Products/dumpl_fried.jpg"
                     alt="image"
                     class="rounded mx-auto d-block"
                   />
@@ -47,6 +54,10 @@
                   <div class="col-auto">
 
                     <div class="form-check unselectable" v-for="(type, index) in types" :key="index" @click="selectType(type)">
+                      <label
+                        class="form-check-labe view-full-infol"
+                        for="exampleRadios"
+                      >
                       <input
                         class="form-check-input"
                         type="radio"
@@ -55,10 +66,6 @@
                         value="option1"
                         checked
                       />
-                      <label
-                        class="form-check-labe view-full-infol"
-                        for="exampleRadios1"
-                      >
                         {{ type }}
                       </label>
                     </div>
@@ -114,7 +121,17 @@ export default {
   },
   methods: {
     selectType(type){
+      // var friedDumpling = 'https://chopsticks.webertela.online/back_api/backend/web/images/store/Products/dumpl_fried.jpg';
+      // if(type == 'Fried') {
+      //   this.selectedProduct.oldImage = this.selectedProduct.image;
+      //   this.selectedProduct.image = friedDumpling;
+      //   alert('FRIED');
+      // } else {
+      //   this.selectedProduct.image = this.selectedProduct.oldImage;
+      //   alert('BOILED');
+      // }
       this.selectedType = type;
+      this.$forceUpdate();
     },
     closeQuickView: mutations.toggleDumplingView,
     addToCart(item) {
