@@ -369,7 +369,7 @@ export default {
             this.$refs['error-modal'].show();
           } else {
             this.$refs['accept-modal'].show();
-            this.smsMessage = this.smsMessage + " MAP: " + this.mapURL;
+            this.smsMessage = this.smsMessage;
             this.sendSMS(this.personDetails.phone, this.smsMessage);
           }
           // this.closeModal();
