@@ -18,6 +18,12 @@
                     <i class="fas fa-phone"></i> Call Us:(+995) 577335080</a
                   >
                 </li>
+                <li class="option-item" v-if="isOpen">
+                    WE ARE OPEN!
+                </li>
+                <li class="option-item" v-else>
+                    WE ARE CLOSED!
+                </li>
               </ul>
             </div>
 
@@ -102,19 +108,32 @@ export default {
     return {
       isShowing: true,
       currentLang: this.$i18n.locale,
+      isOpen: false,
+      date: new Date(),
     }
   },
   mounted() {
     this.$emit('onLocaleChange', this.currentLang)
     // this.currentLang = this.$i18n.locale;
     // alert(this.currentLang);
-  },
-  watch: {
-    currentLang(val) {
-      // alert(val);
-    },
+    this.checkOpenBranch();
   },
   methods: {
+    checkOpenBranch(){
+      var branchClose = new Date();
+      var branchOpen = new Date();
+
+      branchClose.setHours(23, 0, 0);
+      branchOpen.setHours(11, 0, 0);
+
+       if (this.date >= branchOpen && this.date <= branchClose) {
+        this.isOpen = true;
+      } else {
+        this.isOpen = false;
+      }
+      this.$store.dispatch('isBranchOpen', this.isOpen);
+      this.$forceUpdate();
+    },
     changeLang(val) {
       this.$i18n.setLocale(val)
       this.$emit('onLocaleChange', val)

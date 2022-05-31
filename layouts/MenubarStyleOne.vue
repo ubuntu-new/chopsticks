@@ -6,24 +6,21 @@
         <div class="container">
           <nav class="navbar navbar-expand-md navbar-light">
             <b-navbar-toggle target="navbarSupportedContent"></b-navbar-toggle>
-
-            <b-collapse
-              class="collapse navbar-collapse"
-              id="navbarSupportedContent"
-              is-nav
-            >
               <ul class="navbar-nav">
                 <li
                   class="nav-item"
-                  v-for="(category, index) in categories"
+                  v-for="(category, index) in main"
                   :key="index"
                 >
-                  <nuxt-link :to="category.URL">
+                  <!-- <nuxt-link :to="category.URL">
                     {{ category.name }}
-                  </nuxt-link>
+                  </nuxt-link> -->
+                  <b-button v-if="category.child.length == 0">{{ category.name }}</b-button>
+                  <b-dropdown v-else :text="category.name" color="white">
+                  <b-dropdown-item v-for="(child, index) in category.child" :key="index" :href="child.URL">{{ child.name }}</b-dropdown-item>
+                </b-dropdown>
                 </li>
               </ul>
-            </b-collapse>
           </nav>
         </div>
       </div>
@@ -44,13 +41,14 @@ export default {
       isSticky: false,
       categories: {},
       currentLang: this.$i18n.locale,
+      main: [],
     }
   },
   props: ['locale'],
   computed: {
     localLang() {
       this.currentLang = this.$i18n.locale;
-      this.getCat();
+      // this.getCat();
       return this.currentLang;
     },
   },
@@ -89,7 +87,7 @@ export default {
           },
         })
         .then((response) => {
-          this.categories = response.data
+          this.categories = response.data;
           this.categories.forEach((x) => {
             x.URL = '/category/' + x.url;
 
@@ -104,6 +102,22 @@ export default {
             } else if(this.currentLang == 'en'){
               x.URL = '/en/category/' + x.url;
             }
+          });
+
+          // this.categories = main;
+          this.categories.forEach((x) => {
+            if(x.ismain == null){
+              this.main.push(x);
+            }
+          });
+          this.main.forEach(x => {
+            x.child = [];
+            this.categories.forEach(y => {
+              if(x.id == y.ismain){
+                // alert(x.id);
+                x.child.push(y);
+              }
+            });
           });
         });
     },

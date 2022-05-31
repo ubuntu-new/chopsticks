@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <form>
+        <form autocomplete="off">
           <div class="row">
             <div class="col-lg-6 col-md-12">
               <div class="billing-details">
@@ -49,6 +49,7 @@
                     <div class="form-group">
                       <label>Address <span class="required">*</span></label>
                       <gmap-autocomplete
+                      
                           placeholder=""
                           class="form-control"
                           @place_changed="setPlace">
@@ -204,14 +205,21 @@
                 </div>
                 <a
                   href="javascript:void(0)"
-                  @click="add"
+                  @click="add('cash')"
                   class="btn btn-primary order-btn"
-                  >Place Order</a
+                  >Cash On Delivery</a
+                >
+                <a
+                  href="javascript:void(0)"
+                  @click="add('online')"
+                  class="btn btn-primary order-btn"
+                  >Online Payment</a
                 >
               </div>
             </div>
           </div>
         </form>
+
       </div>
     </div>
     <!-- End Checkout Area -->
@@ -250,6 +258,8 @@
 <script>
 import axios from 'axios'
 import config from "@/nuxt.config"
+
+
 export default {
   data() {
     return {
@@ -338,44 +348,48 @@ export default {
             // this.response = response.data;
         });
     },
-    add() {
-      if(this.personDetails.fullName == '' || this.personDetails.address == '' || this.personDetails.phone == ''){
-        this.openCheckModal('Fullname, Address and Phone Fields Are Required!');
-      } else if(!this.termsChecked){
-        this.openCheckModal('Accept Terms And Conditions!');
-      } else {
-        this.order_data.items = this.cart;
-        this.order_data.customer = this.personDetails;
-        this.order_data.customer.mapURL = this.mapURL;
-        this.order_data.paymentMethod = "cash-on-delivery";
-        if(this.loggedUser.isAuth){
-          this.order_data.user_id = this.loggedUser.id;
+    add(paymentType) {
+      if(paymentType == 'cash'){
+        if(this.personDetails.fullName == '' || this.personDetails.address == '' || this.personDetails.phone == ''){
+          this.openCheckModal('Fullname, Address and Phone Fields Are Required!');
+        } else if(!this.termsChecked){
+          this.openCheckModal('Accept Terms And Conditions!');
         } else {
-          this.order_data.user_id = -10;
-        }
-        this.$store.dispatch('addOrder', this.order_data)
-        const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
-        axios.request({
-          method: "post",
-          url:
-            this.API_URL + "orders/create",
-          headers: {
-            Authorization: "Bearer " + TOKEN,
-          },
-          data: this.order_data,
-        }).then((response) => {
-          this.response = response.data;
-          if(response.data == null){
-            this.$refs['error-modal'].show();
+          this.order_data.items = this.cart;
+          this.order_data.customer = this.personDetails;
+          this.order_data.customer.mapURL = this.mapURL;
+          this.order_data.paymentMethod = "cash-on-delivery";
+          if(this.loggedUser.isAuth){
+            this.order_data.user_id = this.loggedUser.id;
           } else {
-            this.$refs['accept-modal'].show();
-            this.smsMessage = this.smsMessage;
-            this.sendSMS(this.personDetails.phone, this.smsMessage);
+            this.order_data.user_id = -10;
           }
-          // this.closeModal();
-          // this.$store.dispatch('cartEmpty');
-          // this.$router.push('/');
-        });
+          this.$store.dispatch('addOrder', this.order_data)
+          const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
+          axios.request({
+            method: "post",
+            url:
+              this.API_URL + "orders/create",
+            headers: {
+              Authorization: "Bearer " + TOKEN,
+            },
+            data: this.order_data,
+          }).then((response) => {
+            this.response = response.data;
+            if(response.data == null){
+              this.$refs['error-modal'].show();
+            } else {
+              this.$refs['accept-modal'].show();
+              this.smsMessage = this.smsMessage;
+              this.sendSMS(this.personDetails.phone, this.smsMessage);
+            }
+            // this.closeModal();
+            // this.$store.dispatch('cartEmpty');
+            // this.$router.push('/');
+          });
+        }
+      } else if(paymentType == 'online'){
+         this.openCheckModal('ONLINE BANK PAYMENT');
       }
     },
   },

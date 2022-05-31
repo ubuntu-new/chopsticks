@@ -1,7 +1,7 @@
 <template>
     <div>
-        <TopHeader />
-        <Menubar />
+        <!-- <TopHeader /> -->
+        <!-- <Menubar /> -->
         <!-- Start Page Title Area -->
         <div class="page-title-area">
             <div class="container">

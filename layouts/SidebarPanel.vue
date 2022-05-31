@@ -52,9 +52,12 @@
                                 <span class="subtotal">{{cartTotal}} &#8382;</span>
                             </div>
 
-                            <div @click="closeSidebarPanel" class="product-cart-btn">
+                            <div @click="closeSidebarPanel" class="product-cart-btn" v-if="cartTotal >= 20">
                                 <nuxt-link to="/checkout" class="btn btn-primary">Proceed to Checkout</nuxt-link>
                                 <nuxt-link to="/cart" class="btn btn-light">View Shopping Cart</nuxt-link>
+                            </div>
+                            <div class="product-cart-btn " v-else>
+                                <div class="btn btn-primary disabled">Min order is 20 GEL</div>
                             </div>
                         </div>
                         <div class="modal-body" v-else>

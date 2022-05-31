@@ -85,7 +85,7 @@
               <div class="row">
                 <div class="col-lg-7 col-md-7">
                   <div class="continue-shopping-box">
-                    <nuxt-link to="/products" class="btn btn-light"
+                    <nuxt-link to="/checkout" class="btn btn-light"
                       >Continue Shopping</nuxt-link
                     >
                   </div>

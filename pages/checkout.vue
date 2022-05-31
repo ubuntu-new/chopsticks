@@ -15,6 +15,19 @@ export default {
         TopHeader,
         Menubar,
         CheckoutItem,
-    }
+    },
+    computed: {
+    cartTotal() {
+      return this.$store.getters.totalAmount
+    },
+    isOpen() {
+      return this.$store.getters.getBranchStatus;
+    },
+  },
+  beforeMount(){
+      if(this.cartTotal < 20 || !this.isOpen){
+          this.$router.push('/');
+      }
+  },
 }
 </script>

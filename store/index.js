@@ -12,6 +12,7 @@ const state = () => ({
     loggedUser: { isAuth: false },
     lang: null,
     catID: null,
+    isOpen: null,
 });
 
 export const totals = (paylodArr) => {
@@ -36,6 +37,11 @@ const mutations = {
     'SELECT_ITEM'(state, payload){
         // alert(payload);
         state.selectedProduct = payload
+    },
+
+    'BRANCH_OPEN'(state, payload){
+        // alert(payload);
+        state.isOpen = payload
     },
     'GET_CART'(state, payload){
         state.cart = payload
@@ -152,6 +158,10 @@ const actions = {
         commit('SELECT_ITEM', payload)
     },
 
+    isBranchOpen({ commit }, payload){
+        commit('BRANCH_OPEN', payload)
+    },
+
     updateCart({ commit }, payload){
         // console.log(payload.unit)
         const currentCartToUpdate = payload.cart
@@ -198,6 +208,9 @@ const getters = {
     },
     getActiveCat(state) {
         return state.catID
+    },
+    getBranchStatus(state) {
+        return state.isOpen
     }
 };
 
