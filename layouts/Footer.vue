@@ -38,28 +38,27 @@
 
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
-            <h3>Information</h3>
+            <h3>{{$t("information")}} </h3>
 
             <ul class="information-links">
-              <!-- <li><nuxt-link to="/blog-one">Blog</nuxt-link></li> -->
-              <li><nuxt-link to="/contact">Contact Us</nuxt-link></li>
+              <li><nuxt-link to="/about">{{$t("about")}}</nuxt-link></li>
+              <li><nuxt-link to="/contact">{{$t("contactus")}}</nuxt-link></li>
             </ul>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
-            <h3>Contact Us</h3>
+            <h3>{{$t("contactus")}}</h3>
 
             <ul class="footer-contact-info">
               <li>
-                <i class="fas fa-map-marker-alt"></i> 11 Ilo Mosashvili Str,
-                Tbilisi, Georgia.
+                <i class="fas fa-map-marker-alt"></i>{{$t("streetaddress")}} 
               </li>
               <li>
                 <a href="tel: +995577335080">
-                  <i class="fas fa-phone"></i> Call Us:(+995) 577335080</a
-                >
+                   <i class="fas fa-phone"></i> (+995) 577335080 </a
+                  >
               </li>
               <li>
                 <i class="far fa-envelope"></i> Email Us:
@@ -78,7 +77,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 col-md-6">
-            <p>Copyright &copy; 2022 Webertela.Online. All Rights Reserved</p>
+            <p> &copy; 2022 Webertela.Online. All Rights Reserved</p>
           </div>
 
           <!-- <div class="col-lg-6 col-md-6">

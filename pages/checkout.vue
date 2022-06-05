@@ -24,7 +24,7 @@ export default {
   },
   beforeMount(){
       // if(this.cartTotal < 20 || !this.isOpen){
-      if(this.cartTotal < 20){
+      if(this.cartTotal < 20 ){
           this.$router.push('/');
       }
   },

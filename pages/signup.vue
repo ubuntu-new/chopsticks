@@ -18,7 +18,7 @@
 
           <form class="signup-form" @submit.prevent="submit">
             <div class="form-group">
-              <label>Username</label>
+              <label> </label>
               <input
                 v-model="username"
                 type="text"

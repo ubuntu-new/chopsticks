@@ -4,7 +4,7 @@
     <div class="page-title-area">
       <div class="container">
         <ul>
-          <li><nuxt-link to="/">Home</nuxt-link></li>
+          <li><nuxt-link to="/">{{$t('home')}}</nuxt-link></li>
           <li>Cart</li>
         </ul>
       </div>
@@ -19,7 +19,7 @@
             <div class="user-actions">
               <i class="fas fa-sign-in-alt"></i>
               <span
-                >Returning customer?
+                >{{$t('returningcustomer')}}
                 <nuxt-link to="/login">Click here to login</nuxt-link></span
               >
             </div>
@@ -30,12 +30,12 @@
           <div class="row">
             <div class="col-lg-6 col-md-12">
               <div class="billing-details">
-                <h3 class="title">Billing Details</h3>
+                <h3 class="title">{{$t('billingdetails')}}</h3>
 
                 <div class="row">
                   <div class="col-lg-12 col-md-6">
                     <div class="form-group">
-                      <label>Full Name <span class="required">*</span></label>
+                      <label>{{$t('fullname')}} <span class="required">*</span></label>
                       <input
                         type="text"
                         id="fullName"
@@ -47,7 +47,7 @@
 
                   <div class="col-lg-12 col-md-6">
                     <div class="form-group">
-                      <label>Address <span class="required">*</span></label>
+                      <label>{{$t('address')}}  <span class="required">*</span></label>
                       <gmap-autocomplete
                       
                           placeholder=""
@@ -60,7 +60,7 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label
-                        >Enterance to building</label
+                        >{{$t('enterancetobuilding')}}</label
                       >
                       <input
                         type="text"
@@ -74,7 +74,7 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label
-                        >Enterance security code</label
+                        >{{$t('enterancesecuritycode')}}</label
                       >
                       <input
                         type="text"
@@ -88,7 +88,7 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label
-                        >Floor</label
+                        >{{$t('floor')}}</label
                       >
                       <input
                         type="text"
@@ -102,7 +102,7 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label
-                        >Flat Number</label
+                        >{{$t('flatnumber')}}</label
                       >
                       <input
                         type="text"
@@ -117,7 +117,7 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label
-                        >Email Address <span class="required">*</span></label
+                        >{{$t('emailaddress')}} <span class="required">*</span></label
                       >
                       <input
                         type="email"
@@ -130,7 +130,7 @@
 
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
-                      <label>Phone <span class="required">*</span></label>
+                      <label>{{$t('phone')}} <span class="required">*</span></label>
                       <input
                         type="text"
                         id="phone"
@@ -145,14 +145,14 @@
 
             <div class="col-lg-6 col-md-12">
               <div class="order-details">
-                <h3 class="title">Your Order</h3>
+                <h3 class="title">{{$t('yourorder')}} </h3>
 
                 <div class="order-table table-responsive">
                   <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Total</th>
+                        <th scope="col">{{$t('productname')}}</th>
+                        <th scope="col">{{$t('total')}}</th>
                       </tr>
                     </thead>
 
@@ -171,7 +171,7 @@
 
                       <tr>
                         <td class="total-price">
-                          <span>Order Total</span>
+                          <span>{{$t('sum')}}</span>
                         </td>
 
                         <td class="product-subtotal">
@@ -188,32 +188,56 @@
                   <p>
                     <input
                       type="radio"
-                      id="cash-on-delivery"
+                      id="delivery"
                       name="radio-group"
+                      @click="selectDeliveryMethod('delivery')"
                       checked
                     />
-                    <label for="cash-on-delivery">Cash on Delivery</label>
+                    <label for="delivery">{{$t('delivery')}}</label>
+                  </p>
+                  <p>
+                    <input
+                      type="radio"
+                      id="pickup"
+                      name="radio-group"
+                       @click="selectDeliveryMethod('pickup')"
+                    />
+                    <label for="pickup">{{$t('localpickup')}}</label>
                   </p>
                 </div>
 
                 <div>
-                  <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our კონფიდენციალურობის პოლიტიკა.</p>
+            <ul class="terms text-left" v-if="termsActive">
+              “CHOPSTICKS”  ადგილზე მიწოდების მომსახურება მუშაობს დილის 11:00 დან ღამის 23:00 მდე.
+              შეკვეთის მინიმალური თანხა 20 ლარი
+              ადგილზე მიწოდება ხორციელდება: 
+              <li><strong>
+              თბილისი, ვაკის რაიონი (ბაგები, კაკლების დასახლება, წყნეთი) ადგილზე მიწოდების ღირებულება 3.5 ლარი
+              </strong></li>
+              <li><strong>
+თბილისი, საბურთალოს რაიონი, ადგილზე მიწოდების ღირებულება 4 ლარი
+
+              </strong></li>
+              მიწოდება თბილისის ფარგლებში უფასოა,  70 ლარის ზემოდ შეკვეთის შემთხვევაში
+გადახდა შესაძლებელია როგორც ბარათით ასევე ნაღდი ანგარიშსწორებით
+            </ul>
+            <hr>
                   <p>
                     <input type="checkbox" id="terms" v-model="termsChecked" />
-                    მე გავეცანი და ვეთანხმები საიტის წესებს, <u @click="$refs['terms-modal'].show();">წესები და პირობები *</u>
+                    <u @click="$refs['terms-modal'].show();">{{$t('igree')}}</u>
                   </p>
                 </div>
                 <a
                   href="javascript:void(0)"
                   @click="add('cash')"
                   class="btn btn-primary order-btn"
-                  >Cash On Delivery</a
+                  >{{$t('cashondelivery')}}</a
                 >
                 <a
                   href="javascript:void(0)"
                   @click="add('online')"
                   class="btn btn-primary order-btn"
-                  >Online Payment</a
+                  >{{$t('onlinepayment')}}</a
                 >
               </div>
             </div>
@@ -226,7 +250,7 @@
 
     <b-modal ref="accept-modal" no-close-on-backdrop hide-footer>
       <div class="d-block text-center">
-        <h3>თქვენი შეკვეთა მიღებულია და მუშავდება</h3>
+        <h3>{{$t('yourordercreated')}}</h3>
       </div>
       <b-button class="mt-3" variant="outline-danger" block @click="closeModal">Close</b-button>
     </b-modal>
@@ -240,10 +264,72 @@
 
     <b-modal ref="terms-modal" no-close-on-backdrop hide-footer title="Terms & Conditions">
       <div class="d-block text-center">
-        <h3>In good faith we make your order fresh from scratch, expecting payment when your pizza is delivered. Trust is important to us here at Ronny’s. Thanks for being part of our story since 2009.</h3>
+        <div class="row">
+          <div class="col-12">
+            <h2>მიწოდების პირობები</h2>
+            <ul class="terms text-left">
+              “CHOPSTICKS”  ადგილზე მიწოდების მომსახურება მუშაობს დილის 11:00 დან ღამის 23:00 მდე.
+              შეკვეთის მინიმალური თანხა 20 ლარი
+              ადგილზე მიწოდება ხორციელდება: 
+              <li><strong>
+              თბილისი, ვაკის რაიონი (ბაგები, კაკლების დასახლება, წყნეთი) ადგილზე მიწოდების ღირებულება 3.5 ლარი
+              </strong></li>
+              <li><strong>
+თბილისი, საბურთალოს რაიონი, ადგილზე მიწოდების ღირებულება 4 ლარი
+
+              </strong></li>
+              მიწოდება თბილისის ფარგლებში უფასოა,  70 ლარის ზემოდ შეკვეთის შემთხვევაში
+გადახდა შესაძლებელია როგორც ბარათით ასევე ნაღდი ანგარიშსწორებით
+            </ul>
+             <hr >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h2>საქონლის ღირებულების გადახდა</h2>
+            <ul class="terms  text-left">
+              <strong>მყიდველი იხდის შეკვეთას შემდეგთაგან ერთი-ერთიგზით:</strong>
+              <li>ნაღდი ფულადი ანგარიშსწორების გზით მიწოდების სამსახურისგან უშუალოდ  შეკვეთის მიღებისას;</li>
+              <li>მიწოდების სამსახურისგან უშუალოდ შეკვეთის მიღებისას საკრედიტო ბარათით;</li>
+              <li>ონლაინ საკრედიტო ბარათით საიტზეშეკვეთის გაფორმებისას;</li>
+              <li>ონლაინ გადახდისთვის მიიღება საბანკობარათები VISA / MASTERCARD, AMERICAN EXPRESS;</li>
+              <li>საიტზე გადახდის ტიპის "ონლაინსაბანკობარათის" არჩევისას სისტემა ავტომატურად გადამისამართებთ მყიდველს ბანკის გადახდის სისტემის გვერდზე. გადახდის სისტემის გვერდზე მყიდველი დამოუკიდებლად შეიყვანს ყველა საჭირო საბანკო ბარათის მონაცემს და დგამს ტრანზაქციის განხორციელებისათვის საჭირო ნაბიჯებს;</li>
+              <li>ტრანზაქციის წარმატებით დასრულების შემთხვევაში მყიდველი გადამისამართდება საიტის მთავარ გვერდზე. ტრანზაქციის განხორციელებაზე უარის თქმის შემთხვევაში მყიდველი გადამისამართდება საიტზე, სადაც მას გაუკეთდება შეთავაზება, გაიმეოროს მცდელობა ან აირჩიოს გადახდის სხვა ტიპი;</li>
+              <li>გადახდების განხორციელების უსაფრთხოების მოთხოვნების დასაკმაყოფილებლად, ბანკი-ეკვაიერი იყენებს სპეციალიზებულ ტექნოლოგიას ინტერნეტის ქსელში გადახდების უსაფრთხოების უზრუნველსაყოფად, რომელიც შემუშავებულია PAYMENT SYSTEMS 3-D SECURE- ისმიერ;</li>
+              <li>მყიდველის ძირითადი მონაცემების (პერსონალურიმონაცემები, მონაცემები გადახდის ბარათის რეკვიზიტების შესახებ) გადაცემა ხდება კრიპტოგრაფიული საშუალებების (SSL / TLS) გამოყენებით თაღლითობის თავიდან ასაცილებლად;</li>
+              <li>მყიდველის მიერ მოწოდებული პერსონალური ინფორმაციის კონფიდენციალურობას უზრუნველყოფს ბანკი-ეკვაიერი. შეყვანილი ინფორმაცია არ მიეწოდება მესამე პირებს, გარდა საქართველოსკანონმდებლობით გათვალისწინებული შემთხვევებისა. მყიდველის მიერ მოწოდებული კონფიდენციალური ინფორმაციის შესახებ რაიმეკითხვის შემთხვევაში, მყიდველი დაუკავშირდება ბანკ-ეკვაიერს.</li>
+            </ul>
+                <hr >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h2>მიწოდებადა უკან დაბრუნება</h2>
+            <ol class="terms  text-left">
+              საქონლის მიწოდება მყიდველზე ხორციელდება ვადებში, რომელიც შეთანხმებულია მხარეთა მიერ გამყიდველის თანამშრომლის მიერ შეკვეთის დადასტურებისთანავე. თუ მყიდველი არიღებს შეკვეთას შეთანხმებულ ვადაში, გამყიდველს აქვს უფლება,გააუქმოს შეკვეთა მყიდველის დამატებითი ინფორმირების გარეშე. თუშეკვეთა წინასწარ არის გადახდილი, თანხები შეიძლება დაუბრუნდეს მყიდველს კანონით დადგენილ ვადაში.
+              <li><strong>
+                  გამყიდველი ვალდებულია, გადასცესმყიდველს საქონელი, რომელიც სრულად შეესაბამება მის შეკვეთას, რომლის ხარისხი შეესაბამება საიტზე მყიდველისთვის მიწოდებულ ინფორმაციას.
+              </strong></li>
+              <li><strong>
+                 საქონლის მიღებისთანავე მყიდველი ამოწმებს მიღებული საქონლის შესაბამისობას მის შეკვეთასთან, მიწოდებული საქონლის კომპლექტურობის, გარეგნული სახისადმი პრეტენზიების  არარსებობას საქონლის მიღებიდან 5 (ხუთი) წუთის განმავლობაში.
+              </strong></li>
+              <li><strong>
+შეკვეთის მიღების შემდეგ, საქონლის რაოდენობაზე, კომპლექტურობასა და სახეზე პრეტენზიები არ მიიღება.
+              </strong></li>
+              <li><strong>
+შეკვეთილი საქონლის შემოწმება, ისევე როგორც ყველა ანგარიშ სწორებ აგამყიდველის წარმომადგენელთან, წარმოებს არაუმეტეს 10 წუთის განმავლობაში.
+              </strong></li>
+              <li><strong>
+საქონლის გადაზიდვის ღირებულება განისაზღვრება წინასწარ, მყიდველის მისამართიდან გამომდინარე.
+              </strong></li>
+            </ol>
+             <hr >
+          </div>
+        </div>
+        
       </div>
-      <b-button class="mt-3" variant="outline-danger" block @click="acceptTermsModal">Accept</b-button>
-      <b-button class="mt-3" variant="outline-danger" block @click="declineTermsModal">Decline</b-button>
+      <b-button class="mt-3 green" variant="outline-success" block @click="acceptTermsModal">{{$t('аccepted')}}</b-button>
+      <b-button class="mt-3" variant="outline-danger" block @click="declineTermsModal">{{$t('decline')}}</b-button>
     </b-modal>
 
     <b-modal ref="check-modal" no-close-on-backdrop hide-footer >
@@ -281,6 +367,8 @@ export default {
       response: {},
       termsChecked: false,
       checkMessage: "",
+      deliverymethod: 'delivery',
+      termsActive : true,
     }
   },
   computed: {
@@ -300,6 +388,15 @@ export default {
     }
   },
   methods: {
+    selectDeliveryMethod(val){
+      if(val == 'delivery'){
+        this.termsActive = true;
+      } else {
+        this.termsActive = false;
+      }
+        this.deliverymethod = val;
+        this.$forceUpdate();
+    },
     setPlace(place) {
       this.personDetails.address = place.name;
         this.place = place;

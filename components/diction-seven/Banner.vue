@@ -2,21 +2,21 @@
   <div class="home-slides-three owl-carousel owl-theme">
     <carousel
       :autoplay="true"
-      :autoplayTimeout="3000"
+      :autoplayTimeout="5000"
       :paginationEnabled="true"
       :perPage="1"
     >
-      <slide>
-        <div class="main-banner item-bg10">
+<!-- <img src="/_nuxt/assets/img/logo.webp" alt="image"></img> -->
+      <slide v-for="(image, index) in images" :key="index">
+        <div class="main-banner"   :style="{ backgroundImage:  image }" >
           <div class="d-table">
             <div class="d-table-cell">
               <div class="container">
                 <div class="main-banner-content white-color">
-                  <span>Some Title Here</span>
+                  <!-- <span>Some Title Here</span>
                   <h1>Category Name</h1>
-                  <p>Take 20% Off ‘Sale'</p>
-
-                  <!-- <a href="#" class="btn btn-primary">Shop Women's</a>
+                  <p>Take 20% Off ‘Sale'</p> 
+                  <a href="#" class="btn btn-primary">Shop Women's</a>
                   <a href="#" class="btn btn-light">Shop Men's</a> -->
                 </div>
               </div>
@@ -25,43 +25,6 @@
         </div>
       </slide>
 
-      <!-- <slide>
-        <div class="main-banner item-bg11">
-          <div class="d-table">
-            <div class="d-table-cell">
-              <div class="container">
-                <div class="main-banner-content white-color">
-                  <span>New Inspiration 2021!</span>
-                  <h1>Summer-spring 2021!</h1>
-                  <p>Trending from men and women style collection</p>
-
-                  <a href="#" class="btn btn-primary">Shop Women's</a>
-                  <a href="#" class="btn btn-light">Shop Men's</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </slide> -->
-
-      <!-- <slide>
-        <div class="main-banner item-bg12">
-          <div class="d-table">
-            <div class="d-table-cell">
-              <div class="container">
-                <div class="main-banner-content white-color">
-                  <span>New Inspiration 2021!</span>
-                  <h1>Travel-spring 2021!</h1>
-                  <p>Up To 30% OFF Select Styles</p>
-
-                  <a href="#" class="btn btn-primary">Shop Women's</a>
-                  <a href="#" class="btn btn-light">Shop Men's</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </slide> -->
     </carousel>
   </div>
 </template>
@@ -69,5 +32,11 @@
 <script>
 export default {
   name: 'Banner',
+  data() {
+    return{
+      // imgPath: 'url(/_nuxt/assets/img/main-banner-image/bg1.jpg)',
+      images: ['url("/_nuxt/assets/img/main-banner-image/bg1.jpg")', 'url("/_nuxt/assets/img/main-banner-image/bg2.jpg")']
+    }
+  },
 }
 </script>

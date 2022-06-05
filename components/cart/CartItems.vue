@@ -8,11 +8,11 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th scope="col">Product</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Unit Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total</th>
+                    <th scope="col">&nbsp;</th>
+                    <th scope="col">{{$t("productname")}}</th>
+                    <th scope="col">{{$t("unitprice")}}</th>
+                    <th scope="col">{{$t("quantity")}}</th>
+                    <th scope="col">{{$t("total")}}</th>
                   </tr>
                 </thead>
 
@@ -28,15 +28,17 @@
                         {{ cart.name }}
                       <span v-if="cart.category_id == 1">
                         <ul>
-                          Toppings
+                         <strong> {{$t("toppings")}}</strong>
+                          
                           <li v-for="(topping, index) in cart.toppings" :key="index">{{ topping.name }} - {{ topping.price }} &#8382; </li>
                         </ul>
                         <ul>
-                          Sauces
+                          <strong> {{$t("sauces")}}</strong>
+                          
                           <li v-for="(sauce, index) in cart.sauce" :key="index"> {{ sauce.name }}</li>
                         </ul>
                          <ul>
-                           Extras
+                          <strong> {{$t("extra")}}</strong> 
                           <li v-for="(extra, index) in cart.extras" :key="index">{{ extra.name }} - {{ extra.price }} &#8382; </li>
                         </ul>
                       </span>
@@ -84,21 +86,21 @@
             <div class="cart-buttons">
               <div class="row">
                 <div class="col-lg-7 col-md-7">
-                  <div class="continue-shopping-box">
+                  <!-- <div class="continue-shopping-box">
                     <nuxt-link to="/checkout" class="btn btn-light"
                       >Continue Shopping</nuxt-link
                     >
-                  </div>
+                  </div> -->
                 </div>
 
                 <div class="col-lg-5 col-md-5 text-right">
                   <div class="cart-totals">
-                    <h3>Cart Totals</h3>
+                    <h3> {{$t("carttotals")}}</h3>
 
                     <ul>
 
                       <li>
-                        Total
+                       {{$t("total")}} 
                         <span
                           ><b
                             >${{ parseFloat(cartTotal).toFixed(2) }} &#8382;</b
@@ -107,7 +109,7 @@
                       </li>
                     </ul>
                     <nuxt-link to="/checkout" class="btn btn-light"
-                      >Proceed to Checkout</nuxt-link
+                      >{{$t("proceedtocheckout")}}</nuxt-link
                     >
                   </div>
                 </div>

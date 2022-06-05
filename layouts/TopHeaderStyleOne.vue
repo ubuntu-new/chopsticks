@@ -15,14 +15,14 @@
               <li><nuxt-link to="/signup">Signup</nuxt-link></li>-->
                 <li class="option-item">
                   <a href="tel: +995577335080">
-                    <i class="fas fa-phone"></i> Call Us:(+995) 577335080</a
+                    <i class="fas fa-phone"></i> (+995) 577335080</a
                   >
                 </li>
-                <li class="option-item" v-if="isOpen">
-                    WE ARE OPEN!
+                <li class="option-item green" v-if="isOpen">
+                   {{ $t('weareopen') }} 
                 </li>
-                <li class="option-item" v-else>
-                    WE ARE CLOSED!
+                <li class="option-item " v-else>
+                     {{ $t('weareclosed') }}
                 </li>
               </ul>
             </div>
@@ -57,20 +57,20 @@
               <div class="top-header-others-option">
                 <div class="others-option">
                   <div v-if="!loggedUser.isAuth" class="option-item">
-                    <nuxt-link to="/login">Login</nuxt-link>
+                    <nuxt-link to="/login"> {{ $t('login') }}</nuxt-link>
                   </div>
                   <div v-if="!loggedUser.isAuth" class="option-item">
-                    <nuxt-link to="/signup">Signup</nuxt-link>
+                    <nuxt-link to="/signup"> {{ $t('signup') }}</nuxt-link>
                   </div>
                   <div v-else class="option-item">
-                    <span @click="logout">Logout</span>
+                    <span @click="logout"> {{ $t('logout') }}</span>
                   </div>
                   <div v-if="loggedUser.isAuth" class="option-item">
-                    <nuxt-link to="/user">User Page</nuxt-link>
+                    <nuxt-link to="/user">{{ $t('userpage') }}</nuxt-link>
                   </div>
                   <div class="option-item">
                     <a @click.prevent="toggle" href="#">
-                      Cart({{ cart.length }})
+                      {{ $t('cart') }} ({{ cart.length }})
                       <i class="fas fa-shopping-bag"></i>
                     </a>
                   </div>

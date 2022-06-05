@@ -12,7 +12,7 @@
                             class="modal-body"
                             v-if="cart.length > 0"
                         >
-                            <h3>My Cart ({{cart.length}})</h3>
+                            <h3>{{ $t('cart')}} ({{cart.length}})</h3>
 
                             <div class="product-cart-content">
 
@@ -47,17 +47,17 @@
                             </div>
 
                             <div class="product-cart-subtotal">
-                                <span>Subtotal</span>
+                                <span>{{$t('subtotal')}}</span>
 
                                 <span class="subtotal">{{cartTotal}} &#8382;</span>
                             </div>
 
                             <div @click="closeSidebarPanel" class="product-cart-btn" v-if="cartTotal >= 20">
-                                <nuxt-link to="/checkout" class="btn btn-primary">Proceed to Checkout</nuxt-link>
-                                <nuxt-link to="/cart" class="btn btn-light">View Shopping Cart</nuxt-link>
+                                <nuxt-link to="/checkout" class="btn btn-primary">{{$t('proceedtocheckout')}}</nuxt-link>
+                                <nuxt-link to="/cart" class="btn btn-light">{{$t('viewshoppingcart')}}</nuxt-link>
                             </div>
                             <div class="product-cart-btn " v-else>
-                                <div class="btn btn-primary disabled">Min order is 20 GEL</div>
+                                <div class="btn btn-primary disabled">{{$t('minorder')}}</div>
                             </div>
                         </div>
                         <div class="modal-body" v-else>

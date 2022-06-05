@@ -43,7 +43,7 @@
               {{ $t('select') }}
             </a>
             <div class="price d-flex align-content-around" v-else>
-              <div class="qty p-1">
+              <div class="qty w-110 p-1">
                 <i
                   class="fa fa-minus"
                   aria-hidden="true"

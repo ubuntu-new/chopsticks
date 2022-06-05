@@ -1242,8 +1242,8 @@ Navbar Area CSS
                         bottom: 0;
                     }
                     margin: {
-                        left: 10px;
-                        right: 10px;
+                        left: 8px;
+                        right: 8px;
                     }
                     &:hover,
                     &:focus,
@@ -1297,7 +1297,8 @@ Navbar Area CSS
                             &:hover,
                             &:focus,
                             &.active {
-                                color: $black-color;
+                                color: $black-color !important;
+                                background-color: $white-color !important;
                             }
                         }
                         .dropdown-menu {
@@ -2071,7 +2072,8 @@ Modal CSS
 Main Banner Area CSS
 =================================================*/
 .main-banner {
-    height: 600px;
+    min-height: 500px;
+    max-height: 700px;
     position: relative;
     z-index: 1;
     background: {
@@ -2080,9 +2082,9 @@ Main Banner Area CSS
         repeat: no-repeat;
         position: center center;
     }
-    &.item-bg1 {
-        background-image: url(../../img/main-banner1.jpg);
-    }
+    // &.item-bg1 {
+    //     background-image: url(../../img/main-banner1.jpg);
+    // }
     &.item-bg2 {
         background-image: url(../../img/main-banner2.jpg);
     }
@@ -9625,4 +9627,42 @@ white-space: pre-line;
   ::-webkit-scrollbar:hover {
     width: 10px !important;
   }
-  
+
+  .menu_butt 
+  {
+      background-color: transparent !important;
+      color: $black-color !important;
+      :hover
+      {
+        background-color: transparent;
+        color: $black-color;
+      }
+  }
+
+  .btn
+  {
+      padding: 16px;
+  }
+  .option-item span 
+  {
+      cursor: pointer;
+  }
+  .btn-secondary
+  {
+      background-color: $white-color;
+      color: $black-color;
+  }
+  .comero-nav .navbar .navbar-nav .nav-item a
+  { 
+          position: relative;
+          top: 14px;
+          text-transform: capitalize;
+  }
+  .w-110
+  {
+      width: 110px;
+  }
+  .fa
+  {
+    padding: 20px 4px 10px 4px;
+  }
