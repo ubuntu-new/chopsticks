@@ -27,44 +27,6 @@
                     </div>
                 </div>
             </slide>
-
-            <slide>
-                <div class="main-banner item-bg8">
-                    <div class="d-table">
-                        <div class="d-table-cell">
-                            <div class="container">
-                                <div class="main-banner-content">
-                                    <span>New Inspiration 2021!</span>
-                                    <h1>Winter Sun Glasses</h1>
-                                    <p>Trending from men and women style collection</p>
-
-                                    <a href="#" class="btn btn-primary">Shop Women's</a>
-                                    <a href="#" class="btn btn-light">Shop Men's</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </slide>
-
-            <slide>
-                <div class="main-banner item-bg9">
-                    <div class="d-table">
-                        <div class="d-table-cell">
-                            <div class="container">
-                                <div class="main-banner-content">
-                                    <span>New Inspiration 2021</span>
-                                    <h1>Travel Sun Glasses</h1>
-                                    <p>Up To 30% OFF Select Styles</p>
-
-                                    <a href="#" class="btn btn-primary">Shop Women's</a>
-                                    <a href="#" class="btn btn-light">Shop Men's</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </slide>
         </carousel>
     </div>
 </template>

@@ -15,7 +15,7 @@
                   <!-- <nuxt-link :to="category.URL">
                     {{ category.name }}
                   </nuxt-link> -->
-                  <b-button v-if="category.child.length == 0">{{ category.name }}</b-button>
+                  <b-button v-if="category.child.length == 0" :href="category.URL">{{ category.name }}</b-button>
                   <b-dropdown v-else :text="category.name" color="white">
                   <b-dropdown-item v-for="(child, index) in category.child" :key="index" :href="child.URL">{{ child.name }}</b-dropdown-item>
                 </b-dropdown>

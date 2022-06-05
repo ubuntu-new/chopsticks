@@ -1,7 +1,5 @@
 <template>
     <div>
-        <!-- <TopHeader /> -->
-        <!-- <Menubar /> -->
         <CheckoutItem />
     </div>
 </template>
@@ -25,7 +23,8 @@ export default {
     },
   },
   beforeMount(){
-      if(this.cartTotal < 20 || !this.isOpen){
+      // if(this.cartTotal < 20 || !this.isOpen){
+      if(this.cartTotal < 20){
           this.$router.push('/');
       }
   },
