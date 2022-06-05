@@ -7,30 +7,30 @@ export default {
     // GENERATE CATEGORY ROUTES
     generate: {
         routes() {
-          var lang = ['', '/en/', '/ru/'];
-          const TOKEN = 'TodKtEjTTqj8HBVGmQPE3gW5TFY'
-          return axios
+            var lang = ['', '/en/', '/ru/'];
+            const TOKEN = 'TodKtEjTTqj8HBVGmQPE3gW5TFY'
+            return axios
                 .request({
-                method: 'post',
-                url: 'https://chopsticks.webertela.online/back_api/rest/web/index.php?r=v1/product_categories/list',
-                headers: {
-                    Authorization: 'Bearer ' + TOKEN,
-                },
+                    method: 'post',
+                    url: 'https://chopsticks.webertela.online/back_api/rest/web/index.php?r=v1/product_categories/list',
+                    headers: {
+                        Authorization: 'Bearer ' + TOKEN,
+                    },
                 })
                 .then(res => {
                     return res.data.map(cat => {
-            for(let a = 0; a < 3; a++){
-              return {
-                    route: lang[a]+ '/category/' + cat.url,
-                    payload: cat
-                }
-              }
-            });
-            // return ['/some-other-dynamic-route-or-array-of-routes/', ...users]
-          })
+                        for (let a = 0; a < 3; a++) {
+                            return {
+                                route: lang[a] + '/category/' + cat.url,
+                                payload: cat
+                            }
+                        }
+                    });
+                    // return ['/some-other-dynamic-route-or-array-of-routes/', ...users]
+                })
         }
-      },
-      
+    },
+
     mode: 'universal',
     /*
     ** Headers of the page
@@ -56,7 +56,7 @@ export default {
             }
         ],
     },
-    
+
 
     /*
         ** Add server middleware

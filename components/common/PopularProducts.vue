@@ -5,7 +5,7 @@
         <div class="container">
           <div class="products-category-tab-style-2">
             <div class="row title">
-              <h2><span class="dot"></span> {{ $t('shop') }}</h2>
+              <h2><span class="dot"></span> {{ $t('shop') }} </h2>
             </div>
             <b-tabs content-class="mt-3 tab_content">
               <div class="tabs_item">
