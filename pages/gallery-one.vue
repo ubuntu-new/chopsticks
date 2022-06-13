@@ -1,7 +1,5 @@
 <template>
   <div>
-    <TopHeader />
-    <Menubar />
     <div class="page-title-area">
       <div class="container">
         <ul>
@@ -11,158 +9,127 @@
       </div>
     </div>
 
-    <div class="gallery-area ptb-60">
-      <div class="container">
-        <div class="section-title">
-          <h2><span class="dot"></span> Gallery</h2>
-        </div>
+  
 
-        <div class="row m-0">
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item1.jpg" alt="image" />
+    <!--
+As mentioned in the official Bootstrap 3 documentation (http://getbootstrap.com/components/#thumbnails): You can either do it like in this pen, or see more options at:
 
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
+https://masonry.desandro.com/
+https://isotope.metafizzy.co/
+http://salvattore.com/
+-->
 
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item2.jpg" alt="image" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item3.jpg" alt="image" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item4.jpg" alt="image" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item5.jpg" alt="image" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item6.jpg" alt="image" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item7.jpg" alt="image" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item8.jpg" alt="image" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item9.jpg" alt="image" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item10.jpg" alt="image" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item11.jpg" alt="image" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item12.jpg" alt="image" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="container">
+<div class="row masonry-grid">
+  <div class="col-md-6 col-lg-4 masonry-column">
+    <div>
+     <img src="../assets/img/gallery/1.jpg" class="img-thumbnail"  alt="image" @click="openModal('1.jpg')" />
+    </div>
+    <div>
+    <img src="../assets/img/gallery/2.jpg" class="img-thumbnail"   alt="image" @click="openModal('2.jpg')" />
+    </div>
+    <div>
+   <img src="../assets/img/gallery/3.jpg"  class="img-thumbnail"  alt="image" @click="openModal('3.jpg')" />
+    </div>
+        <div>
+   <img src="../assets/img/gallery/13.jpg" class="img-thumbnail"   alt="image" @click="openModal('13.jpg')" />
+    </div>
+    <div>
+   <img src="../assets/img/gallery/11.jpg" class="img-thumbnail"   alt="image" @click="openModal('11.jpg')" />
+    </div>
+    <div>
+   <img src="../assets/img/gallery/12.jpg" class="img-thumbnail"   alt="image" @click="openModal('12.jpg')" />
     </div>
   </div>
-</template>
+  <div class="col-md-6 col-lg-4 masonry-column">
+    <div>
+    <img src="../assets/img/gallery/4.jpg" class="img-thumbnail"   alt="image" @click="openModal('4.jpg')" />
+    </div>
+    <div>
+    <img src="../assets/img/gallery/17.jpg"  class="img-thumbnail"  alt="image" @click="openModal('17.jpg')" />
+    </div>
+    <div>
+    <img src="../assets/img/gallery/18.jpg"  class="img-thumbnail"   alt="image" @click="openModal('18.jpg')" />
+    </div>
+              <div>
+   <img src="../assets/img/gallery/16.jpg" class="img-thumbnail"   alt="image" @click="openModal('16.jpg')" />
+    </div>
+    <div>
+   <img src="../assets/img/gallery/5.jpg" class="img-thumbnail"   alt="image" @click="openModal('5.jpg')" />
+    </div>
+    <div>
+   <img src="../assets/img/gallery/6.jpg" class="img-thumbnail"   alt="image" @click="openModal('6.jpg')" />
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4 masonry-column">
+    <div>
+    <img src="../assets/img/gallery/7.jpg"  class="img-thumbnail"  alt="image" @click="openModal('7.jpg')" />
+    </div>
+    <div>
+    <img src="../assets/img/gallery/8.jpg"  class="img-thumbnail"  alt="image" @click="openModal('8.jpg')" />
+    </div>
+    <div>
+   <img src="../assets/img/gallery/9.jpg" class="img-thumbnail"   alt="image" @click="openModal('9.jpg')" />
+    </div>
+            <div>
+          <img src="../assets/img/gallery/10.jpg" class="img-thumbnail"   alt="image" @click="openModal('10.jpg')" />
+            </div>
+            <div>
+          <img src="../assets/img/gallery/14.jpg" class="img-thumbnail"   alt="image" @click="openModal('14.jpg')" />
+            </div>
+            <div>
+          <img src="../assets/img/gallery/15.jpg" class="img-thumbnail"   alt="image" @click="openModal('15.jpg')" />
+            </div>
+  </div>
 
+
+
+
+
+   
+  
+
+</div>
+</div>
+
+    <!-- IMAGE MODAL -->
+    <b-modal ref="img-modal" no-close-on-backdrop hide-footer>
+      <div class="d-block text-center">
+        <img v-if="selectedImage != null" :src="require(`~/assets/img/gallery/${selectedImage}`)" />
+      </div>
+      <b-button class="mt-3" variant="outline-danger" block @click="closeModal">Close</b-button>
+    </b-modal>
+
+
+  </div>
+</template>
+<style scoped>
+.masonry-column {
+  padding: 0 1px;
+}
+
+.masonry-grid > div .thumbnail {
+  margin: 5px 1px;
+}
+</style>
 <script>
-import TopHeader from '../layouts/TopHeader'
-import Menubar from '../layouts/Menubar'
 
 export default {
   components: {
-    TopHeader,
-    Menubar,
-  }
+  },
+  data(){
+    return {
+      selectedImage: null,
+    }
+  },
+  methods: {
+    openModal(image){
+      this.selectedImage = image;
+      this.$refs['img-modal'].show();
+    },
+    closeModal(){
+      this.$refs['img-modal'].hide();
+    },
+  },
 }
 </script>

@@ -43,6 +43,7 @@
             <ul class="information-links">
               <li><nuxt-link to="/about">{{$t("about")}}</nuxt-link></li>
               <li><nuxt-link to="/contact">{{$t("contactus")}}</nuxt-link></li>
+              <li><nuxt-link to="/gallery">{{$t("galleryone")}}</nuxt-link></li>
             </ul>
           </div>
         </div>
@@ -50,7 +51,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <h3>{{$t("contactus")}}</h3>
-
+<address>
             <ul class="footer-contact-info">
               <li>
                 <i class="fas fa-map-marker-alt"></i>{{$t("streetaddress")}} 
@@ -68,6 +69,7 @@
               </li>
               <!-- <li><i class="fas fa-fax"></i> Fax: <a href="#">+123456</a></li> -->
             </ul>
+            </address>
           </div>
         </div>
       </div>

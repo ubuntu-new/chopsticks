@@ -13,7 +13,7 @@
 	 <div class="container-fluid">
 		 <div class="row">
 			 <div class="col">
-				 <img src="~/assets/img/main-banner-image/bg5.jpg" class="img-fluid  mt-3  mb-3 text-left" alt="Responsive image" style="widht:100%; "></img>
+				 <img src="~/assets/img/main-banner-image/bg5.jpg" class="img-fluid  mt-3  mb-3 text-left" alt="Responsive image" style="widht:100%; ">
 			 </div>
 		 </div>
 		
@@ -21,43 +21,23 @@
 
     <div class="contact-area ptb-60">
       <div class="container">
-			<div class="row">
-			<div class="col-12">
-			<h3>CHOPSTICKS</h3>
-						<ul class="mt-5">
-							<li>
-								<h3>It uses utility classes for typography and spacing to space content out within the larger container.</h3>
-							</li>
-						</ul>
-					</div>
-					<div class="col-12 mt-5 mb-5">
-						<h3>THAI WOK BAR</h3>
-						
-									<ul class="mt-5">
-										<li>
-											<h3> offers a unique possibility to create your own bowl by selecting a Base, Topping, a Sauce and EXTRA Topping by your taste.</h3>
-										</li>
-								</ul>
-					 </div>
-					 <div class="col-12 mt-5 mb-5">
-						<h3>SPRING ROLLS, DUMPLINGS, POKE BOWLS, SALADS AND SOUPS</h3>
-						
-									<ul class="mt-5">
-										<li>
-											<h3>with exclusive  <strong>SOFT-SHELL CRAB BURGER</strong>, all at your disposal by ordering by our web site or enjoy our cozy terrace and inside seating.</h3>
-										</li>
-								</ul>
-					 </div>
+			<div class="row mt-5 mb-5">
+				<div class="col-md-4">
+					<h3>CHOPSTICKS</h3>
+					<font size="4">It uses utility classes for typography and spacing to space content out within the larger container.</font>
+				</div>
+				<div class="col-md-4">
+					<h3>THAI WOK BAR</h3>
+					<font size="4"> offers a unique possibility to create your own bowl by selecting a Base, Topping, a Sauce and EXTRA Topping by your taste.</font>
+				</div>
+				<div class="col-md-4">
+					<h3>SPRING ROLLS, DUMPLINGS, POKE BOWLS, SALADS AND SOUPS</h3>
+					<font size="4">with exclusive  <strong>SOFT-SHELL CRAB BURGER</strong>, all at your disposal by ordering by our web site or enjoy our cozy terrace and inside seating.</font>
 				</div>
 			</div>
-			
-			
-			
+
+			</div>	
 			<hr class="my-4">
-			
-			<p class="lead">
-				<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-			</p>
 			</div>
 		</div>
 

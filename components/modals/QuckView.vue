@@ -47,7 +47,7 @@
                     </span>
                   </div>
 
-                  <h6 class="mt-3 view-full-info mb-3 green">
+                  <h6 class="mt-5 view-full-info mb-2 green">
                     {{ $t('choose') }}
                   </h6>
                   <div class="col-auto p-0">
@@ -95,7 +95,7 @@
                       >
                     </div>
                   </div>
-                  <h6 class="mt-3 view-full-info mb-3 green">
+                  <h6 class="mt-5 view-full-info mb-2 green">
                     {{ $t('sauce') }}
                   </h6>
                   <div class="col-auto p-0">
@@ -117,10 +117,12 @@
                       ></i>
                       <label class="form-check-label">
                         <span class="topping-title" v-if="sauce.qty == null">
-                          {{ sauce.name }}
+                          {{ sauce.name }} 
+                          <img v-if="sauce.img != null" :src="require(`~/assets/img/${sauce.img}`)"   class="leaderimg">
                         </span>
                         <span class="topping-title" v-else>
-                          {{ sauce.name }} X {{ sauce.qty }}
+                          {{ sauce.name }} X {{ sauce.qty }}  
+                          <img v-if="sauce.img != null" :src="require(`~/assets/img/${sauce.img}`)"   class="leaderimg">
                         </span>
 
                         </label
@@ -149,7 +151,7 @@
                     </div> -->
                   </div>
 
-                  <h6 class="mt-3 view-full-info mb-3 green">
+                  <h6 class="mt-5 view-full-info mb-2 green">
                     {{ $t('extra') }}
                   </h6>
                   <div class="col-auto p-0">
@@ -194,7 +196,7 @@
                       >
                     </div>
                   </div>
-                  <div class="modal-footer justify-content-between">
+                  <div class="modal-footer justify-content-between mt-5">
                     <div class="row">
                       <div class="col-12">
                         <button type="button" class="btn btn-primary">
@@ -341,7 +343,7 @@ export default {
     increaseSauce(sauce) {
       if (this.selectedSauce.filter((x) => x.name === sauce.name).length > 0) {
         var index = this.selectedSauce.indexOf(sauce)
-        if (this.selectedSauce[index].qty < 4) {
+        if (this.selectedSauce[index].qty <2) {
           this.selectedSauce[index].qty = this.selectedSauce[index].qty + 1
           sauce.qty = this.selectedSauce[index].qty
         } else {
