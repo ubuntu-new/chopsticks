@@ -13,27 +13,26 @@
 	 <div class="container-fluid">
 		 <div class="row">
 			 <div class="col">
-				 <img src="~/assets/img/main-banner-image/bg5.jpg" class="img-fluid  mt-3  mb-3 text-left" alt="Responsive image" style="widht:100%; ">
+				 <!-- <img src="~/assets/img/main-banner-image/bg5.jpg" class="img-fluid  mt-3  mb-3 text-left" alt="Responsive image" style="widht:100%; "> -->
+         <img src="../assets/img/gallery/21.jpg" class="img-fluid  mt-3  mb-3 text-left"   alt="image" />
 			 </div>
 		 </div>
 		
 	 </div>
 
+          <li >
+ 
+</li>
+
+
     <div class="contact-area ptb-60">
       <div class="container">
 			<div class="row mt-5 mb-5">
-				<div class="col-md-4">
-					<h3>CHOPSTICKS</h3>
-					<font size="4">It uses utility classes for typography and spacing to space content out within the larger container.</font>
+				<div class="col-md-3"  v-for="(about, index) in about">
+					<h3>{{ about.title }}</h3>
+					<font size="4">{{about.description}}</font>
 				</div>
-				<div class="col-md-4">
-					<h3>THAI WOK BAR</h3>
-					<font size="4"> offers a unique possibility to create your own bowl by selecting a Base, Topping, a Sauce and EXTRA Topping by your taste.</font>
-				</div>
-				<div class="col-md-4">
-					<h3>SPRING ROLLS, DUMPLINGS, POKE BOWLS, SALADS AND SOUPS</h3>
-					<font size="4">with exclusive  <strong>SOFT-SHELL CRAB BURGER</strong>, all at your disposal by ordering by our web site or enjoy our cozy terrace and inside seating.</font>
-				</div>
+				
 			</div>
 
 			</div>	
@@ -53,7 +52,7 @@ export default {
   data(){
     return {
       API_URL: config.head.API_URL,
-      contactInfo: {},
+      about: [],
     }
   },
   mounted(){
@@ -61,13 +60,20 @@ export default {
       axios
       .request({
         method: "post",
-        url: this.API_URL + "webertela/contactinfo/list",
+        url: this.API_URL + "webertela/about/list",
         headers: {
           Authorization: "Bearer " + TOKEN,
         },
       })
+      
+      
       .then((response) => {
-        this.contactInfo = response.data.data;
+        this.about = response.data.data;
+
+         if(this.currentLang == 'ka'){
+              x.name_en = x.name;
+              x.name = x.name_ge;
+            } 
       });
   }
 }

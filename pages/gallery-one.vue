@@ -80,6 +80,15 @@ http://salvattore.com/
             <div>
           <img src="../assets/img/gallery/15.jpg" class="img-thumbnail"   alt="image" @click="openModal('15.jpg')" />
             </div>
+            
+  </div>
+  <div class="col-md-6 col-lg-4 masonry-column">
+    <div>
+          <img src="../assets/img/gallery/20.jpg" class="img-thumbnail"   alt="image" @click="openModal('20.jpg')" />
+            </div>
+            <div>
+          <img src="../assets/img/gallery/21.jpg" class="img-thumbnail"   alt="image" @click="openModal('21.jpg')" />
+            </div>
   </div>
 
 
