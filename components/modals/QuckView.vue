@@ -126,27 +126,6 @@
                         </label
                       >
                     </div>
-                    
-                    <!-- <div
-                      class="form-check unselectable"
-                      v-for="(sauce, index) in sauces"
-                      :key="index"
-                      @click="selectSauce(sauce)"
-                    >
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="exampleRadios"
-                        :id="index"
-                        value="option1"
-                      />
-                      <label
-                        :for="index"
-                        class="form-check-labe view-full-infol"
-                      >
-                        {{ sauce.name }}
-                      </label>
-                    </div> -->
                   </div>
 
                   <h6 class="mt-3 view-full-info mb-3 green">

@@ -456,13 +456,19 @@ export default {
           this.order_data.customer = this.personDetails;
           this.order_data.customer.mapURL = this.mapURL;
           this.order_data.paymentMethod = "cash-on-delivery";
+          this.order_data.deliverymethod = this.deliverymethod;
+          var TOKEN = '';
           if(this.loggedUser.isAuth){
+            alert('logged user token');
             this.order_data.user_id = this.loggedUser.id;
+            TOKEN = this.loggedUser.token;
           } else {
+            alert('guest token');
+            TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
             this.order_data.user_id = -10;
           }
           this.$store.dispatch('addOrder', this.order_data)
-          const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
+          // const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
           axios.request({
             method: "post",
             url:

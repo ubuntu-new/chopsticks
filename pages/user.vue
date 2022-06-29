@@ -1,6 +1,7 @@
 <template>
   <client-only>
     <div>
+      <TopHeaderStyleOne @onLocaleChange="updateLocale"></TopHeaderStyleOne>
       <div class="container-fluid">
         <div class="row">
           <Sidebar />
@@ -73,6 +74,7 @@
 import Loader from '../components/common/Loader'
 import OrderPerson from '../components/admin/OrderPerson'
 import Sidebar from '../components/admin/Sidebar'
+import TopHeaderStyleOne from '../layouts/TopHeaderStyleOne.vue'
 import config from '@/nuxt.config'
 import axios from 'axios'
 
@@ -81,7 +83,8 @@ export default {
   components: {
     OrderPerson,
     Loader,
-    Sidebar
+    Sidebar,
+    TopHeaderStyleOne
   },
   data() {
     return {
@@ -91,6 +94,8 @@ export default {
       order: [],
       orders: [],
       API_URL: config.head.API_URL,
+      localeLang: '',
+      localeChange: 0,
     }
   },
   computed: {
@@ -102,6 +107,11 @@ export default {
     }
   },
   methods: {
+    updateLocale(locale) {
+      // alert("UPDATEEE "+locale);
+      this.localeLang = locale;
+      this.localeChange++;
+    },
         logout(){
         this.$store.dispatch("logoutUser");
         this.$router.push("/");

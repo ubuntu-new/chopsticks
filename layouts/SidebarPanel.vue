@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="modal-backdrop" v-if="isPanelOpen"></div>
+        <div class="modal-backdrop" v-if="isPanelOpen" @click="closeBla"></div>
         <!-- Start Shopping Cart Modal -->
         <transition name="slide-fade">
             <div v-if="isPanelOpen" class="modal right shoppingCartModal" id="shoppingCartModal" tabindex="-1" role="dialog">
@@ -80,6 +80,9 @@ export default {
     name: 'SidebarPanel',
     methods: {
         closeSidebarPanel: mutations.toggleNav,
+        closeBla(){
+            alert('OUTSIDE');
+        },
         removeItemFromCart(id){
             this.$store.dispatch('deleteCart', id)
         },
