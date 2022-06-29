@@ -12,8 +12,8 @@
     "addCart": "Add To cart",
     "sauce": "Choose Sauce",
     "extra": "Extra Toppings",
-    "weareopen": "We Are Open",
-    "weareclosed": "We Are Closed",
+    "weareopen": "Restaurant Open",
+    "weareclosed": "Restaurant Close",
     "signup": "Signup",
     "logout": "Logout",
     "userpage": "User Page",
@@ -54,5 +54,6 @@
     "about": "About",
     "contactus": "Contact Us",
     "streetaddress": "11 Ilo Mosashvili Str, Tbilisi, Georgia.",
+    "galleryone": "Gallery",
     "from": "From"
 }

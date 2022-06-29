@@ -6,6 +6,11 @@
         <div class="container">
           <nav class="navbar navbar-expand-md navbar-light">
             <b-navbar-toggle target="navbarSupportedContent"></b-navbar-toggle>
+            <b-collapse
+              class="collapse navbar-collapse"
+              id="navbarSupportedContent"
+              is-nav
+            >
               <ul class="navbar-nav">
                 <li
                   class="nav-item"
@@ -18,6 +23,7 @@
                 </b-dropdown>
                 </li>
               </ul>
+              </b-collapse>
           </nav>
         </div>
       </div>

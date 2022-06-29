@@ -132,7 +132,7 @@ export default {
             // END OF PRODUCT LANG CHECK
 
             var serverPath =
-              'https://chopsticks.webertela.online/back_api/backend/web/images/store/'
+              'https://chopsticks.com.ge/back_api/backend/web/images/store/'
 
             if (x.filePath != null) {
               x.image = serverPath + x.filePath

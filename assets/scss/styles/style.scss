@@ -3097,6 +3097,13 @@ All Products Area CSS
         }
     }
 }
+.product-content
+{
+    .form-check
+    {
+        height: 1.8rem;
+    }
+}
 .all-products-slides {
     .single-product-box {
         margin: {
@@ -9665,4 +9672,10 @@ white-space: pre-line;
   .fa
   {
     padding: 20px 4px 10px 4px;
+  }
+  .productQuickView-image 
+  {
+      img {
+          width: 100% !important;
+      }
   }

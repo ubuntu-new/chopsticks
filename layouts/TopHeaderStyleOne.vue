@@ -24,6 +24,7 @@
                 <li class="option-item " v-else>
                      {{ $t('weareclosed') }}
                 </li>
+                <li><nuxt-link to="/gallery-one">{{$t("galleryone")}}</nuxt-link></li>
               </ul>
             </div>
 

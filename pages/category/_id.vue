@@ -111,7 +111,7 @@ export default {
             x.description = x.description_ru;
             x.name = x.name_ru;
           }
-          var serverPath = "https://chopsticks.webertela.online/back_api/backend/web/images/store/";
+          var serverPath = "https://chopsticks.com.ge/back_api/backend/web/images/store/";
 
           if(x.filePath != null ) {
             x.image = serverPath + x.filePath;

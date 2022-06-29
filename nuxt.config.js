@@ -12,7 +12,7 @@ export default {
             return axios
                 .request({
                     method: 'post',
-                    url: 'https://chopsticks.webertela.online/back_api/rest/web/index.php?r=v1/product_categories/list',
+                    url: 'https://chopsticks.com.ge/back_api/rest/web/index.php?r=v1/product_categories/list',
                     headers: {
                         Authorization: 'Bearer ' + TOKEN,
                     },
@@ -36,8 +36,8 @@ export default {
     ** Headers of the page
     */
     head: {
-        API_URL: "https://chopsticks.webertela.online/back_api/rest/web/index.php?r=v1/",
-        LOGIN_URL: "https://chopsticks.webertela.online/back_api/rest/web/index.php?r=auth",
+        API_URL: "https://chopsticks.com.ge/back_api/rest/web/index.php?r=v1/",
+        LOGIN_URL: "https://chopsticks.com.ge/back_api/rest/web/index.php?r=auth",
 
         htmlAttrs: {
             lang: 'en',

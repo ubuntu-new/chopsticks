@@ -6,16 +6,16 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <div class="logo">
-              <nuxt-link to="/"
-                ><img src="../assets/img/logo.webp" alt="logo"
-              /></nuxt-link>
+              <nuxt-link to="/">
+                <img src="../assets/img/logo.webp" alt="logo"/>
+              </nuxt-link>
             </div>
 
-            <p>
+            <!-- <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
               ipsum suspendisse ultrices gravida.
-            </p>
+            </p> -->
           </div>
         </div>
 
@@ -43,6 +43,7 @@
             <ul class="information-links">
               <li><nuxt-link to="/about">{{$t("about")}}</nuxt-link></li>
               <li><nuxt-link to="/contact">{{$t("contactus")}}</nuxt-link></li>
+              <li><nuxt-link to="/gallery-one">{{$t("galleryone")}}</nuxt-link></li>
             </ul>
           </div>
         </div>
@@ -50,7 +51,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <h3>{{$t("contactus")}}</h3>
-
+<address>
             <ul class="footer-contact-info">
               <li>
                 <i class="fas fa-map-marker-alt"></i>{{$t("streetaddress")}} 
@@ -68,6 +69,7 @@
               </li>
               <!-- <li><i class="fas fa-fax"></i> Fax: <a href="#">+123456</a></li> -->
             </ul>
+            </address>
           </div>
         </div>
       </div>
