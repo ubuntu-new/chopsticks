@@ -28,7 +28,7 @@
     <div class="contact-area ptb-60">
       <div class="container">
 			<div class="row mt-5 mb-5">
-				<div class="col-md-3"  v-for="(about, index) in about">
+				<div class="col-md-3"  v-for="(about, index) in about" :key="index">
 					<h3>{{ about.title }}</h3>
 					<font size="4">{{about.description}}</font>
 				</div>
@@ -53,9 +53,11 @@ export default {
     return {
       API_URL: config.head.API_URL,
       about: [],
+      currentLang: this.$i18n.locale,
     }
   },
   mounted(){
+    // alert(this.currentLang);
     const TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
       axios
       .request({
@@ -65,15 +67,23 @@ export default {
           Authorization: "Bearer " + TOKEN,
         },
       })
-      
-      
       .then((response) => {
         this.about = response.data.data;
-
+        this.about.forEach(x => {
          if(this.currentLang == 'ka'){
-              x.name_en = x.name;
-              x.name = x.name_ge;
-            } 
+            x.title_temp = x.title;
+            x.title = x.title_ge;
+
+            x.description_temp = x.description;
+            x.description = x.description_ge;
+          } else if(this.currentLang == 'ru'){
+            x.title_temp = x.title;
+            x.title = x.title_ru;
+
+            x.description_temp = x.description;
+            x.description = x.description_ru;
+          } 
+        });
       });
   }
 }

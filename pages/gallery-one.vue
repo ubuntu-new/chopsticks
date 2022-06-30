@@ -11,79 +11,14 @@
 
   
 
-<<<<<<< HEAD
-        <div class="row m-0">
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item1.jpg" alt="image" @click="openModal('gallery-item1.jpg')" />
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item2.jpg" alt="image" @click="openModal('gallery-item2.jpg')"  />
-=======
     <!--
 As mentioned in the official Bootstrap 3 documentation (http://getbootstrap.com/components/#thumbnails): You can either do it like in this pen, or see more options at:
->>>>>>> 335686163486e78b8009f03b7967c106a9cdacbd
 
 https://masonry.desandro.com/
 https://isotope.metafizzy.co/
 http://salvattore.com/
 -->
 
-<<<<<<< HEAD
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item3.jpg" alt="image" @click="openModal('gallery-item3.jpg')" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item1.jpg" alt="image" @click="openModal('gallery-item1.jpg')" />
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item2.jpg" alt="image" @click="openModal('gallery-item2.jpg')"  />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 p-0">
-            <div class="single-gallery-item">
-              <img src="../assets/img/gallery-item3.jpg" alt="image" @click="openModal('gallery-item3.jpg')" />
-
-              <div class="gallery-content">
-                <span>Fashion</span>
-                <h3>Belted chino trousers polo</h3>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-=======
 <div class="container">
 <div class="row masonry-grid">
   <div class="col-md-6 col-lg-4 masonry-column">
@@ -104,18 +39,7 @@ http://salvattore.com/
     </div>
     <div>
    <img src="../assets/img/gallery/12.jpg" class="img-thumbnail"   alt="image" @click="openModal('12.jpg')" />
->>>>>>> 335686163486e78b8009f03b7967c106a9cdacbd
     </div>
-
-    <!-- IMAGE MODAL -->
-    <b-modal ref="img-modal" no-close-on-backdrop hide-footer>
-      <div class="d-block text-center">
-        <img v-if="selectedImage != null" :src="require(`~/assets/img/${selectedImage}`)" />
-      </div>
-      <b-button class="mt-3" variant="outline-danger" block @click="closeModal">Close</b-button>
-    </b-modal>
-
-
   </div>
   <div class="col-md-6 col-lg-4 masonry-column">
     <div>
