@@ -82,14 +82,14 @@ http://salvattore.com/
             </div>
             
   </div>
-  <div class="col-md-6 col-lg-4 masonry-column">
+  <!-- <div class="col-md-6 col-lg-4 masonry-column">
     <div>
           <img src="../assets/img/gallery/20.jpg" class="img-thumbnail"   alt="image" @click="openModal('20.jpg')" />
             </div>
             <div>
           <img src="../assets/img/gallery/21.jpg" class="img-thumbnail"   alt="image" @click="openModal('21.jpg')" />
             </div>
-  </div>
+  </div> -->
 
 
 

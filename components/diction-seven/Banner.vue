@@ -41,7 +41,7 @@ export default {
     return{
       // imgPath: 'url(/_nuxt/assets/img/main-banner-image/bg1.jpg)',
       // path: '~@/assets/img/main-banner-image/bg1.jpg',
-      images: ["bg1.jpg", "bg2.jpg", "bg3.jpg"]
+      images: ["bg1.jpg", "bg2.jpg", "bg3.jpg", "20.jpg", "21.jpg"]
     }
   },
 }
