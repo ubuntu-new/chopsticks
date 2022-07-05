@@ -119,7 +119,7 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label
-                        >{{$t('emailaddress')}} <span class="required">*</span></label
+                        >{{$t('emailaddress')}} </label
                       >
                       <input
                         type="email"
@@ -147,18 +147,19 @@
 
             <div class="col-lg-6 col-md-12">
               <div class="order-details">
-                <h3 class="title">Need Cutlery?</h3>
+                <h3 class="title">Need {{$t("cutlery")}}?</h3>
                  <div class="payment-method">
-                  <p v-for="(cutlery, index) in cutleries.slice().reverse()" :key="index">
+                  <p class="title" v-for="(cutlery, index) in cutleries.slice().reverse()" :key="index">
                     <span>
                       <i class="fas fa-minus" @click="cutleryDecrease(cutlery)"></i>
-                      {{ cutlery.qty }}
+                      <span style="margin-right: 10px;margin-left: 10px">{{ cutlery.qty }}</span>
                       <i class="fas fa-plus" @click="cutleryIncrease(cutlery)"></i>
-                      {{ cutlery.name }} + {{ cutlery.price * cutlery.qty }} &#8382;
+                     <span style="margin-right: 10px;margin-left: 10px"> {{ cutlery.name }}</span>+ <span style="margin-right: 10px;">{{ cutlery.price * cutlery.qty }} &#8382;</span>
                     </span>
                   </p>
                   
                 </div>
+                <hr>
                 <h3 class="title">{{$t('yourorder')}} </h3>
 
                 <div class="order-table table-responsive">
@@ -232,14 +233,14 @@
 
                 <div v-if="termsActive">
             <h3>მიწოდების პირობები&nbsp;</h3>
-<p><strong>&ldquo;CHOPSTICKS</strong><strong>&rdquo;</strong><strong>&nbsp;&nbsp;</strong><strong>ადგილზე მიწოდების მომსახურება მუშაობს დილის 11:00 დან ღამის 23:00 მდე.</strong></p>
-<p><strong>შეკვეთის&nbsp;მინიმალური&nbsp;თანხა&nbsp;20&nbsp;ლარი</strong></p>
-<p><strong>ადგილზე მიწოდება ხორციელდება მთელი თბილისის მაშტაბით:&nbsp;</strong></p>
-<ul>
-<li><strong>ვაკის, საბურთალოს და მთაწმინდის რაიონებში უფასო!</strong></li>
-<li><strong>ხოლო დანარჩენ უბნებში მიტანის სერცისის ღირებულებაა 3.5 ლარი.&nbsp;</strong></li>
-</ul>
-<p><strong>გადახდა შესაძლებელია როგორც ბარათით (VISA / MASTERCARD, AMERICAN EXPRESS).&nbsp;&nbsp;ასევე ნაღდი ანგარიშსწორებით.</strong></p>
+            <p><strong>&ldquo;CHOPSTICKS</strong><strong>&rdquo;</strong><strong>&nbsp;&nbsp;</strong><strong>ადგილზე მიწოდების მომსახურება მუშაობს დილის 11:00 დან ღამის 23:00 მდე.</strong></p>
+            <p><strong>შეკვეთის&nbsp;მინიმალური&nbsp;თანხა&nbsp;20&nbsp;ლარი</strong></p>
+            <p><strong>ადგილზე მიწოდება ხორციელდება მთელი თბილისის მაშტაბით:&nbsp;</strong></p>
+            <ul>
+            <li><strong>ვაკის, საბურთალოს და მთაწმინდის რაიონებში უფასო!</strong></li>
+            <li><strong>ხოლო დანარჩენ უბნებში მიტანის სერცისის ღირებულებაა 3.5 ლარი.&nbsp;</strong></li>
+            </ul>
+            <p><strong>გადახდა შესაძლებელია როგორც ბარათით (VISA / MASTERCARD, AMERICAN EXPRESS).&nbsp;&nbsp;ასევე ნაღდი ანგარიშსწორებით.</strong></p>
             <hr>
                   <p>
                     <input type="checkbox" id="terms" v-model="termsChecked" />
@@ -545,11 +546,11 @@ export default {
           this.order_data.cutlery = this.cutleries;
           var TOKEN = '';
           if(this.loggedUser.isAuth){
-            alert('logged user token');
+            // alert('logged user token');
             this.order_data.user_id = this.loggedUser.id;
             TOKEN = this.loggedUser.token;
           } else {
-            alert('guest token');
+            // alert('guest token');
             TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
             this.order_data.user_id = -10;
           }
