@@ -1,5 +1,7 @@
 <template>
   <div>
+    
+    
     <!-- Start Page Title Area -->
     <div class="page-title-area">
       <div class="container">
@@ -145,6 +147,18 @@
 
             <div class="col-lg-6 col-md-12">
               <div class="order-details">
+                <h3 class="title">Need Cutlery?</h3>
+                 <div class="payment-method">
+                  <p v-for="(cutlery, index) in cutleries.slice().reverse()" :key="index">
+                    <span>
+                      <i class="fas fa-minus" @click="cutleryDecrease(cutlery)"></i>
+                      {{ cutlery.qty }}
+                      <i class="fas fa-plus" @click="cutleryIncrease(cutlery)"></i>
+                      {{ cutlery.name }} + {{ cutlery.price * cutlery.qty }} &#8382;
+                    </span>
+                  </p>
+                  
+                </div>
                 <h3 class="title">{{$t('yourorder')}} </h3>
 
                 <div class="order-table table-responsive">
@@ -164,11 +178,21 @@
 
                         <td class="product-total">
                           <span class="subtotal-amount"
-                            >{{ (cart.price * cart.quantity).toFixed(2) }}</span
+                            >{{ (cart.price * cart.quantity).toFixed(2) }} &#8382;</span
                           >
                         </td>
                       </tr>
+                        <tr v-for="(cutlery, index) in cutleries" :key="index">
+                          <td v-if="cutleryTotal > 0 && cutlery.qty > 0" class="product-name">
+                            <span>{{ cutlery.name }} X {{ cutlery.qty }}</span>
+                          </td>
 
+                          <td v-if="cutleryTotal > 0 && cutlery.qty > 0" class="product-subtotal">
+                            <span class="subtotal-amount"
+                              >{{ cutlery.price * cutlery.qty }} &#8382;</span
+                            >
+                          </td>
+                        </tr>
                       <tr>
                         <td class="total-price">
                           <span>{{$t('sum')}}</span>
@@ -176,7 +200,7 @@
 
                         <td class="product-subtotal">
                           <span class="subtotal-amount"
-                            >{{ parseFloat(cartTotal).toFixed(2) }} &#8382;</span
+                            >{{ (Number(cartTotal) + Number(cutleryTotal)).toFixed(2) }} &#8382;</span
                           >
                         </td>
                       </tr>
@@ -189,7 +213,7 @@
                     <input
                       type="radio"
                       id="delivery"
-                      name="radio-group"
+                      name="radio-group-1"
                       @click="selectDeliveryMethod('delivery')"
                       checked
                     />
@@ -199,7 +223,7 @@
                     <input
                       type="radio"
                       id="pickup"
-                      name="radio-group"
+                      name="radio-group-1"
                        @click="selectDeliveryMethod('pickup')"
                     />
                     <label for="pickup">{{$t('localpickup')}}</label>
@@ -356,6 +380,7 @@ import config from "@/nuxt.config"
 export default {
   data() {
     return {
+      currentLang: this.$i18n.locale,
       place: {},
       mapURL: "",
       API_URL: config.head.API_URL,
@@ -376,9 +401,20 @@ export default {
       checkMessage: "",
       deliverymethod: 'delivery',
       termsActive : true,
+      cutleries: [],
+      selectedCutlery: {},
+      cutleryTotal: 0,
     }
   },
   computed: {
+    // cutleryTotal(){
+    //   let total;
+    //   this.cutleries.forEach(x => {
+    //     total = total + (x.price * x.qty);
+    //   });
+    //   alert(total);
+    //   return total;
+    // },
     cart() {
       return this.$store.getters.cart
     },
@@ -393,8 +429,50 @@ export default {
     if(this.cart.length == 0){
       this.$router.push('/');
     }
+    axios
+          .request({
+          method: "post",
+          url: this.API_URL + "webertela/cutlery/list",
+          headers: {
+              // Authorization: "Bearer " + TOKEN,
+          },
+          })
+          .then((response) => {
+          this.cutleries = response.data.data;
+          
+          this.cutleries.forEach(x => {
+            if(x.price == null){
+              x.price = 0;
+            }
+            x.qty = 0;
+            if(this.currentLang == 'ka'){
+              x.name_temp = x.name;
+              x.name = x.name_ge;
+
+            } else if(this.currentLang == 'ru'){
+              x.name_temp = x.name;
+              x.name = x.name_ru;
+            } 
+          })
+      });
   },
   methods: {
+    cutleryDecrease(val){
+      if(val.qty != 0){
+        val.qty = val.qty - 1;
+        this.cutleryTotal = this.cutleryTotal - Number(val.price);
+      }
+      this.$forceUpdate();
+    },
+    cutleryIncrease(val){
+      val.qty = val.qty + 1;
+      this.cutleryTotal = this.cutleryTotal + Number(val.price);
+      this.$forceUpdate();
+    },
+    selectCutlery(val){
+      this.selectedCutlery = val;
+      this.order_data.cutlery = this.selectedCutlery;
+    },
     selectDeliveryMethod(val){
       if(val == 'delivery'){
         this.termsActive = true;
@@ -464,6 +542,7 @@ export default {
           this.order_data.customer.mapURL = this.mapURL;
           this.order_data.paymentMethod = "cash-on-delivery";
           this.order_data.deliverymethod = this.deliverymethod;
+          this.order_data.cutlery = this.cutleries;
           var TOKEN = '';
           if(this.loggedUser.isAuth){
             alert('logged user token');
@@ -499,6 +578,12 @@ export default {
           });
         }
       } else if(paymentType == 'online'){
+        this.order_data.items = this.cart;
+        this.order_data.customer = this.personDetails;
+        this.order_data.customer.mapURL = this.mapURL;
+        this.order_data.paymentMethod = "cash-on-delivery";
+        this.order_data.deliverymethod = this.deliverymethod;
+        this.order_data.cutlery = this.cutleries;
          this.openCheckModal('ONLINE BANK PAYMENT');
       }
     },
