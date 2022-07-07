@@ -22,8 +22,7 @@ export default {
       return this.$store.getters.getBranchStatus;
     },
   },
-  beforeMount(){
-      // if(this.cartTotal < 20 || !this.isOpen){
+  beforeMount(){      
       if(this.cartTotal < 20 ){
           this.$router.push('/');
       }

@@ -230,22 +230,22 @@
                   </p>
                 </div>
 
-                <div v-if="termsActive">
-            <h3>მიწოდების პირობები&nbsp;</h3>
-<p><strong>&ldquo;CHOPSTICKS</strong><strong>&rdquo;</strong><strong>&nbsp;&nbsp;</strong><strong>ადგილზე მიწოდების მომსახურება მუშაობს დილის 11:00 დან ღამის 23:00 მდე.</strong></p>
-<p><strong>შეკვეთის&nbsp;მინიმალური&nbsp;თანხა&nbsp;20&nbsp;ლარი</strong></p>
-<p><strong>ადგილზე მიწოდება ხორციელდება მთელი თბილისის მაშტაბით:&nbsp;</strong></p>
-<ul>
-<li><strong>ვაკის, საბურთალოს და მთაწმინდის რაიონებში უფასო!</strong></li>
-<li><strong>ხოლო დანარჩენ უბნებში მიტანის სერცისის ღირებულებაა 3.5 ლარი.&nbsp;</strong></li>
-</ul>
-<p><strong>გადახდა შესაძლებელია როგორც ბარათით (VISA / MASTERCARD, AMERICAN EXPRESS).&nbsp;&nbsp;ასევე ნაღდი ანგარიშსწორებით.</strong></p>
-            <hr>
-                  <p>
-                    <input type="checkbox" id="terms" v-model="termsChecked" />
-                    <u @click="$refs['terms-modal'].show();">{{$t('igree')}}</u>
-                  </p>
-                </div>
+              <div v-if="termsActive">
+                <h3>მიწოდების პირობები&nbsp;</h3>
+                <p><strong>&ldquo;CHOPSTICKS</strong><strong>&rdquo;</strong><strong>&nbsp;&nbsp;</strong><strong>ადგილზე მიწოდების მომსახურება მუშაობს დილის 11:00 დან ღამის 23:00 მდე.</strong></p>
+                <p><strong>შეკვეთის&nbsp;მინიმალური&nbsp;თანხა&nbsp;20&nbsp;ლარი</strong></p>
+                <p><strong>ადგილზე მიწოდება ხორციელდება მთელი თბილისის მაშტაბით:&nbsp;</strong></p>
+                <ul>
+                <li><strong>ვაკის, საბურთალოს და მთაწმინდის რაიონებში უფასო!</strong></li>
+                <li><strong>ხოლო დანარჩენ უბნებში მიტანის სერცისის ღირებულებაა 3.5 ლარი.&nbsp;</strong></li>
+                </ul>
+                <p><strong>გადახდა შესაძლებელია როგორც ბარათით (VISA / MASTERCARD, AMERICAN EXPRESS).&nbsp;&nbsp;ასევე ნაღდი ანგარიშსწორებით.</strong></p>
+                <hr>
+              </div>
+              <p>
+                <input type="checkbox" id="terms" v-model="termsChecked" />
+                <u @click="$refs['terms-modal'].show();">{{$t('igree')}}</u>
+              </p>
                 <a
                   href="javascript:void(0)"
                   @click="add('cash')"
@@ -380,6 +380,10 @@ import config from "@/nuxt.config"
 export default {
   data() {
     return {
+      onlineObject: {
+          "total_price": null,
+          "items": []
+      },
       currentLang: this.$i18n.locale,
       place: {},
       mapURL: "",
@@ -543,13 +547,14 @@ export default {
           this.order_data.paymentMethod = "cash-on-delivery";
           this.order_data.deliverymethod = this.deliverymethod;
           this.order_data.cutlery = this.cutleries;
+          this.order_data.lang = this.currentLang;
           var TOKEN = '';
           if(this.loggedUser.isAuth){
-            alert('logged user token');
+            // alert('logged user token');
             this.order_data.user_id = this.loggedUser.id;
             TOKEN = this.loggedUser.token;
           } else {
-            alert('guest token');
+            // alert('guest token');
             TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
             this.order_data.user_id = -10;
           }
@@ -578,14 +583,60 @@ export default {
           });
         }
       } else if(paymentType == 'online'){
-        this.order_data.items = this.cart;
-        this.order_data.customer = this.personDetails;
-        this.order_data.customer.mapURL = this.mapURL;
-        this.order_data.paymentMethod = "cash-on-delivery";
-        this.order_data.deliverymethod = this.deliverymethod;
-        this.order_data.cutlery = this.cutleries;
-         this.openCheckModal('ONLINE BANK PAYMENT');
+        if(this.personDetails.fullName == '' || this.personDetails.address == '' || this.personDetails.phone == ''){
+          this.openCheckModal('Fullname, Address and Phone Fields Are Required!');
+        } else if(!this.termsChecked){
+          this.openCheckModal('Accept Terms And Conditions!');
+        } else {
+        if(this.loggedUser.isAuth){
+          this.order_data.user_id = this.loggedUser.id;
+          TOKEN = this.loggedUser.token;
+        } else {
+          TOKEN = "TodKtEjTTqj8HBVGmQPE3gW5TFY";
+          this.order_data.user_id = -10;
+        }
+          this.order_data.items = this.cart;
+          this.order_data.customer = this.personDetails;
+          this.order_data.customer.mapURL = this.mapURL;
+          this.order_data.paymentMethod = "Opay";
+          this.order_data.deliverymethod = this.deliverymethod;
+          this.order_data.cutlery = this.cutleries;
+          this.order_data.lang = this.currentLang;
+          // this.openCheckModal('ONLINE BANK PAYMENT');
+          this.onlinePayment();
+        }
       }
+    },
+    onlinePayment(){
+        var temp = this.cart;
+        
+        this.onlineObject.total_price = (Number(this.cartTotal) + Number(this.cutleryTotal)).toFixed(2);
+        this.onlineObject.order_data = this.order_data;
+
+        // this.onlineObject.shop_order_id = 111;
+        temp.forEach(x => {
+            const item = {
+            amount: x.price,
+            description: x.name,
+            quantity: x.qty,
+            product_id: x.id,
+            };
+            this.onlineObject.items.push(item);
+        });
+
+        axios.request({
+            method: "post",
+            url: this.API_URL + "ipay/request-pay",
+            data: { order_data : this.onlineObject, user_id: this.order_data.user_id, total_price: this.onlineObject.total_price, items: this.onlineObject.items },
+          }).then((response) => {
+            this.bogResponse = response;
+
+              if(response.status === 200){
+                //  alert(response.data.links[1]);
+                this.$store.dispatch('cartEmpty');
+                window.location.href = response.data.links[1].href;
+              }
+        });
     },
   },
 }
