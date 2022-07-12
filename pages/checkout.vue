@@ -23,9 +23,9 @@ export default {
     },
   },
   beforeMount(){      
-      if(this.cartTotal < 20 ){
-          this.$router.push('/');
-      }
+    if(this.cartTotal < 20 ){
+      this.$router.push('/');
+    }
   },
 }
 </script>
