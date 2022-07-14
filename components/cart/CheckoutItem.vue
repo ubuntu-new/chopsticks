@@ -540,8 +540,8 @@ export default {
           this.order_data.deliverymethod = this.deliverymethod;
           this.order_data.cutlery = this.cutleries;
           this.order_data.lang = this.currentLang;
-          this.order_data.totalPrice = (Number(this.cartTotal) + Number(this.cutleryTotal)).toFixed(2)
-          // alert(this.order_data.totalPrice);
+          this.order_data.totalprice = (Number(this.cartTotal) + Number(this.cutleryTotal)).toFixed(2)
+          // alert(this.order_data.totalprice);
           var TOKEN = '';
           if(this.loggedUser.isAuth){
             // alert('logged user token');
@@ -569,7 +569,7 @@ export default {
             } else {
               this.$refs['accept-modal'].show();
               this.smsMessage = this.smsMessage;
-              this.sendSMS(this.personDetails.phone, this.smsMessage);
+              // this.sendSMS(this.personDetails.phone, this.smsMessage);
               // this.closeModal();
               // this.$store.dispatch('cartEmpty');
               // this.$router.push('/');
@@ -596,7 +596,7 @@ export default {
           this.order_data.deliverymethod = this.deliverymethod;
           this.order_data.cutlery = this.cutleries;
           this.order_data.lang = this.currentLang;
-          this.order_data.totalPrice = (Number(this.cartTotal) + Number(this.cutleryTotal)).toFixed(2)
+          this.order_data.totalprice = (Number(this.cartTotal) + Number(this.cutleryTotal)).toFixed(2)
           // this.openCheckModal('ONLINE BANK PAYMENT');
           this.onlinePayment();
         }
