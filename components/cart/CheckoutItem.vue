@@ -536,7 +536,7 @@ export default {
           this.order_data.items = this.cart;
           this.order_data.customer = this.personDetails;
           this.order_data.customer.mapURL = this.mapURL;
-          this.order_data.paymentMethod = "cash-on-delivery";
+          this.order_data.paymentMethod = "Cash";
           this.order_data.deliverymethod = this.deliverymethod;
           this.order_data.cutlery = this.cutleries;
           this.order_data.lang = this.currentLang;
@@ -582,6 +582,7 @@ export default {
         } else if(!this.termsChecked){
           this.openCheckModal('Accept Terms And Conditions!');
         } else {
+
         if(this.loggedUser.isAuth){
           this.order_data.user_id = this.loggedUser.id;
           TOKEN = this.loggedUser.token;
@@ -597,7 +598,6 @@ export default {
           this.order_data.cutlery = this.cutleries;
           this.order_data.lang = this.currentLang;
           this.order_data.totalprice = (Number(this.cartTotal) + Number(this.cutleryTotal)).toFixed(2)
-          // this.openCheckModal('ONLINE BANK PAYMENT');
           this.onlinePayment();
         }
       }
@@ -605,7 +605,7 @@ export default {
     onlinePayment(){
         var temp = this.cart;
         this.onlineObject.total_price = (Number(this.cartTotal) + Number(this.cutleryTotal)).toFixed(2);
-        this.onlineObject.order_data = this.order_data;
+        // this.onlineObject.order_data = this.order_data;
         // this.onlineObject.shop_order_id = 111;
         temp.forEach(x => {
             const item = {
@@ -620,7 +620,7 @@ export default {
         axios.request({
             method: "post",
             url: this.API_URL + "ipay/request-pay",
-            data: { order_data : this.onlineObject, user_id: this.order_data.user_id, total_price: this.onlineObject.total_price, items: this.onlineObject.items },
+            data: this.order_data,
           }).then((response) => {
             this.bogResponse = response;
 
